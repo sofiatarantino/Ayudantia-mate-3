@@ -1,0 +1,15 @@
+## LaTeX - Archivos temporales de compilación
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.blg
+*.bbl
+
+## Archivos de sistema y VS Code
+.vscode/
+Thumbs.db
+.DS_Store
