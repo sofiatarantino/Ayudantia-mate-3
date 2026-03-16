@@ -1,1 +1,101 @@
+\newpage
+\section*{Ejemplo coordenadas cilíndricas}
+\textbf{Ejercicio 28:} 
+Calcular el volumen de la región limitada por $x^2 + y^2= 4x$ ; $z=3x$ ; $z=x$ \\
 
+La ecuación
+\[
+x^2 + y^2 = 4x
+\]
+se puede reescribir completando cuadrados:
+
+\[
+x^2 - 4x + y^2 = 0
+\]
+
+\[
+(x-2)^2 + y^2 = 4
+\]
+
+Por lo tanto, la proyección es un círculo de radio \(2\) centrado en \((2,0)\) \\
+
+Las superficies que limitan la región son
+
+\[
+z = x \quad \text{y} \quad z = 3x
+\]
+
+Planteamos coordenadas cilíndricas:
+
+\[
+x = 2 + r\cos\theta, \quad y = r\sin\theta
+\]
+
+\[
+0 \le r \le 2, \qquad 0 \le \theta \le 2\pi
+\]
+
+
+Sustituyendo \(x\) en los planos que delimitan la región:
+
+\[
+z = 2 + r\cos\theta
+\]
+
+\[
+z = 3(2 + r\cos\theta)
+\]
+
+Por lo tanto
+
+\[
+2 + r\cos\theta \le z \le 6 + 3r\cos\theta
+\]
+
+
+El jacobiano del cambio es
+
+\[
+dV = r\,dz\,dr\,d\theta
+\] \\
+
+
+Entonces
+\[
+V =
+\int_0^{2\pi}
+\int_0^2
+\int_{2+r\cos\theta}^{6+3r\cos\theta}
+r \, dz\, dr\, d\theta
+\]
+
+
+\[
+V =
+\int_0^{2\pi}
+\int_0^2
+r(4+2r\cos\theta)
+\, dr\, d\theta
+\]
+
+\[
+V =
+\int_0^{2\pi}
+\int_0^2
+(4r+2r^2\cos\theta)
+\, dr\, d\theta
+\]
+
+
+
+\[
+V =
+\int_0^{2\pi}
+\left(8 + \frac{16}{3}\cos\theta\right)
+d\theta
+\]
+
+
+\[
+V = 16\pi
+\]
