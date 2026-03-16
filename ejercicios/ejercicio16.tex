@@ -1,0 +1,179 @@
+\newpage
+\section*{Ejercicio}
+
+Hallar el volumen de la región $x^2+y^2+z^2=32$ dentro del cono 
+$z=\sqrt{x^2+y^2}$. Plantear en coordenadas cartesianas, cilíndricas y esféricas y luego resolver.
+
+\subsection*{Descripción de la región}
+
+La superficie
+\[
+x^2+y^2+z^2=32
+\]
+
+es una esfera de radio
+
+\[
+R=\sqrt{32}=4\sqrt{2}.
+\]
+
+El cono
+
+\[
+z=\sqrt{x^2+y^2}
+\]
+
+abre hacia los z positivos. La región pedida es la parte de la esfera contenida dentro del cono.
+
+La intersección entre ambas superficies se obtiene de
+
+\[
+r=z, \qquad r^2+z^2=32
+\]
+
+Sustituyendo $z=r$:
+
+\[
+2r^2=32 \quad \Rightarrow \quad r=4.
+\]
+
+\subsection*{Planteo en coordenadas cartesianas}
+
+La región se describe como
+
+\[
+x^2+y^2+z^2 \le 32, \qquad z \ge \sqrt{x^2+y^2}.
+\]
+
+El volumen es
+
+\[
+V=\iiint_D 1\,dV
+\]
+
+La región tipo 1 queda
+
+\[
+D=
+\left\{
+(x,y,z):
+x^2+y^2\le16,\;
+\sqrt{x^2+y^2}\le z\le\sqrt{32-x^2-y^2}
+\right\}.
+\]
+
+Luego el volumen se calcula
+\[
+V=
+\int_{-4}^{4}
+\int_{-\sqrt{16-x^2}}^{\sqrt{16-x^2}}
+\int_{\sqrt{x^2+y^2}}^{\sqrt{32-x^2-y^2}}
+dz\,dy\,dx.
+\]
+
+\subsection*{Planteo en coordenadas cilíndricas}
+
+Recordando que $x^2+y^2=r^2$, la esfera queda
+
+\[
+r^2+z^2=32
+\]
+
+y el cono
+
+\[
+z=r.
+\]
+
+Los límites son
+
+\[
+0\le\theta\le2\pi,\qquad
+0\le r\le4,\qquad
+r\le z\le\sqrt{32-r^2}.
+\]
+
+Entonces
+
+\[
+V=\int_0^{2\pi}\int_0^4\int_r^{\sqrt{32-r^2}} r\,dz\,dr\,d\theta.
+\]
+
+\subsection*{Planteo en coordenadas esféricas}
+
+En esféricas
+
+\[
+x^2+y^2+z^2=\rho^2
+\]
+
+por lo que la esfera es
+
+\[
+\rho=4\sqrt{2}.
+\]
+
+El cono cumple
+
+\[
+z=r
+\]
+
+y usando
+
+\[
+z=\rho\cos\varphi, \qquad r=\rho\sin\varphi
+\]
+
+se obtiene
+
+\[
+\tan\varphi=1
+\Rightarrow
+\varphi=\frac{\pi}{4}.
+\]
+
+Los límites son
+
+\[
+0\le\theta\le2\pi,\qquad
+0\le\varphi\le\frac{\pi}{4},\qquad
+0\le\rho\le4\sqrt2.
+\]
+
+Entonces
+
+\[
+V=\int_0^{2\pi}\int_0^{\pi/4}\int_0^{4\sqrt2}\rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta.
+\]
+
+\subsection*{Cálculo con coordenadas esféricas}
+
+\[
+\int_0^{4\sqrt2}\rho^2\,d\rho=\frac{(4\sqrt2)^3}{3}=\frac{128\sqrt2}{3}
+\]
+
+\[
+\int_0^{\pi/4}\sin\varphi\,d\varphi
+=1-\frac{\sqrt2}{2}
+\]
+
+\[
+\int_0^{2\pi}d\theta=2\pi
+\]
+
+Por lo tanto
+
+\[
+V=2\pi\cdot\frac{128\sqrt2}{3}\left(1-\frac{\sqrt2}{2}\right)
+\]
+
+\[
+V=\frac{256\pi}{3}(\sqrt2-1).
+\]
+
+\[
+\boxed{V=\frac{256\pi}{3}(\sqrt2-1)}
+\]
+
+\end{document}
