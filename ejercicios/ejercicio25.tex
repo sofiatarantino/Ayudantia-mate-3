@@ -1,65 +1,72 @@
-\textcolor{red}{Ver comentarios sobre formato ejercicio 30.  Usar los mismos paquetes asi les es mas facil de unificar luego. }
+\textbf{Ejercicio 25.} Calcular el volumen del cilindro $x^2 + y^2 = 4$, bajo el paraboloide $2z + x^2 + y^2 = 16$ y sobre el plano $z = 0$.
 
-\textbf{Ejercicio 25:} Calcular el volumen del cilindro $x^2 + y^2 = 4$, bajo el paraboloide $2z + x^2 + y^2 = 16$ y sobre el plano $z = 0$.
+\vspace{0.3cm}
+\textbf{1. Análisis de la región de integración $W$}
 
-\textbf{Análisis de la región de integración $W$:}
+Definamos la región $W \subseteq \mathbb{R}^3$ como un conjunto elemental según la \textbf{Definición 2.5.7}. 
 
-Definamos la región $W \subseteq \mathbb{R}^3$ como un conjunto elemental seg\'un la \textbf{Definición 2.5.7}.  
+\textcolor{red}{ACÁ VA LA FIGURA Y EL LINK A GEOGEBRA}
+%\begin{figure}[htbp]
+    %\centering
+    % Cambiá "tu_imagen.png" por el nombre del archivo de tu captura
+    %\includegraphics[width=0.5\textwidth]{tu_imagen.png} 
+    %\caption{Representación de la región $W$. \href{https://www.geogebra.org/}{Ver en GeoGebra}}
+%\end{figure}
+% ---------------------------------------------
 
+La proyección de este sólido sobre el plano $xy$ es el disco:
+\[
+    D_1 = \{ (x, y) \in \mathbb{R}^2 \mid x^2 + y^2 \leq 4 \}
+\]
 
-\textcolor{red}{Aca estaría bueno pegar la figura y el enlace al geogebra.} 
-
-
-La proyección de este sólido sobre el plano $xy$ es el disco $$D_1 = \{ (x, y) \in \mathbb{R}^2 : x^2 + y^2 \leq 4 \}$$. 
-
-Las superficies que limitan la altura $z$ son: \textcolor{red}{Ojo que las $\eta$ no son superficies, son funciones. Ver Definicion y escribir igual.  }
+Las funciones que limitan la altura $z$ para cada $(x,y) \in D_1$ son:
 \begin{itemize}
-    \item \textbf{Límite inferior ($\eta_{11}$):} El plano $z = 0$.
-    \item \textbf{Límite superior ($\eta_{21}$):} El paraboloide $2z + x^2 + y^2 = 16$. Despejando $z$, obtenemos la función: 
-    $$z = \frac{16 - (x^2 + y^2)}{2} = 8 - \frac{x^2 + y^2}{2}$$
+    \item \textbf{Límite inferior ($\eta_1$):} El plano $z = 0 \implies \eta_1(x,y) = 0$.
+    \item \textbf{Límite superior ($\eta_2$):} El paraboloide $2z + x^2 + y^2 = 16$. Despejando $z$, obtenemos la función: 
+    \[ \eta_2(x,y) = \frac{16 - (x^2 + y^2)}{2} = 8 - \frac{x^2 + y^2}{2} \]
 \end{itemize}
 
 Por lo tanto, el conjunto se expresa como:
-$$W = \left\{ (x, y, z) \in \mathbb{R}^3 : (x, y) \in D_1 \wedge 0 \leq z \leq 8 - \frac{x^2 + y^2}{2} \right\}$$
+\[
+    W = \left\{ (x, y, z) \in \mathbb{R}^3 \mid (x, y) \in D_1, \ 0 \leq z \leq 8 - \frac{x^2 + y^2}{2} \right\}
+\]
 
-\textbf{Cambio de variables a coordenadas cilíndricas:}
+\vspace{0.3cm}
+\textbf{2. Cambio de variables a coordenadas cilíndricas \footnote{El planteo completo de este sistema de coordenadas y la deducción de su jacobiano se encuentran disponibles en el Anexo.}}
 
-Para simplificar el cálculo, aplicamos el \textbf{Teorema 2.5.2} mediante la transformación $T(r, \theta, z) = (r \cos \theta, r \sin \theta, z)$. El valor absoluto del determinante jacobiano es $|J_T| = r$. \textcolor{red}{referencia: Ejemplo 2.4.4} 
+Para simplificar el cálculo, aplicamos el \textbf{Teorema 2.5.2} mediante la transformación $T(r, \theta, z) = (r \cos \theta, r \sin \theta, z)$. Tal como se demuestra en el \textbf{Ejemplo 2.4.4}, el valor absoluto del determinante jacobiano es $|J_{\mathbf{T}}| = r$.
 
-\textbf{Nuevos parámetros en $W^*$}
+\vspace{0.3cm}
+\textbf{3. Nuevos parámetros en $W^*$}
+
 Definimos el nuevo conjunto de integración $W^*$ analizando las restricciones originales:
 
-\begin{enumerate}
-    \item \textbf{Rango de $\theta$:} Dado que el cilindro representa un disco completo en el plano $xy$, la región barre una vuelta completa sobre el eje $z$. Por lo tanto:
-    $$0 \leq \theta \leq 2\pi$$
+\textbf{Rango de $\theta$:} Dado que el cilindro representa un disco completo en el plano $xy$, la región barre una vuelta completa sobre el eje $z$. Por lo tanto $0 \leq \theta \leq 2\pi$.
 
-    \item \textbf{Rango de $r$:} La frontera lateral es $x^2 + y^2 = 4$. Al sustituir:
-    $$(r \cos \theta)^2 + (r \sin \theta)^2 = 4 \implies r^2 = 4 \implies r = 2$$
-    Como incluimos el interior, el radio varía de $0$ a $2$:
-    $$0 \leq r \leq 2$$
+\textbf{Rango de $r$:} La frontera lateral es $x^2 + y^2 = 4$. Al sustituir:
+\[
+    (r \cos \theta)^2 + (r \sin \theta)^2 = 4 \implies r^2 = 4 \implies r = 2
+\]
+Como incluimos el interior, el radio varía de $0$ a $2$.
 
-    \item \textbf{Rango de $z$:} Sustituimos $x^2 + y^2 = r^2$ en la cota superior $\eta_{21}$:
-    $$z = 8 - \frac{r^2}{2}$$
-    Los límites para la variable $z$ en $W^*$ son:
-    $$0 \leq z \leq 8 - \frac{r^2}{2}$$
-\end{enumerate}
+\textbf{Rango de $z$:} Sustituimos $x^2 + y^2 = r^2$ en la cota superior $\eta_2$:
+\[
+    z = 8 - \frac{r^2}{2}
+\]
+Los límites para la variable $z$ en $W^*$ son $0 \leq z \leq 8 - \frac{r^2}{2}$.
 
-\textbf{Cálculo del Volumen:}
+\vspace{0.3cm}
+\textbf{4. Cálculo del Volumen}
 
-Utilizando la \textbf{Definición 2.5.6}, planteamos la integral triple:
-$$\text{Vol}(W) = \iiint_W 1 \, dV = \int_{0}^{2\pi} \int_{0}^{2} \int_{0}^{8 - \frac{r^2}{2}} r \, dz \, dr \, d\theta$$  
+Utilizando la \textbf{Definición 2.5.6}, planteamos y resolvemos la integral triple de forma directa:
 
-\textcolor{red}{no separen en pasos asi queda mas resumido}
-
-\textbf{Paso 1: Integración respecto a $z$}
-$$\int_{0}^{8 - \frac{r^2}{2}} r \, dz = [rz]_{0}^{8 - \frac{r^2}{2}} = 8r - \frac{r^3}{2}$$
-
-\textbf{Paso 2: Integración respecto a $r$}
-$$\int_{0}^{2} \left( 8r - \frac{r^3}{2} \right) dr = \left[ 4r^2 - \frac{r^4}{8} \right]_{0}^{2} = (16 - 2) = 14$$
-
-\textbf{Paso 3: Integración respecto a $\theta$}
-$$\int_{0}^{2\pi} 14 \, d\theta = [14\theta]_{0}^{2\pi} = 28\pi$$
-
-\textbf{Resultado final:}
-$$\text{Vol}(W) = 28\pi$$
-
+\begin{align*}
+    \text{Vol}(W) &= \iiint_W 1 \, dV \\
+    &= \int_{0}^{2\pi} \int_{0}^{2} \int_{0}^{8 - \frac{r^2}{2}} r \, dz \, dr \, d\theta \\
+    &= \int_{0}^{2\pi} \int_{0}^{2} r \left[ z \right]_{0}^{8 - \frac{r^2}{2}} \, dr \, d\theta \\
+    &= \int_{0}^{2\pi} \int_{0}^{2} \left( 8r - \frac{r^3}{2} \right) dr \, d\theta \\
+    &= \int_{0}^{2\pi} \left[ 4r^2 - \frac{r^4}{8} \right]_{0}^{2} \, d\theta \\
+    &= \int_{0}^{2\pi} (16 - 2) \, d\theta \\
+    &= \int_{0}^{2\pi} 14 \, d\theta \\
+    &= \left[ 14\theta \right]_{0}^{2\pi} = 28\pi
+\end{align*}
