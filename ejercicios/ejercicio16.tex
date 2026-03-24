@@ -1,174 +1,104 @@
-\textbf{Ejercicio 16:} Hallar el volumen de la región $x^2+y^2+z^2=32$ dentro del cono 
-$z=\sqrt{x^2+y^2}$. Plantear en coordenadas cartesianas, cilíndricas y esféricas y luego resolver.
 
-\textbf{Descripción de la región:}
-
-La superficie
+\textbf{Ejercicio 16.} Hallar el volumen de la región limitada por la esfera
 \[
 x^2+y^2+z^2=32
 \]
-
-es una esfera de radio
-
+y contenida dentro del cono
 \[
-R=\sqrt{32}=4\sqrt{2}.
+z=\sqrt{x^2+y^2}.
 \]
 
-El cono
+La superficie $x^2+y^2+z^2=32$ es una esfera de radio $R=4\sqrt{2}$ y el cono
+$z=\sqrt{x^2+y^2}$ abre hacia los $z$ positivos. La región pedida es la parte de
+la esfera por encima del cono.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{ejercicios/ejercicio16.png}
+\caption{Representación de la región pedida.  \href{https://www.geogebra.org/m/pvzc3wke}{Ver en GeoGebra}}
+\centering
+\end{figure}
 
-\[
-z=\sqrt{x^2+y^2}
-\]
-
-abre hacia los z positivos. La región pedida es la parte de la esfera contenida dentro del cono.
+\bigskip
 
 La intersección entre ambas superficies se obtiene de
-
 \[
-r=z, \qquad r^2+z^2=32
+r=z, \quad r^2+z^2=32 \Rightarrow 2r^2=32 \Rightarrow r=4.
 \]
 
-Sustituyendo $z=r$:
-
+\textbf{En coordenadas cartesianas:}
 \[
-2r^2=32 \quad \Rightarrow \quad r=4.
+x^2+y^2+z^2 \le 32, \quad z \ge \sqrt{x^2+y^2}.
 \]
 
-\textbf{Planteo en coordenadas cartesianas:}
-La región se describe como
-
 \[
-x^2+y^2+z^2 \le 32, \qquad z \ge \sqrt{x^2+y^2}.
+D=\left\{(x,y,z):
+0\le x\le 4,\;
+-\sqrt{16-x^2}\le y\le \sqrt{16-x^2},\;
+\sqrt{x^2+y^2}\le z\le \sqrt{32-x^2-y^2}
+\right\}
 \]
 
-El volumen es
-
 \[
-V=\iiint_D 1\,dV
-\]
-
-La región tipo 1 queda
-
-\[
-D=
-\left\{
-(x,y,z):
-x^2+y^2\le16,\;
-\sqrt{x^2+y^2}\le z\le\sqrt{32-x^2-y^2}
-\right\}.
-\]
-
-Luego el volumen se calcula
-\[
-V=
-\int_{-4}^{4}
+V=\int_{-4}^{4}
 \int_{-\sqrt{16-x^2}}^{\sqrt{16-x^2}}
 \int_{\sqrt{x^2+y^2}}^{\sqrt{32-x^2-y^2}}
 dz\,dy\,dx.
 \]
 
-\textbf{Planteo en coordenadas cilíndricas:}
+\bigskip
 
-Recordando que $x^2+y^2=r^2$, la esfera queda
-
+\textbf{En coordenadas cilíndricas:}
 \[
-r^2+z^2=32
+x = r\cos\theta, \quad y = r\sin\theta, \quad z = z
 \]
 
-y el cono
-
 \[
-z=r.
+r^2+z^2=32, \quad z=r,
 \]
 
-Los límites son
-
 \[
-0\le\theta\le2\pi,\qquad
-0\le r\le4,\qquad
-r\le z\le\sqrt{32-r^2}.
+0\le\theta\le2\pi,\quad 0\le r\le4,\quad r\le z\le\sqrt{32-r^2},
 \]
-
-Entonces
 
 \[
 V=\int_0^{2\pi}\int_0^4\int_r^{\sqrt{32-r^2}} r\,dz\,dr\,d\theta.
 \]
 
-\textbf{Planteo en coordenadas esféricas}
+\bigskip
 
-En esféricas
-
+\textbf{En coordenadas esféricas:}
 \[
-x^2+y^2+z^2=\rho^2
-\]
-
-por lo que la esfera es
-
-\[
-\rho=4\sqrt{2}.
-\]
-
-El cono cumple
-
-\[
-z=r
-\]
-
-y usando
-
-\[
-z=\rho\cos\varphi, \qquad r=\rho\sin\varphi
-\]
-
-se obtiene
-
-\[
-\tan\varphi=1
-\Rightarrow
-\varphi=\frac{\pi}{4}.
-\]
-
-Los límites son
-
-\[
-0\le\theta\le2\pi,\qquad
-0\le\varphi\le\frac{\pi}{4},\qquad
-0\le\rho\le4\sqrt2.
-\]
-
-Entonces
-
-\[
-V=\int_0^{2\pi}\int_0^{\pi/4}\int_0^{4\sqrt2}\rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta.
-\]
-
-\textbf{Cálculo con coordenadas esféricas:}
-
-\[
-\int_0^{4\sqrt2}\rho^2\,d\rho=\frac{(4\sqrt2)^3}{3}=\frac{128\sqrt2}{3}
+x=\rho\sin\varphi\cos\theta,\quad
+y=\rho\sin\varphi\sin\theta,\quad
+z=\rho\cos\varphi
 \]
 
 \[
-\int_0^{\pi/4}\sin\varphi\,d\varphi
-=1-\frac{\sqrt2}{2}
+\rho\cos\varphi=\rho\sin\varphi \Rightarrow \tan\varphi=1 \Rightarrow \varphi=\frac{\pi}{4},
 \]
 
 \[
-\int_0^{2\pi}d\theta=2\pi
-\]
-
-Por lo tanto:
-
-\[
-V=2\pi\cdot\frac{128\sqrt2}{3}\left(1-\frac{\sqrt2}{2}\right)
+0\le\theta\le2\pi,\quad 0\le\varphi\le\frac{\pi}{4},\quad 0\le\rho\le4\sqrt{2},
 \]
 
 \[
-V=\frac{256\pi}{3}(\sqrt2-1).
+V=\int_0^{2\pi}\int_0^{\pi/4}\int_0^{4\sqrt{2}}\rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta.
+\]
+
+\bigskip
+
+Calculando:
+\[
+\int_0^{4\sqrt{2}}\rho^2 d\rho=\frac{128\sqrt{2}}{3}, \quad
+\int_0^{\pi/4}\sin\varphi\,d\varphi=1-\frac{\sqrt{2}}{2}, \quad
+\int_0^{2\pi}d\theta=2\pi.
 \]
 
 \[
-\boxed{V=\frac{256\pi}{3}(\sqrt2-1)}
+V=2\pi\cdot\frac{128\sqrt{2}}{3}\left(1-\frac{\sqrt{2}}{2}\right)
+=\frac{256\pi}{3}(\sqrt{2}-1).
 \]
 
+\[
+\boxed{V=\frac{256\pi}{3}(\sqrt{2}-1)}
+\]
