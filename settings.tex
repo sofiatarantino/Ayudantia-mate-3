@@ -1,0 +1,223 @@
+% archivo con las configuraciones del documento y los paquetes usados
+
+\usepackage{tocloft} % para cambiar formato de \tableofcontents
+\usepackage{titlesec} % para cambiar formato de los titulos
+\usepackage{amsmath, amsthm, mathtools, esint} % Paquetes de simbolos matematicos
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[skip=20pt, indent=0pt]{parskip} 
+\usepackage[margin=3cm]{geometry}
+\usepackage[spanish, shorthands=off]{babel} % Disable shorthands to prevent conflicts
+\usepackage{chngcntr} % para cambiar los contadores
+\usepackage{hyperref} % para hyperlinks asociados al documento
+\usepackage{subcaption}
+\usepackage{comment}
+    % Configure the hyperref package
+  \hypersetup{
+    colorlinks=false, % Disable colored links
+    linkcolor=black,  % Set link color (if colorlinks is true)
+    citecolor=black,  % Set citation link color
+    filecolor=black,  % Set file link color
+    urlcolor=black,   % Set URL link color
+    pdfborder={0 0 0} % Remove the borders around links
+  }
+\usepackage{float} 
+\usepackage{pgfplots} % para graficos 
+  \pgfplotsset{compat=1.18}
+
+\usepackage{tikz} % ambiente para graficar 
+  \usepgfplotslibrary{fillbetween}
+  \usetikzlibrary{patterns, shapes, 3d, calc}
+  \usetikzlibrary{arrows.meta, decorations.pathmorphing, positioning}
+  \usetikzlibrary{decorations.markings}
+
+% estas lineas estan para acelerar la compilacion, pero antes se debe activar 
+% el flag --shell-escape de compilacion. en cada editor de texto/compilador de 
+% latex es distinto. si usan overleaf no le den bola. checkear:
+% https://tex.stackexchange.com/questions/482557/how-to-externalize-tikz-pictures
+
+ \usetikzlibrary{external}
+ \tikzexternalize[prefix=tikz/]
+ \tikzset{external/only named}  
+
+
+
+% para graficar flechas en curvas cerradas
+\xdef\Rad{2}
+\newcommand{\ARW}[2][]{%
+    \foreach \ang in {#2}{%
+        \draw[#1] (\ang:\Rad)--(\ang+1:\Rad) ;
+    }
+}
+% simbolo final de teorema, definicion, corolario, etc.
+\newcommand{\final}{\hfill$\diamond$}
+\newcommand{\finalmath}{\tag*{$\diamond$}}
+% numeros reales
+\renewcommand{\Re}{\mathbb {R}}
+% derivadas parciales
+\newcommand{\partialx}{\frac{\partial}{\partial x}}
+\newcommand{\partialy}{\frac{\partial}{\partial y}}
+\newcommand{\partialz}{\frac{\partial}{\partial z}}
+% numeros romanos
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+% interior de un conjunto
+\newcommand{\interior}[1]{%
+    {\kern0pt#1}^{\mathrm{o}}%
+}
+
+%%%%%%%%%%FORMATOS%%%%%%%%%%
+% vector
+\newcommand{\vect}[1]{\mathbf{\lowercase{#1}}}
+% Matriz
+\newcommand{\matriz}[1]{\boldsymbol{\MakeUppercase{#1}}}
+% Campo Vectorial
+\newcommand{\campoVec}[1]{\mathbf{\MakeUppercase{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\contentsname}{Indice}
+\renewcommand{\listfigurename}{Lista de Figuras}
+\renewcommand{\listtablename}{Lista de Tablas}
+\renewcommand{\bibname}{Bibliograf\'{\i}a}
+\renewcommand{\indexname}{Indice}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\partname}{Parte}
+\renewcommand{\chaptername}{Cap\'{\i}tulo}
+\renewcommand{\appendixname}{Ap\'endice}
+\renewcommand{\abstractname}{Resumen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Teoremas y proposiciones
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{definition} % Para que el texto no aparezca en italicas
+\newtheorem{question}{Ejercicio}
+\newtheorem{solution}{Solución}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[section]
+\newtheorem{definition}{Definici\'on}[section]
+\newtheorem{propertie}{Propiedad}[section]
+\newtheorem{example}{Ejemplo}[section]
+\newtheorem{obs}{Observaci\'on}[section]
+\newtheorem{tarea}{Tarea}[section]
+\newtheorem{nota}{Notaci\'on}[section]
+% \newthorem{demo}{Demostraci\'on}[section]
+
+% Provide commands for \autoref
+\providecommand*{\questionautorefname}{Ejercicio}
+\providecommand*{\solutionautorefname}{Solución}
+\providecommand*{\theoremautorefname}{Teorema}
+\providecommand*{\corollaryautorefname}{Corolario}
+\providecommand*{\definitionautorefname}{Definición}
+\providecommand*{\propertieautorefname}{Propiedad}
+\providecommand*{\exampleautorefname}{Ejemplo}
+
+% Para que se resetee el contador en cada seccion
+\counterwithin*{solution}{subsubsection}
+\counterwithin*{question}{subsubsection}
+
+\spanishdecimal{.}
+
+% ajuste formato capitulos
+\titleformat{\chapter}[display]
+  {\normalfont\fontsize{14}{16}\selectfont\bfseries}{\vspace{-4cm}}{0pt}{}[\vspace{-1cm}]
+
+% ajuste formato secciones
+\titleformat{\section}
+  {\normalfont\fontsize{12}{14}\selectfont\bfseries}{\thesection}{1em}{}
+
+% ajuste formato indice
+\renewcommand{\cfttoctitlefont}{\normalfont\Large\bfseries}
+\renewcommand{\cftbeforetoctitleskip}{-.5cm}
+
+%========================--paquetes de Pablo Bucello--=========================%
+
+% \ProvidesPackage{pablo}
+
+% \usepackage{amsmath}
+% \usepackage{amsthm}
+% \usepackage{amssymb}
+% \usepackage{amsfonts}
+% \usepackage{amsopn}
+% \usepackage{mathtools}
+\usepackage{physics}
+% \usepackage{tikz}
+% \usetikzlibrary{patterns}
+% % \usepackage{enumitem}
+% \usepackage{enumerate}
+% \usepackage[spanish,es-noshorthands]{babel}
+% % \usepackage[english]{babel}
+% \usepackage[latin1]{inputenc}
+% \usepackage{url}
+
+
+
+\newcommand{\field}[1]{\mathbb{#1}}
+
+\newcommand{\N}{\field{N}}
+\newcommand{\Z}{\field{Z}}
+\newcommand{\Q}{\field{Q}}
+\newcommand{\I}{\field{I}}
+\newcommand{\R}{\field{R}}
+\newcommand{\C}{\field{C}}
+
+\newcommand{\Rn}[1]{\R^#1}
+\newcommand{\Cn}[1]{\C^#1}
+\newcommand{\Rnp}[2]{\R^{#1 \times #2}}
+\newcommand{\Cnp}[2]{\C^{#1 \times #2}}
+
+% \newcommand{\ip}[2]{< #1 , #2 >}
+\newcommand{\dist}[2]{dist \left( #1 , #2 \right)}
+
+% \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+% \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\conj}[1]{\overline{#1}}
+
+\newcommand{\then}{\Rightarrow}
+
+\newcommand{\dif}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\diff}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\tdif}[2]{\frac{d #1}{d #2}}
+\newcommand{\tdiff}[2]{\frac{d^2 #1}{d #2^2}}
+% \newcommand{\grad}{\grad}
+
+\DeclareMathOperator{\gen}{gen}
+\DeclareMathOperator{\col}{Col}
+\DeclareMathOperator{\nul}{Nul}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\proy}{proy}
+% \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\im}{Im}
+% \DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\frontera}{front}
+\DeclareMathOperator{\front}{\partial}
+\DeclareMathOperator{\dis}{d}
+
+% \theoremstyle{plain}
+%   \newtheorem{theorem}{Teorema}
+%   \newtheorem{corolario}{Corolario}
+%   \newtheorem{lema}{Lema}
+%   \newtheorem{propiedad}{Propiedad}
+
+% \theoremstyle{definition}  
+%   \newtheorem{definition}{Definici�n}
+
+% \theoremstyle{remark}  
+%   \newtheorem{exmp}{Ejemplo}
+%   \newtheorem{obs}{Observaci�n}
+
+% \numberwithin{equation}{section}
+% \numberwithin{theorem}{section}
+% \numberwithin{corolario}{section}
+% \numberwithin{exmp}{section}
+% \numberwithin{lema}{section}
+% \numberwithin{definition}{section}
+% \numberwithin{propiedad}{section}
+% % \numberwithin{proposicion}{section}
+% \numberwithin{obs}{section}
+
+% \renewcommand{\labelenumi}{\textbf{(\Roman{enumi})}}
+\renewcommand{\thefootnote}{(\arabic{footnote})}
