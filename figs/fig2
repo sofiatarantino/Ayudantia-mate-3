@@ -1,0 +1,31 @@
+\begin{tikzpicture} [>=stealth]
+ \coordinate (n0) at (0, 0); 
+ 
+ \def\Pa{\sep + \Ro + \Ra}
+ 
+ \coordinate (n1) at (\Pa, -\Ro/2);
+ \coordinate (n2) at (\Pa + 1.41421*\Ra,-\Ro/2 + 1.41421*\Ra);
+ \coordinate (n3) at (\Ro + \sep/2,-(\Ro/2 + \Ra);
+ \coordinate (n4) at (\Ro + \sep/2, 1.5*\Ra);
+                 
+ \path [pattern=north east lines, pattern color=blue!40!white] (n0) circle [radius = \Rb]
+                                                               (n2) circle [radius = \Ra];
+ \draw [dashed] (n0) circle [radius = \Rb]
+	        (n2) circle [radius = \Ra];
+ 
+ \draw [dashed] (n3) -- (n4);
+ 
+ \filldraw [black] (n0) circle [radius = 1pt] node[left] {$\mathbf{x}_o$}
+		   (n2) circle [radius = 1pt] node[left] {$\mathbf{L}_2$};
+ \filldraw [red]   (n0) +(115:\Rb/3.0) circle [radius = 1pt] node[right] {$\mathbf{x}$}
+		   (n2) +(-45:\Ra/2)circle [radius = 1pt] node[right] {$\mathbf{F}(\mathbf{x})$};
+ 
+  \draw [->] (n0) -- node[sloped,below] {$\delta_2$} +(15:\Rb);
+  \draw [->] (n2) -- node[sloped,above] {$\varepsilon$} +(30:\Ra);
+  
+  \coordinate (co) at (0.1,1.1*\Rb);
+  \coordinate (c1) at (\Rb + 0.5*\sep/2,\Ra);
+  \coordinate (c2) at (\Rb + 1.5*\sep/2,1.41421*\Ra);
+  \coordinate (cn) at (0.8*\Pa + 0.8*1.41421*\Ra - 0.8*\Ra,-1.1*\Ro/2 + 1.1*1.41421*\Ra);
+  \draw [->] (co) .. controls (c1) and (c2) .. node[sloped,above] {$\mathbf{F}$} (cn);
+\end{tikzpicture}

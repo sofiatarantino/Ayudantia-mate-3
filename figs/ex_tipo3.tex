@@ -1,0 +1,29 @@
+\begin{center}
+\begin{tikzpicture}
+\begin{scope}
+    %——————————————————————————————————————————————
+    % Ejes de R^2
+    %——————————————————————————————————————————————
+    % Eje x: desde x=-0.5 hasta x=4
+    \draw[->] (-0.5,0) -- (4,0) node[below right] {$x$};
+    % Eje y: desde y=-0.5 hasta y=4
+    \draw[->] (0,-0.5) -- (0,4) node[above left]  {$y$};
+  
+    %——————————————————————————————————————————————
+    % Circunferencia centrada en (2,2) con radio 1
+    %——————————————————————————————————————————————
+    % Color rojo, grosor "very thick"
+    \draw[color=black, thick, fill=blue!30] (2,2) circle [radius=1.5];
+  
+    %——————————————————————————————————————————————
+    % Marcas de -delta y +delta (en este caso 2) sobre cada eje
+    %——————————————————————————————————————————————
+    % Tick en x=2
+    \draw (2,0) -- ++(0,-0.1) node[below] {$x_0$};
+    % Tick en y=2
+    \draw (0,2) -- ++(-0.1,0) node[left]  {$y_0$};
+
+    \node at (2,2) {$D$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
