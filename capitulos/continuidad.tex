@@ -1,0 +1,58 @@
+
+
+
+\begin{definition} \textbf{Continuidad de campos escalares.}  \label{def:cont} Sea $f : A  \subseteq  \Rn{n} \to \mathbb{R}$ un campo escalar y sea $x_o \in A$. Decimos que
+$f$ es \emph{continua en $x_o$} si
+ 
+ $$\lim_{x \to x_o} f(x) = f(x_o).$$  Decimos que $f$ es \emph{continua} si es continua en cada $x_o \in A$.
+\end{definition}
+
+\begin{propertie} \label{prop:cont_x_comp}\textbf{Continuidad de campos vectoriales.}
+ Sea $F: A  \subseteq  \Rn{n} \to \Rn{m}$ un campo vectorial y $x_0 \in A$. Sean $f_j: A  \subseteq  \Rn{n} \to \R \, (j = 1,2, \dots, m)$ campos escalares tales que $F(x) = \left( f_1(x), f_2(x), \dots, f_m(x) \right) \, \forall x \in A$. Entonces el campo vectorial $F$ es continuo en $x_o$ si y solo si cada campo escalar $f_j$ es continuo en $x_o$.
+\end{propertie}
+
+\begin{propertie}\label{prop:alg_con}    \textbf{\'Algebra de funciones continuas}   Sean $F,G:A  \subseteq  \Rn{n} \to \Rn{m}$  funciones y $x_0 \in A$. Supongamos que
+$F$ y $G$ son continuas en $x_o$.
+  Entonces:
+  \begin{enumerate} 
+   \item[1.] $(F + G)$ es continua en $x_o$;
+   \item[2.] $(\alpha F)$  es continua en $x_o, \, \forall \alpha \in \R$;
+   \item[3.] $(F\cdot G)$ es continua en $x_o$  %\footnote{Si $m \ge 2$, ``$    \cdot$'' representa el producto escalar en $\Rn{m}$.};
+   \item[4.] Si $m = 1$ (i.e., si $F \text{ y } G$ son campos escalares) y $g$ es no nula en alg\'un entorno de $x_o$, $\dfrac{F}{G}$ es continua en $x_o$.
+  \end{enumerate}
+\end{propertie}
+
+
+\begin{propertie} \label{prop:cont_comp} Sean $F, G$ campos tales que
+\begin{align*}
+ G &:A  \subseteq  \Rn{n} \to B  \subseteq  \Rn{m} \\
+ F &:B  \subseteq  \Rn{m} \to \Rn{p},
+\end{align*}
+y $x_o \in A$. Supongamos que $G$ es continua en $x_o$ y $F$ es continua en $G(x_o)$. Entonces $F \circ G$ es continua en $x_o$.
+\end{propertie}
+
+
+
+\begin{propertie} \label{prop:cont_elem} \textbf{Continuidad de funciones elementales.}
+Las funciones elementales son continuas en todo su dominio de definici\'on. Esto significa que, por ejemplo, las funciones polinómicas, racionales, exponenciales, logarítmicas y trigonométricas son continuas en los conjuntos donde están definidas. 
+\end{propertie}
+
+
+\begin{tarea}\label{direccionales}
+Decidir sobre la continuidad de $f:\mathbb{R}^{2}\rightarrow\mathbb{R}$ siendo
+
+\begin{equation*}
+f(x,y)=\left\{\begin{array}{cc} \dfrac{x^{2}y}{x^4+y^{2}} & \;\;\;\; (x,y)   \neq (0,0)
+
+\\
+\\
+
+ 0& \;\;\;\; (x,y)=(0,0)\end{array}\right.
+\end{equation*}
+\end{tarea}
+
+
+
+
+  
+ 

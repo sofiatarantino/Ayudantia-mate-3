@@ -1,0 +1,193 @@
+
+
+
+\begin{definition}\textbf{Superficie parametrizada}. Sea  $\boldsymbol{\Sigma}:D \subseteq\Rn{2} \to\Rn{3}$ continua y de clase $\mathcal{C}^1(\interior{D})$.  Al conjunto  $S = \text{Img}(\Sigma)$ se lo llama  \emph{superficie}   parametrizada por  $\boldsymbol{\Sigma}$  y   
+   a  $\boldsymbol{\Sigma}$  una \emph{parametrizaci\'on} de $S$.
+\end{definition}
+
+\begin{obs} Notar que dado un campo escalar $f:D\subset \Rn{2}\to\R$, su gr\'afica  es una superficieparametrizada por  $$ \boldsymbol{\Sigma}:D \subseteq\Rn{2} \to\Rn{3}\: : \: \boldsymbol{\Sigma}(x,y)=(x,y,f(x,y)). $$   
+\end{obs}
+
+\begin{example} Sea $f(x,y) = x^2-y^2$. Por la observaci\'on anterior sabemos que la gr\'afica de $f$ es una superficie parametrizada por $\boldsymbol{\Sigma}(x,y)=(x,y,x^2-y^2)$  (podemos pensar a $D = \mathbb{R}^{2}$).  
+
+\vspace{0.3 cm}
+
+\input{figs/sup.tex}
+\end{example}
+
+\begin{obs}
+Las parametrizaciones de superficies son \'utiles, entre otras cosas,  para describir superficies que no necesariamente son gr\'aficos de una funci\'on. 
+\end{obs}
+
+\begin{tarea}\label{parametrizaciones} Hallar una parametrizaci\'on para  las  superficies $S_1$ y $S_2$  dadas por $$S_1=\{ (x,y,z) \in \Rn{3}:  x^{2}+y^{2} =1, \: 0\leq z \leq 3 \},$$ 
+$$S_2=\{ (x,y,z) \in \Rn{3}:  x^{2}+y^{2} +z^{2} = 1 \}.$$
+\end{tarea}
+
+
+\begin{definition}\textbf{Superficie regular}. 
+ Sea $\boldsymbol{\Sigma}:D\subseteq\Rn{2} \to\Rn{3}$ una parametrizaci\'on de $S$ y sea $(u_0, v_0) \in \interior{D}$.   Diremos que $\boldsymbol{\Sigma}$ es una     
+\emph{parametrizaci\'on regular de}  $S$ en  $(u_0, v_0)$  y $S$ una superficie regular en $\boldsymbol{\Sigma}(u_0,v_0)$  si
+    \[
+       \boldsymbol{\Sigma}_u(u_0,v_0)\times\boldsymbol{\Sigma}(u_0,v_0)\neq \boldsymbol{0}.
+   \]
+ Si $S$   admite una parametrizaci\'on regular en todo el interior de su dominio diremos que  $S$ es una superficie regular.
+ \end{definition}
+
+\begin{obs}\textbf{Idea geom\'etrica}.
+\end{obs}
+
+\begin{definition} \textbf{Plano tangente a una  Superficie parametrizada.}  Sea $S$ una superficie parametrizada por $\boldsymbol{\Sigma}:D \subseteq\Rn{2} \to\Rn{3}$ y sea $(u_0,v_0) \in D$. Si $\boldsymbol{\Sigma}$ es regular en $(u_0,v_0)$, se define el plano tangente a $S$ en $\boldsymbol{\Sigma}(u_0,v_0)=(x_0,y_0,z_0)$ al plano $\pi$ dado por la ecuaci\'on
+$$\pi: \:\:   \boldsymbol{\Sigma}_u(u_0,v_0)\times\boldsymbol{\Sigma}(u_0,v_0)(x-x_0, y-y_0, z-z_0 )=0$$
+\end{definition}
+
+\begin{tarea} Sea $S  \subseteq\Rn{3}$ la superficie parametrizada por  $$\boldsymbol{\Sigma}: [-3,3]\times[-3,3] \to\Rn{3} \:\:\:  \boldsymbol{\Sigma}(u,v)=(u+v,u-v, u^{2}+v^{2}), $$ hallar el plano tangente a $S$ en el punto $(-4,0,8).$  Dibujar en Geogebra el resultado obtenido.   
+\end{tarea}
+
+
+\begin{definition} \textbf{Superficie orientable}.    Sea $S\subseteq\Rn{3}$. Diremos que  $S$  es  \emph{orientable} si existe un campo vectorial  continuo  $\boldsymbol{\eta}:S\to\Rn{3}$ tal que $\boldsymbol{\eta}(\mathbf{p})$ es ortogonal a $S$ en $\mathbf{p}$ y $\norm{\boldsymbol{\eta}(\mathbf{p})}=1\;\forall \mathbf{p}\in S$. Al campo $\boldsymbol{\eta}$ se lo llama \emph{orientaci\'on} de $S$. De no existir un  tal $\boldsymbol{\eta}$ diremos que la superficie es \emph{no orientable}.
+\end{definition}
+
+
+\begin{example} Un ejemplo de una  superficie no orientable es el de una cinta de Möebius. Se deja para el lector profundizar en el tema. 
+
+\vspace{0.3 cm}
+
+\input{figs/moebius.tex}
+\end{example}
+
+\begin{obs}
+    Si $S$ es una superficie orientable entonces admite dos y solo dos orientaciones. Si  $\boldsymbol{\eta}$  es una orientaci\'on para $S$ entonces  $-\boldsymbol{\eta}$ tambi\'en lo es.
+\end{obs}
+
+\begin{definition}\textbf{Orintaci\'on inducida sobre}\label{sigma_induce_1} {\boldmath{$S$}}. Sea $S\subseteq\Rn{3}$ una superficie regular y sea $\boldsymbol{\Sigma}:D\subseteq\Rn{2}\to S$ una parametrizaci\'on continua de clase $\mathcal{C}^1$ y regular de $S$. Lamaremos a  $\boldsymbol{\eta}$ dada por  
+\[
+            \boldsymbol{\eta}\left(\boldsymbol{\Sigma}(u,v)\right) = \frac{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}{\norm{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}}(u,v) \:\; \forall (u,v) \in D^{0}.
+        \]  \emph{ la orientaci\'on inducida} por   $\Sigma$  sobre $S$.  
+\end{definition}
+
+\begin{definition}\label{def:preseva} 
+    Sea $S\subseteq\Rn{3}$ una superficie regular  orientada por $\boldsymbol{\eta}$ y sea $\boldsymbol{\Sigma}:D\subseteq\Rn{2}\to S$ una parametrizaci\'on continua de clase $\mathcal{C}^1$ y regular de $S$.
+    \begin{itemize}
+        \item  Decimos que $\boldsymbol{\Sigma}$ \emph{preserva} la orientaci\'on de $S$ si  
+        \[
+            \frac{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}{\norm{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}}(u,v)=\boldsymbol{\eta}\left(\boldsymbol{\Sigma}(u,v)\right)  \:\; \forall (u,v) \in D^{0}.
+        \]  
+       
+        \item  Decimos que $\boldsymbol{\Sigma}$ \emph{invierte} la orientaci\'on de $S$ si 
+
+ \[
+            \frac{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}{\norm{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}}(u,v)=-\boldsymbol{\eta}\left(\boldsymbol{\Sigma}(u,v)\right) \:\: \forall (u,v) \in D^{0}.
+        \]
+ \end{itemize}
+\end{definition}
+
+\begin{tarea} Mostrar la orientaciones inducidas sobre $S_1$ y $S_2$  por sus parametrizaciones  halladas en la \emph{tarea} \ref{parametrizaciones}.
+\end{tarea}
+
+
+\begin{definition} \textbf{Borde de una Superficie.} 
+   Sea $\boldsymbol{\Sigma}:D\subseteq\Rn{2} \to\Rn{3}$ una parametrizaci\'on regular  e  inyectiva de una superficie $\boldsymbol{\Sigma}(D) = S$.  Si $ \partial D$,  el borde del conjunto $D$,  es una curva cerrada y simple, se define el \emph{borde}  de $S$, y se lo nota $\partial S$,  a la curva cerrada simple en $\Rn{3}$ tal que 
+    \[
+        \partial S=\boldsymbol{\Sigma}(\partial D).
+    \]
+\end{definition}
+
+\begin{definition} \label{sigma_induce} \textbf{Orintaci\'on inducida sobre} {\boldmath{$\partial S$}}.   Sea $\boldsymbol{\Sigma}:D\subseteq\Rn{2} \to\Rn{3}$ una parametrizaci\'on regular  e  inyectiva de una superficie $\boldsymbol{\Sigma}(D) = S$ con $ \partial D$ una curva cerrada y  simple.  Se define  la \emph{orientaci\'on inducida} por  $\boldsymbol{\Sigma}$  sobre  la curva cerrada $\partial S$ a la manera que tiene de recorrer  $\boldsymbol{\Sigma}$ a   $\partial S$,  simpre y cuando se recorra a la curva cerrada y simple $ \partial D \subseteq\Rn{2}$ en sentido antihorario.
+\end{definition}
+
+\begin{obs}\label{rmd}\textbf{Regla de la mano derecha.}  En $\Rn{2}$ la orientaci\'on ortogonal de los ejes $x$ e $y$ es \'unica; en cambio en $\Rn{3}$, el tercer eje ortogonal $z$, admite dos posibles 
+    orientaci\'ones ``hacia arriba o hacia abajo''. Entonces es necesario definir una convenci\'on para la orientaci\'on de este tercer eje. Dicha convenci\'on es la siguiente: 
+    \[
+        \vect{i}\times\vect{j}=\vect{k},
+    \]  
+    donde $\vect{i}$, $\vect{j}$ y $\vect{k}$ son los versores c\'anonicos para los ejes cartesianos $x,\;y,\;z$, respectivamente. Luego \emph{la regla de la mano derecha} es una regla memot\'ecnica que sirve para recordar dicha orientaci\'on.
+    \input{figs/mano_derecha.tex}
+\end{obs}
+
+
+\begin{obs}  Sea $\boldsymbol{\Sigma}:D\subseteq\Rn{2} \to\Rn{3}$ una parametrizaci\'on regular  e  inyectiva de una superficie $\boldsymbol{\Sigma}(D) = S$.  La orientaci\'on inducida por $\boldsymbol{\Sigma}$ sobre $S$ (\ref{sigma_induce_1})  y   la orientación inducida por  $\boldsymbol{\Sigma}$  sobre $\partial S$  ( \ref{sigma_induce} ) est\'an relacionadas a trav\'es de la \textbf{Regla de la mano derecha} (\ref{rmd}).
+ \end{obs}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+ \section{Integrales de Superficie}
+
+\begin{definition}Sea $f:A \subseteq\Rn{3}  \subseteq  \to\mathbb{R}$  un campo continuo y sea $S\subseteq A$ una superficie.  Se define la \emph{ integral de superficie} de $f$ sobre $S$, y se nota  $\iint_S f  \;d\mathbf{S},$ a
+    \[
+        \iint_S f \;d\mathbf{S}=  \iint_D  f  \circ\boldsymbol{\Sigma}(u,v) \norm{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}(u,v) \;dudv .
+    \] donde $\boldsymbol{\Sigma}:D\subseteq\Rn{2} \to\Rn{3}$ una parametrizaci\'on de $S$.
+\end{definition} 
+
+
+
+
+
+\begin{tarea}  Sean  la superficie dada por $S=\{ (x,y,z) \in \Rn{3}:  x^{2}+y^{2} =z, \: 0\leq z \leq 3 \}$ y el campo escalar $f(x,y,z) = x^{2}-y$, calcular  $$   \iint_S f \;d\mathbf{S}. $$
+\end{tarea} 
+
+
+\begin{definition} Sea $S\subseteq \Rn{3}$ una superficie, se define el \emph{ \'area de } $S$, y se nota $A(S)$,  $$A(S) =  \iint_S  1 \;d\mathbf{S}$$
+\end{definition}
+
+\begin{tarea} Hallar el \'area de  de las superficies $S_1$ y $S_2$  dadas  en la \emph{tarea} \ref{parametrizaciones}.
+\end{tarea}
+
+
+
+
+
+\begin{definition}
+    Sea $S\subseteq\Rn{3}$ una superficie orientada por $\boldsymbol{\eta}$. Sea $\mathbf{F}:A  \subseteq  \to\Rn{3}$  un campo continuo con $S\subset A$. Se define la integral de superficie de $\mathbf{F}$ sobre $S$, (o flujo de $F$ sobre $S$) y se nota  $\iint_S\mathbf{F}\cdot d\mathbf{S},$ a
+    \[
+        \iint_S \mathbf{F}\;d\mathbf{S}=\iint_S (\mathbf{F}\cdot\boldsymbol{\eta}) \;dS.
+    \]
+\end{definition} 
+
+
+
+\begin{obs}
+El producto escalar $\mathbf{F}\cdot\boldsymbol{\eta}$  permite obtener la componente del campo vectorial en la direcci\'on perpendicular a la superficie. Fisicamente, si el campo vectorial se interpreta como un campo de velocidades de un fluido, la integral de superficie puede verse como la \emph{cantidad de fluido} que atraviesa la superficie por unidad de tiempo.
+\end{obs}
+
+
+
+\begin{tarea}  Sean  la superficie dada por $S=\{ (x,y,z) \in \Rn{3}:  x^{2}+y^{2}  \leq 1, \:  z=1 \}$  y el campo vectorial $F(x,y,z) = (x^{2}+y, z^{2}+y, 2)$, calcular  $$   \iint_S F \cdot \;d\mathbf{S}. $$
+\end{tarea} 
+
+
+\begin{obs}   Sean $S\subseteq\Rn{3}$ una superficie orientada por $\boldsymbol{\eta}$ y  sea  $\boldsymbol{\Sigma}:D\subseteq\Rn{2}\to S\subseteq\Rn{3}$ una parametrizaci\'on de $S$ tal que preserve su orientaci\'on, entonces 
+ $$ \iint_S \mathbf{F}\cdot d\mathbf{S} = \iint_D \mathbf{F}\circ\boldsymbol{\Sigma}\cdot\left(\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v\right)dudv.$$
+\end{obs}
+Veamos que esto efectivamente es as\'i.  Sabemos que, por la \autoref{def:preseva},
+\[
+    \frac{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}{\norm{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}}(u,v)=\boldsymbol{\eta}\left(\boldsymbol{\Sigma}(u,v)\right).
+\]
+Entonces,
+\begin{align*}
+    \iint_S \mathbf{F}\cdot d\mathbf{S}&=\iint_S (\mathbf{F}\cdot\boldsymbol{\eta}) \;dS = \iint_D (\mathbf{F}\cdot\boldsymbol{\eta})\circ\boldsymbol{\Sigma}(u,v) \:\:\norm{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}(u,v) \;dudv\\[.2cm]
+    &=\iint_D (\mathbf{F}\circ\boldsymbol{\Sigma})(u,v) \cdot(\boldsymbol{\eta}\circ\boldsymbol{\Sigma})(u,v) \norm{\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v}(u,v) \;dudv\\
+    &=\iint_D \mathbf{F}\circ\boldsymbol{\Sigma}(u,v) \cdot\left(\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v\right)(u,v) \: dudv,
+\end{align*} concluyendo lo que quer\'iamos ver.
+
+\begin{obs}
+    Sea $S$ una superficie con orientaci\'on $\boldsymbol{\eta}$ y sea $\boldsymbol{\Sigma}:D\subseteq\Rn{2}\to S\subseteq\Rn{3}$ una parametrizaci\'on de $S$ tal que invierte su orientaci\'on, entonces
+    \[
+        \iint_S \mathbf{F}\cdot d\mathbf{S} = \iint_S \mathbf{F}\cdot\eta\;dS=-\iint_D \mathbf{F}\circ\boldsymbol{\Sigma}\cdot(\boldsymbol{\Sigma}_u\times\boldsymbol{\Sigma}_v)\:dudv.
+    \]
+\end{obs}
+
+
+\begin{tarea}  Sean  la superficie dada por $S=\{ (x,y,z) \in \Rn{3}:  x^{2}+y^{2} + z^{2} \leq 4, \:  z=1 \}$ y el campo vectorial $F(x,y,z) = (x^{2}+y, z^{2}+y, 2)$, calcular  $$   \iint_S F \cdot \;d\mathbf{S}. $$
+\end{tarea} 
+
+\begin{tarea}
+ Sea la superficie   $S=\{  (x,y,z) \in \mathbb{R}^{3} \: : \: x ^{2}+ y^{2} = z^{2}, 1 \leq z \leq 2 \}$  y   sea el campo $F(x,y,z)=(x+y^{2}z^{2}, y+z^{2}x^{2}, z).$  Hallar el flujo  de $F$ a trav\'es de $S$ indicando la orientaci\'on elegida.
+\end{tarea}  
+
+

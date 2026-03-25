@@ -1,0 +1,377 @@
+\begin{definition}\label{def:norma-general}
+    Una \emph{norma} en $\mathbb{R}^n$ es un campo escalar en $\mathbb{R}^n$, el cual notaremos $\| \; \|$,  que  satisface las siguientes condiciones:  dados $\mathbf{x},\;\mathbf{y} \in \mathbb{R}^n$ y $\lambda \in \mathbb{R}$:
+    \begin{enumerate}
+        \item Positividad: $\|\mathbf{x}\| \geq 0\;\land\;\|\mathbf{x}\| = 0 \iff \mathbf{x} = \boldsymbol{0}$.
+        \item Homogeneidad: $\|\lambda \mathbf{x}\| = |\lambda|\|\mathbf{x}\|$.
+        \item Desigualdad triangular: $\|\mathbf{x} + \mathbf{y}\| \leq \|\mathbf{x}\| + \|\mathbf{y}\|$.
+    \end{enumerate}
+\end{definition}
+
+\begin{obs}
+  En $\Rn{n}$ existen infinitas campos escalares que cumplen con las condiciones reci\'en mecionadas, mostraremos algunas de ellas a continuaci\'on.
+\end{obs}
+
+\begin{definition}\label{def:norm1} Se define la \emph{norma 1},  la cual notaremos por $\| \; \|_1$,  a 
+    \[
+        \|\mathbf{x}\|_1 = \sum_{i=1}^n |x_i|,
+    \]
+    donde $\mathbf{x}=(x_1,\ldots,x_n)$. 
+    \end{definition}
+
+\begin{definition}\label{def:norm2}
+   Se define la \emph{norma 2} o \emph{norma euclidiana}, la cual notaremos por  $\|\;\|_2$, a
+    \[
+        \|\mathbf{x}\|_2 = \sqrt{ \sum_{i=1}^n x_i^2 }.
+    \]
+    donde $\mathbf{x}=(x_1,\ldots,x_n).$
+\end{definition}
+
+\begin{tarea} Probar que  $\| \; \|_1$ y  $\| \; \|_2$ son efectivamente normas, es decir, que cumplen con  lo pedido en (\ref{def:norma-general}). 
+\end{tarea}
+
+\begin{definition}
+    Sean $\mathbf{x},\;\mathbf{y}\in\Rn{n}$. Se define la \emph{distancia} entre $\mathbf{x}\text{ e }\mathbf{y}$ como la funci\'on d$:\Rn{n}\times\Rn{n}\to\R$ tal que
+    \[
+        \text{d}(\mathbf{x},\mathbf{y})=\|\mathbf{x}-\mathbf{y}\|,
+    \]
+    donde $\|\cdot\|$ es  cualquier norma de $\Rn{n}$.
+\end{definition}
+
+\begin{definition} \textbf{Bola de radio $\delta$ y centro $x_o$.} \label{def:bola}
+    Sean $x_o \in \Rn{n},\;\delta > 0$ y $\text{d}$ una distancia en $\Rn{n}$. La \emph{bola de radio $\delta$ y centro $x_o$}, que denotamos con $B_{\delta}(x_o)$, es el conjunto
+    \[
+     B_{\delta}(x_o) = \left\lbrace x \in \Rn{n} : \text{d}(x,x_o) < \delta \right\rbrace.
+    \]
+    El conjunto
+    \[
+     B^*_{\delta}(x_o) = B_{\delta}(x_o) \smallsetminus \{ x_o \}
+    \]
+ se llama \emph{bola reducida de radio $\delta$ y centro $x_o$}.
+   
+   \end{definition}
+
+   \begin{example}
+    Para ilustrar lo mencionado, podemos tomar el caso de dos bolas en $\Rn{2}$ centradas en el origen, de ``radio'' $\delta$ y con distintas nociones de distancia. La primera con distancia inducida por la norma 2 y la segunda con distancia inducida por la norma 1. Se deja al lector deducir anal\'iticamente los gr\'aficos mostrados a continuaci\'on. 
+\input{figs/bola.tex}
+\end{example}
+
+
+
+
+
+
+   \emph{Notaci\'on:} De ahora en m\'as, denotaremos a la norma 2 simplemente como $\|\cdot\|$, ya que va a ser la \'unica norma utilizada a lo largo del documento.
+   
+   \begin{definition} \textbf{Punto interior, interior de un conjunto.} \label{def:interior}
+    Sean $A  \subseteq  \Rn{n} \text{ y } \vect{x}_0 \in A$. Decimos que $\vect{x}_0$ es \emph{punto interior} de $A$ si
+    \[
+     \exists\:\delta > 0: B_{\delta}(\vect{x}_0)  \subseteq  A.
+    \]
+    El \emph{interior} de $A$, que denotamos con $A^{\circ}$, es el conjunto de todos los puntos interiores de $A$, es decir
+    \[
+    A^{\circ}= \left\lbrace\vect{x}\in A :\vect{x}\text{ es punto interior de } A \right\rbrace.
+    \]
+   \end{definition}
+   
+   
+   \begin{definition} \textbf{Conjunto abierto.} \label{def:abierto}
+       Sea $A  \subseteq  \Rn{n}$. Decimos que $A$ es \emph{abierto} si cumple que
+   \[
+        \forall \vect{x}_0 \in \exists \delta > 0 : B_{\delta}(\vect{x}_0)  \subseteq  A.  
+%\footnote{\text{\textit{i.e.}: $A$  es abierto si todos sus puntos son interiores.}}
+   \]
+   \end{definition}
+   
+   \begin{propertie}  \label{prop:abierto_int}    Sea  $A \subseteq \Rn{n}$, entonces:
+   \begin{enumerate}
+    \item \( \interior{A} \subseteq A \).
+    \item \(A\) es abierto \(\iff A=\interior{A}\).
+    \end{enumerate}
+    \end{propertie}
+   
+   \begin{definition} \textbf{Conjunto cerrado.} \label{def:cerrado}
+    Sea $A  \subseteq  \Rn{n}$. Decimos que $A$ es \emph{cerrado} si su complemento $A^c = \Rn{n} \smallsetminus A$ es abierto.
+   \end{definition}
+   
+   \begin{definition} \textbf{Frontera de un conjunto.} \label{def:frontera}
+    Sea $A  \subseteq  \Rn{n}$. La \emph{frontera} de $A$, que denotamos con $\partial A$ o $\frontera(A)$, es el conjunto
+    \[
+     \partial A = \left\lbrace \vect{x}_0 \in \Rn{n} \;|\; \forall \delta > 0, \;
+     B_{\delta}(\vect{x}_0) \cap A \ne \varnothing\;\land\;
+     B_{\delta}(\vect{x}_0) \cap A^c \ne \varnothing \right\rbrace.
+    \]
+   \end{definition}
+   
+   \begin{propertie} \label{prop:cerrado_front}
+    Un conjunto $A  \subseteq  \Rn{n}$ es cerrado si y solo si $\partial A  \subseteq  A$.
+   \end{propertie}
+   
+   \begin{definition} \textbf{Punto de acumulaci\'on.} \label{def:pto_acum}
+    Sean $A  \subseteq  \Rn{n} \text{ y } \vect{x}_0 \in \Rn{n}$. Decimos que $\vect{x}_0$ es \emph{punto de acumulaci\'on} de $A$ si
+    \[
+     \forall \delta > 0 \left( B_{\delta}(\vect{x}_0) - \{ \vect{x}_0 \} \right) \cap A \ne \varnothing. 
+    \]
+    Denotamos el conjunto de todos los puntos de acumulaci\'on de $A$ con $A'$:
+    \[
+     A' = \{\vect{x}\in \Rn{n} :\vect{x}\text{ es punto de acumulaci\'on de } A \}.
+    \]
+   
+   \end{definition}
+   
+   \begin{definition} \textbf{Entorno de un punto.} \label{def:entorno}
+    Sean $N  \subseteq   \Rn{n}$ y $\vect{x}_0 \in \Rn{n}$. Decimos que $N$ es \emph{entorno} de $\vect{x}_0$ si
+    \[
+     \exists \delta > 0 \;|\; B_{\delta}(\vect{x}_0)  \subseteq  N.
+    \]
+   \end{definition}
+   
+   \begin{definition} \textbf{Punto aislado.} \label{def:pto_ais}
+    Sean $A  \subseteq   \Rn{n}$ y $\vect{x}_0 \in A$. Decimos que $\vect{x}_0$ es \emph{punto aislado} de $A$ si $\vect{x}_0$ no es punto de acumulaci\'on de $A$.
+   \end{definition}
+   
+   \begin{definition} \textbf{Conjunto acotado.} \label{def:conj_acotado}
+    Sea $A  \subseteq  \Rn{n}$. Decimos que $A$ es un \emph{conjunto acotado} si existe $\delta > 0$ tal que la bola de radio $\delta$  centrada en el origen contiene al conjunto $A$, es decir, si $\exists \delta > 0 : A  \subseteq  B_{\delta}(\mathbf{0})$.\\
+ %   Equivalentemente, $A$ es un \emph{conjunto acotado} si $\exists \delta > 0, \vect{x}_0 \in \Rn{n} : A  \subseteq  B_{\delta}(\vect{x}_0)$.
+   \end{definition}
+
+
+%------------------------------------------------------conjunto conexo----------------------------
+\begin{definition} \textbf{Conjunto  conexo.} Sea   $A \subseteq  \mathbb{R}^{n}$. Decimos que $A$  es un conjunto \emph{conexo}  si   no existen $U,V  \subseteq  \mathbb{R}^{n} $  conjuntos abiertos, disjuntos, no vac\'ios   tales que  \(A \cap U \neq \emptyset\), \(A \cap V \neq \emptyset\) y \(A = U \cup V\).
+\end{definition}
+
+
+\begin{definition} \textbf{Conjunto  arcoconexo.} \label{def:conjuntoconexo_simp} Sea   $A \subseteq  \mathbb{R}^{n}$. Decimos que $A$ es un conjunto \emph{arcoconexo} si para cualesquiera dos puntos \( \vect{x}_0, y_0 \in A \), existe una trayectoria  \( \gamma : [0,1] \to A \) tal que
+    \(
+    \gamma(0) = x_1 \; \text{y} \; \gamma(1) = y_1.
+    \)
+    
+    
+    \begin{center}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \begin{tikzpicture}
+                \draw[fill=blue!15, semithick] (0,0) circle(2);
+                \filldraw[red] (-1,-0.2) circle (2pt) node[below] {\(x_1\)};
+                \filldraw[red] (1,-0.8) circle (2pt) node[below] {\(y_1\)};
+                \draw[semithick,-,red] (-1,-0.2) to[out=80,in=30,looseness=2] (1,-0.8);
+                \draw node at (-0.6,1) {\textcolor{gray}{$A$}};
+            \end{tikzpicture}
+        \end{minipage}
+        \hspace{1cm} % espacio entre figuras
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \begin{tikzpicture}
+       
+                % Plane R^2 on the right
+               
+                    \draw[semithick]
+                        plot[smooth,tension=1.2] coordinates {(-0.2,0.8) (3,1) (4,-1) (2.6,-1.2)(2,0.2) (0.8,-1) (-0.2,0)(-0.2,0.8)};
+                    
+                    \filldraw[fill=blue!15, semithick]
+                        plot[smooth, tension=1.2] coordinates {(-0.2,0.8) (3,1) (4,-1) (2.6,-1.2)(2,0.2) (0.8,-1) (-0.2,0)(-0.2,0.8)};
+                        % \foreach \point in {(1,0.6), (3,0), (2.5,-1.5), (1,-1), (0.2,0.1), (1,0.6)} {
+                        % \node at \point [circle,fill,inner sep=1pt] {};
+                        % }
+                    \filldraw[red] (0.9,-0.2) circle (2pt) node[below] {\(x_1\)};
+                    \filldraw[red] (3,-0.8) circle (2pt) node[below] {\(y_1\)};
+                    \draw[semithick,-,red] (0.9,-0.2) to[out=80,in=30,looseness=2] (3,-0.8);
+                    \draw node at (0.3,0.5) {\textcolor{gray}{$A$}};
+                    
+            
+            \end{tikzpicture}
+        \end{minipage}
+        \end{center}
+        \begin{center}
+        \begin{tikzpicture}
+            \node at (1.5,-2) {Conjuntos \emph{arcoconexos}};
+        \end{tikzpicture}
+        \end{center}
+    \end{definition}
+    
+    %------------------------------------------------------conjunto conexo----------------------------
+ 
+
+\begin{definition} \textbf{Conjunto convexo.} \label{def:conjuntoconvexo}Sea   $A \subseteq  \mathbb{R}^{n}$.  Decimos que  \( A \) es un conjunto \emph{convexo} si para cualesquiera dos puntos \( x, y \in A \), el segmento que los une está completamente contenido en \( A \), es decir
+        \[
+        \forall x_1,y_1 \in A, \quad \lambda\vect{x}+ (1 - \lambda)y \in A \quad \text{para todo } \lambda \in [0,1].
+        \]
+        
+        \begin{center}
+            \begin{minipage}{0.45\textwidth}
+                \centering
+                \begin{tikzpicture}
+                    \draw[fill=blue!15, semithick] (0,0) circle(2);
+                    \filldraw[red] (-1,-1) circle (2pt) node[below] {\(x_1\)};
+                    \filldraw[red] (1,1) circle (2pt) node[above] {\(y_1\)};
+                    \draw[thick, red, domain=-1:1] plot (\x, {\x});
+                    \draw node at (-0.6,0.6) {\textcolor{gray}{$A$}};
+                \end{tikzpicture}
+            \end{minipage}
+            \hspace{1cm} % espacio entre figuras
+            \begin{minipage}{0.45\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=1.2]
+                    \filldraw[fill=blue!15, semithick] (-1.5,0) -- (3.5,0) -- (2.5,2.5) -- (-1,2) -- cycle;
+                    \draw[thick, red] (-0.5,1.3) -- (2.2,0.6);
+                    \filldraw[red] (-0.5,1.3) circle (2pt) node[above left] {\(x_1\)};
+                    \filldraw[red] (2.2,0.6) circle (2pt) node[above right] {\(y_1\)};
+                    \draw node at (-0.6,0.6) {\textcolor{gray}{$A$}};
+                \end{tikzpicture}
+            \end{minipage}
+            \end{center}
+            \begin{center}
+            \begin{tikzpicture}
+                \node at (1.5,-2) {Conjuntos \emph{convexos}};
+            \end{tikzpicture}
+    
+            \end{center}
+            \begin{center}
+                \begin{minipage}{0.45\textwidth}
+                    \centering
+                    \begin{tikzpicture}
+                        % Círculo exterior (azul claro) \draw[fill=blue!15, semithick] (0,0) circle(2);
+                        \draw[fill=blue!15, semithick] (0,0) circle(2);
+                        
+                        % Círculo interior (blanco, para el hueco)
+                        \draw[fill=white, semithick] (0,0) circle(0.8);
+                        
+                        \filldraw[red] (-1,-1) circle (2pt) node[below] {\(x_1\)};
+                        \filldraw[red] (1,1) circle (2pt) node[above] {\(y_1\)};
+                        \draw[thick, red, domain=-1:1] plot (\x, {\x});
+                        
+                        % Letra A
+                        \draw node at (-0.6,1) {\textcolor{gray}{$A$}};
+                    \end{tikzpicture}
+                \end{minipage}
+                \hspace{1cm} % espacio entre figuras
+                \begin{minipage}{0.45\textwidth}
+                    \centering
+                    \begin{tikzpicture}
+               
+                        % Plane R^2 on the right
+                       
+                            \draw[semithick]
+                                plot[smooth,tension=1.2] coordinates {(-0.2,0.8) (3,1) (4,-1) (2.6,-1.2)(2,0.2) (0.8,-1) (-0.2,0)(-0.2,0.8)};
+                            
+                            \filldraw[fill=blue!15, semithick]
+                                plot[smooth, tension=1.2] coordinates {(-0.2,0.8) (3,1) (4,-1) (2.6,-1.2)(2,0.2) (0.8,-1) (-0.2,0)(-0.2,0.8)};
+                                % \foreach \point in {(1,0.6), (3,0), (2.5,-1.5), (1,-1), (0.2,0.1), (1,0.6)} {
+                                % \node at \point [circle,fill,inner sep=1pt] {};
+                                % }
+                                \filldraw[red] (0.5,-0.2) circle (2pt) node[below] {\(x_1\)};
+                                \filldraw[red] (3,-0.8) circle (2pt) node[below] {\(y_1\)};
+                                \draw[semithick, red] (0.5,-0.2) -- (3,-0.8); % Línea recta
+                            \draw node at (0.3,0.5) {\textcolor{gray}{$A$}};
+                            
+                    
+                    \end{tikzpicture}
+                \end{minipage}
+                \end{center}
+                \begin{center}
+                \begin{tikzpicture}
+                    \node at (1.5,-2) {Conjuntos \emph{arcoconexos y no convexos}};
+                \end{tikzpicture}
+                \end{center}
+    \end{definition}
+    
+    %------------------------------------------------------conjunto simplemente conexo----------------------------
+
+
+
+ \begin{definition} \textbf{Conjunto simplemente  conexo.} \label{def:conjuntoconexo1}
+   Sea   $A \subseteq  \mathbb{R}^{n}$. Decimos que \( A\) es un conjunto \emph{simplemente conexo} si es conexo y toda curva (lazo) continua, simple  y  cerrada dentro de \( A \) es la frontera de un conjunto \( A^{*} \) tal que $A^{*}  \subseteq  A$.
+    
+   \begin{center}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \begin{tikzpicture}
+                \draw[fill=blue!15, semithick] (0,0) circle(2);
+                \draw[red, thick]
+                plot [smooth cycle, tension=1] coordinates {
+                    (-0.3,0.2)
+                    (0.2,0.6)
+                    (1,0.3)
+                    (0.5,-0.3)
+                    (0,-0.5)
+                    (-0.4,-0.2)
+                };
+    
+                \node at (-1,1) {\textcolor{gray}{$A$}};
+                \node at (1.4,0.4) {\textcolor{red}{curva}};
+                \filldraw[black] (0,0) circle (1pt) node[below] {\(\vect{x}_0\)};
+            \end{tikzpicture}
+        \end{minipage}
+    \hspace{1cm}
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \begin{tikzpicture}[scale=1.2]
+                \filldraw[fill=blue!15, semithick]
+                    plot[smooth, tension=1.2] coordinates {(1,0.6) (3,0) (2.5,-1.5) (1,-1) (0,0) (1,0.6)};
+                    \draw[thick, red]
+                    plot [smooth cycle, tension=1] coordinates {
+                        (1.3,0.2)
+                        (1.7,0.5)
+                        (2,0.2)
+                        (1.9,-0.3)
+                        (1.4,-0.4)
+                        (1,-0.1)
+                    };
+                \node at (2,-1.2) {\textcolor{gray}{$A$}};
+                \node[red] at (2.3,0.2) {lazo};
+                \filldraw[black] (1.5,0) circle (0.5pt) node[below] {\(\vect{x}_0\)};
+            \end{tikzpicture}
+        \end{minipage}
+    \end{center}
+    
+    \vspace{0.3cm} % Pequeño espacio antes de la etiqueta
+    
+    \begin{center}
+        \begin{tikzpicture}
+            \node at (1.5,-2) {Conjuntos \emph{simplemente conexos}};
+        \end{tikzpicture}
+    \end{center}
+    
+  %  \begin{center}
+    %    \begin{tikzpicture}
+            % Círculo exterior (azul claro) \draw[fill=blue!15, semithick] (0,0) circle(2);
+    %        \draw[fill=blue!15, semithick] (0,0) circle(2);
+            
+            % Círculo interior (blanco, para el hueco)
+  %          \draw[fill=white, semithick] (0,0) circle(0.8);
+   %         \draw[red, thick]
+     %       plot [smooth cycle, tension=1] coordinates {
+      %          (0.7,0.1)
+     %           (1,0.5)
+     %           (1.4,0.2)
+      %          (1.3,-0.3)
+     %           (0.9,-0.5)
+      %          (0.6,-0.4)
+       %         (0.5,-0.1)
+        %    };
+       %         \node at (-1,1) {\textcolor{gray}{$A$}};
+      %          \node at (1,0.9) {\textcolor{red}{curva}};
+      %          \filldraw[black] (1,0) circle (0.5pt) node[below] {\(\vect{x}_0\)};
+      %  \end{tikzpicture}
+      %  \end{center}
+      %  \begin{center}
+       %     \begin{tikzpicture}
+        %        \node at (1.5,-2) {Conjunto \emph{no simplemente conexo}};
+        %    \end{tikzpicture}
+       % \end{center}       
+        
+
+ \includegraphics{standalone_fig_lazo.pdf}
+
+
+ \end{definition}
+    
+    
+    
+       
+    
+    
+    
+    
+    
+    
+    

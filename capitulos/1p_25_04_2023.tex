@@ -1,0 +1,213 @@
+%------------Ejercicio 1---------------------------------------
+
+\begin{question}
+    Analizar la existencia de los siguientes límites
+
+    \[
+        (a) \quad \lim_{(x,y)\to(0,1)} \frac{x^2(y-1)\cos(\frac{1}{y-1})}{x^2+3(y-1)^2}
+        \hfill
+        \qquad\qquad(b) \quad \lim_{(x,y)\to(0,0)} \frac{\sen(x^3)y}{x^2-y+x^5}
+    \]
+
+\end{question}
+
+%------------Ejercicio 2---------------------------------------
+
+\begin{question}
+    Sea \(f: \mathbb{R}^2 \to \mathbb{R}\) tal que
+    \[
+        f(x,y) =
+        \begin{dcases}
+            \frac{x^4}{(x^2-y)^2+x^4} & (x,y) \neq (0,0) \\
+            0                         & (x,y) = (0,0)
+        \end{dcases}
+    \]
+    \begin{enumerate}
+        \item Analizar la continuidad de $f$ en el origen
+        \item Analizar la diferenciabilidad de $f$ en el origen.
+        \item Hallar, si existen, las derivadas paricales en el origen.
+    \end{enumerate}
+\end{question}
+
+%------------Ejercicio 3---------------------------------------
+
+\begin{question}
+    Sea \(g(x,y) = yx^2+\sen(f(x,y))\) con $f$ un campo escalar \(\mathcal{C}^1(\mathbb{R}^2)\) tal que \(f(0,0)=0\). Calcular
+    \[
+        \lim_{(x,y)\to(0,0)} \frac{g(x,y)-xf_x(0,0)-yf_y(0,0)+x^2+y^2}{\sqrt{x^2+y^2}}
+    \]
+\end{question}
+
+%------------Ejercicio 4---------------------------------------
+
+\begin{question}
+    Analizar la existencia de máximos y mínimos, absolutos o relativos, en todo $\mathbb{R}^2$ de
+    \[
+        f(x,y) = e^{xy-1}-\frac{1}{2}x^2-\frac{1}{2}y^2.
+    \]
+\end{question}
+
+\newpage
+%------------Solucion 1---------------------------------------
+
+\begin{solution}
+    (a) Podemos observar que el límite es indeterminado, aún más, el argumento del coseno tiende a infinito. Para resolver, reescribimos el límite de la siguiente manera
+    \[
+        \lim_{(x,y)\to(0,1)} \frac{x^2(y-1)}{x^2+3(y-1)^2}\cos\left(\frac{1}{y-1}\right).
+    \]
+    Dado que el coseno es una función acotada,  bastaría con probar que $$ \lim_{(x,y)\to(0,1)} \frac{x^2(y-1)}{x^2+3(y-1)^2}=0.$$
+    Para esto, usaremos las siguientes desigualdades,
+    \begin{gather*}
+        0 \leq \left|\frac{x^2(y-1)}{x^2+3(y-1)^2}\right| \leq \frac{\|(x,y-1)\|^2(y-1)}{x^2+3(y-1)^2}\leq\\[.2cm]
+        \leq
+        \frac{\|(x,y-1)\|^2(y-1)}{x^2+(y-1)^2} = \frac{\|(x,y-1)\|^2(y-1)}{\|(x,y-1)\|^2} = y-1.
+    \end{gather*}
+    Como  $$\lim_{(x,y)\to(0,1)} 0 = 0 \;\;\;\;\;\;\mbox{ y } \lim_{(x,y)\to(0,1)} (y-1) = 0, $$
+    tenemos, usando el teorema de intercalaci\'on, que
+    $$ \lim_{(x,y)\to(0,1)} \left|\frac{x^2(y-1)}{x^2+3(y-1)^2}\right| = 0.$$
+    Luego  $$ \lim_{(x,y)\to(0,1)} \frac{x^2(y-1)}{x^2+3(y-1)^2}=0,$$ por lo tanto $$\lim_{(x,y)\to(0,1)} \frac{x^2(y-1)}{x^2+3(y-1)^2}\cos\left(\frac{1}{y-1}\right) = 0.$$
+
+
+    (b) Tomemos  las curvas,  $\boldsymbol{\alpha}:\mathbb{R}\to\mathbb{R}^2:  \boldsymbol{\alpha}(t)=(t,t^5)$  \; y \;  $\boldsymbol{\beta}:\mathbb{R}\to\mathbb{R}^2: \boldsymbol{\beta}(t)=(t,t^2)$. Notar que $$\lim_{t\to0}\boldsymbol{\alpha}(t)=(0,0)  \; \mbox{ y } \;   \lim_{t\to0}\boldsymbol{\beta}(t)=(0,0).$$
+    Llamando  $$f(x,y) = \frac{\sen(x^3)y}{x^2-y+x^5}$$ tenemos que
+    \begin{equation}
+        \lim_{t\to0}f\circ\boldsymbol{\alpha}(t) = \lim_{t\to0}\frac{\sen(t^3)t^5}{t^2-t^5+t^5} = \lim_{t\to0}\sen(t^3)t^3 = 0 \label{eq:curva1}
+    \end{equation}
+    \begin{equation}
+        \lim_{t\to0}f\circ\boldsymbol{\beta}(t) = \lim_{t\to0}\frac{\sen(t^3)t^2}{t^2-t^2+t^5} = \lim_{t\to0}\frac{\sen(t^3)}{t^3} = 1. \label{eq:curva2}
+    \end{equation}
+    Como \; $\eqref{eq:curva1} \neq \eqref{eq:curva2}$
+    concluimos  que $$ \nexists\lim_{(x,y)\to(0,0)}
+        f(x,y).$$
+\end{solution}
+
+%------------Solucion 2---------------------------------------
+
+\begin{solution}
+    1. Para que la función sea continua en el origen  debe cumplir
+    \[
+        \lim_{(x,y)\to(0,0)} f(x,y) = f(0,0) =0.
+    \]
+    Analicemos
+    \[
+        \lim_{(x,y)\to(0,0)} \frac{x^4}{(x^2-y)^2+x^4}
+    \]
+
+    Tomemos  la curva,  $\boldsymbol{\alpha}:\mathbb{R}\to\mathbb{R}^2:  \boldsymbol{\alpha}(t)=(t,t^2),$ notemos que  $$\lim_{t\to0}\boldsymbol{\alpha}(t)=(0,0).$$   Podemos observar que $$ \lim_{t\to0} f\circ\boldsymbol{\alpha}(t) = 1$$  de aqu\'i concluimos que $f$ no es continua en el origen (aunque nada estamos diciendo de la existencia o no del l\'imite).
+
+    2. $f$ no es diferenciable en el origen pues no es continua en dicho punto.
+
+    3. Recordemos la definici\'on de derivada direccional de direcci\'on ${\mathbf{v}}$ evaluada en el origen de un campo escalar $f$.
+    \[
+        f_{{\mathbf{v}}}(0,0)=\lim_{h\to0}\frac{f((0,0)+h{\mathbf{v}})-f(0,0)}{h},
+    \]
+    con  ${\mathbf{v}}=(v_1,v_2)$ unitario.
+
+    Entonces calculamos
+    \begin{align*}
+        f_{{\mathbf{v}}}(0,0) & =\lim_{h\to0}\frac{f(h{\mathbf{v}})}{h}=\lim_{h\to0}\frac{1}{h}\frac{(hv_1)^4}{((hv_1)^2-hv_2)^2+(hv_1)^4} \\[.2cm]
+                              & =\lim_{h\to0}\frac{(hv_1)^4}{(hv_1)^4-2(hv_1)^2hv_2+(hv_2)^2+(hv_1)^4}                                     \\[.2cm]
+                              & =\lim_{h\to0}\frac{h^4v_1^4}{h^4v_1^4-2h^3v_1^2v_2+h^2v_2^2+h^4v_1^4}                                      \\[.2cm]
+                              & =\lim_{h\to0}\frac{h^2h^2v_1^4}{h^2(h^2v_1^4-2hv_1^2v_2+v_2^2+h^2v_1^4)}                                   \\[.2cm]
+                              & =\lim_{h\to0}\frac{h^2v_1^4}{h^2v_1^4-2hv_1^2v_2+v_2^2+h^2v_1^4}=\frac{0}{v_2^2}=0,
+    \end{align*}
+    si $v_2^2 \neq 0 \iff v_1^2 \neq 1 \iff |v_1| \neq 1$.  Veamos el caso  $v_1 = 1$
+    $$  \lim_{h\to0} \frac{f(h,0)-f(0,0)}{h} = \lim_{h\to0} \frac{1}{h}\frac{h^4}{(h^2)^2+h^4}=\lim_{h\to0}\frac{1}{h}\frac{1}{2}=\infty.$$ Es decir, no existe $f_x(0,0)$.  El caso  $v_1 = -1$ es an\'alogo.
+
+
+    O sea, las derividas direccionales existen en todas direcciones, menos en la dirección del eje de abscisas, y son iguales a cero. Es decir,
+    \[  \therefore\quad f_{{\mathbf{v}}}(0,0)=0\quad\forall{\mathbf{v}}\in\mathbb{R}^2: |v_1| \neq1,  \]
+    \[ \quad  \quad   \nexists \:f_{{\mathbf{v}}}(0,0) \;\mbox{si }{\mathbf{v}}\in\mathbb{R}^2: |v_1| = 1. \]
+
+
+
+\end{solution}
+
+%------------Solucion 3---------------------------------------
+
+\begin{solution}
+    Para resolver este límite debemos intuir que en el numerador se encuentra la función $g$ menos su plano tangente en el $(0,0)$. Entonces buscamos el gradiente de $g$ en el origen.
+
+    Dado que $f$ es  de  clase \(\mathcal{C}^1(\mathbb{R}^2)\) luego $g$  resulta de la misma clase.  Usando la regla de la cadena  y el hecho de que $f(0,0)=0$ obtenemos
+    \begin{align*}
+        \grad g(x,y)\Big\rvert_{(0,0)}= & \left( \;2xy+\cos\:(f(x,y))f_x(x,y),\;\; x^2+\cos\:(f(x,y))f_y(x,y)\; \right) \Big\rvert_{(0,0)} \\
+        =                                & \left( f_x(0,0),\;\; f_y(0,0) \right).
+    \end{align*}
+    Como $g(0,0)=0$ podemos reescribir el límite como
+    \begin{align*}
+         & \lim_{(x,y)\to(0,0)} \left(\frac{g(x,y)-\grad g(0,0)\cdot(x,y)-g(0,0)}{\sqrt{x^2+y^2}}+\frac{x^2+y^2}{\sqrt{x^2+y^2}}\right).
+    \end{align*}
+    El primer término tiende a cero dado que $g$ es  de  clase \(\mathcal{C}^1(\mathbb{R}^2)\)  entonces es diferenciable en todo $\mathbb{R}^{2}$ y,  en particular, lo es en el origen.  Para el segundo término hacemos un cálculo auxiliar.
+    \[
+        \lim_{(x,y)\to(0,0)}\frac{x^2+y^2}{\sqrt{x^2+y^2}}=\lim_{(x,y)\to(0,0)}\sqrt{x^2+y^2}=0
+    \]
+    Estamos en condiciones de usar \'algebra de l\'imites,
+    \[
+        \therefore \lim_{(x,y)\to(0,0)} \left(\frac{g(x,y)-\grad g(0,0)\cdot(x,y)-g(0,0)}{\sqrt{x^2+y^2}}+\frac{x^2+y^2}{\sqrt{x^2+y^2}}\right)=0.
+    \]
+\end{solution}
+
+%------------Solucion 4---------------------------------------
+
+\begin{solution}
+    Dado que $f$ es diferenciable en todo $\Rn{2}$    para hallar los puntos cr\'iticos  basta con buscar cuando su  gradiente se anula.
+    \[
+        \grad f(x,y)= \left( ye^{xy-1}-x,\; xe^{xy-1}-y \right)
+    \]
+    Igualando el gradiente a cero, nos queda el siguiente sistema de ecuaciones.
+    \[
+        \begin{cases}
+            ye^{xy-1}=x \\
+            xe^{xy-1}=y
+        \end{cases}
+    \]
+    Si $x\neq0 \;\;\land\;\; y\neq0$, entonces
+    \begin{equation}
+        e^{xy-1}=\frac{x}{y}=\frac{y}{x}. \label{eq:gradEq0}
+    \end{equation}
+    De la última igualdad hallamos la siguiente relación  $$  x^2=y^2 \iff x=y \;\;\lor\;\; x=-y.$$
+    Si  $x=y$ reemplazado en  \eqref{eq:gradEq0} queda
+    $$  e^{x^2-1}=1  \iff  x^2-1=0 \iff x=1 \;\;\lor\;\; x=-1.$$
+    Es f\'acil ver que el caso  $x=-y$  conlleva a un absurdo.   Por \'ultimo, observar que  el $(0,0)$  también es solución del sistema.  Por lo tanto, los puntos críticos son $(0,0),\;(1,1)$ y el $(-1,-1)$.
+
+    Para clasificarlos,  como $f \in C(\Rn{2})$ utilizamos el criterio de la segunda derivada.
+    \[
+        \setlength{\abovedisplayskip}{0.5cm}
+        \setlength{\belowdisplayskip}{0.5cm}
+        \boldsymbol{H}_f(x,y) = \left(\begin{array}{cc}
+                y^2e^{xy-1}-1  & e^{xy-1}(xy+1) \\[.4cm]
+                e^{xy-1}(xy+1) & x^2e^{xy-1}-1
+            \end{array}\right)
+    \]
+    Ahora evaluamos el determinante de la matriz hessiana para los puntos críticos
+    \[
+        \boldsymbol{H}_f(0,0) = \left(\begin{array}{cc}
+                -1  & 1/e \\
+                1/e & -1
+            \end{array}\right)
+        \implies \text{det} \left( \boldsymbol{H}_f(0,0) \right)  = 1 - \frac{1}{e^2} > 0
+    \]
+    y como $f_{xx}(0,0)=-1<0 \implies$ $f$ tiene un máximo local en 0.
+    \[
+        \boldsymbol{H}_f(1,1) = \left(\begin{array}{cc}
+                0 & 2 \\
+                2 & 0
+            \end{array}\right)
+        \implies \text{det} \left( \boldsymbol{H}_f(1,1) \right)  = -4 < 0
+    \]
+    $\implies \;f$ tiene un punto silla en (1,1).
+    \[
+        \boldsymbol{H}_f(-1,-1) = \left(\begin{array}{cc}
+                0 & 2 \\
+                2 & 0
+            \end{array}\right)
+        \implies \text{det} \left( \boldsymbol{H}_f(1,1) \right)  = -4 < 0
+    \]
+    $\implies \;f$ tiene un punto silla en $(-1,-1)$.
+
+    Por último, para analizar si el máximo en $(0,0)$ es local o absoluto basta calcular, por ejemplo, $f(2,2)$ para ver que es mayor que $f(0,0)$.
+
+    $\therefore\;f$ tiene dos puntos silla, uno en $(1,1)$ y otro en $(-1,-1)$, y un máximo local en $(0,0)$.
+
+\end{solution}
+

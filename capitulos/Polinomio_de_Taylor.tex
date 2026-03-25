@@ -1,0 +1,88 @@
+\label{sec:Taylor}
+
+\begin{definition}\textbf{Matriz Hessiana.}
+  Sea $f:U\subseteq\Rn{n}\to\R$ de clase $\mathcal{C}^2$. Se define la \emph{matriz hessiana de $f$ en $\mathbf{x}_0$}, y se nota por $\boldsymbol{H}_f(\mathbf{x}_0)$, a 
+  \[
+    \boldsymbol{H}_f(\mathbf{x}_0)=
+    \begin{bmatrix}
+      \grad{\dif{f(\mathbf{x}_0)}{x_1}}\\[.4cm]
+      \grad{\dif{f(\mathbf{x}_0)}{x_2}}\\[.4cm]
+      \vdotswithin{f}\\[.4cm]
+      \grad{\dif{f(\mathbf{x}_0)}{x_n}}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      \dfrac{\partial^2 f(\mathbf{x}_0)}{\partial x_1^2} & \dfrac{\partial^2 f(\mathbf{x}_0)}{\partial x_1 \partial x_2} &  \cdots & \dfrac{\partial^2 f(\mathbf{x}_0)}{\partial x_1 \partial x_n} \\[.4cm]
+      \dfrac{\partial^2 f(\mathbf{x}_0)}{\partial x_2 \partial x_1} & \dfrac{\partial^2 f(\mathbf{x}_0)}{\partial x_2^2} & \cdots & \dfrac{\partial^2 f(\mathbf{x}_0)}{\partial x_2 \partial x_n} \\[.4cm]
+      \vdots & \vdots & \ddots & \vdots \\[.4cm]
+      \dfrac{\partial^2 f(\mathbf{x}_0)}{\partial x_n \partial x_1} & \dfrac{\partial^2 f(\mathbf{x}_0)}{\partial x_n \partial x_2} & \cdots & \dfrac{\partial^2 f(\mathbf{x}_0)}{\partial x_n^2}
+    \end{bmatrix}.
+\]
+\end{definition}
+
+\begin{obs}
+Notar que $\boldsymbol{H}_f(\mathbf{x}_0)$ es una matriz cuadrada y sim\'etrica $\in \R^{n\times n}$, ya que $f\in\mathcal{C}^2$.
+\end{obs}
+
+\begin{theorem}\label{tayloro2} \textbf{Polinimio de Taylor de primer orden.}  Sea $f:U\subseteq\Rn{n}\to\R$  diferenciable. Se define el \emph{polinomio de Taylor de primer orden centrado en $\mathbf{x}_0$ de $f$}, y se nota por $T_1[f,\mathbf{x}_0](\mathbf{x})$, a
+  \[
+    T_1[f,\mathbf{x}_0](\mathbf{x})=f(\mathbf{x}_0)+\grad{f}(\mathbf{x}_0)\cdot(\mathbf{x-x}_0).
+  \]
+  Se define el \emph{resto del polinomio de Taylor de primer orden centrado en $\mathbf{x}_0$ de $f$}, y se nota por $R_1[f,\mathbf{x}_0](\mathbf{x})$, a
+  \[
+    R_1[f,\mathbf{x}_0](\mathbf{x})=f(\mathbf{x})-T_1[f,\mathbf{x}_0](\mathbf{x}).
+  \]
+  Entonces se cumple que
+  \[
+    \lim_{\mathbf{x-x}_0}\dfrac{R_1[f,\mathbf{x}_0](\mathbf{x})}{\|\mathbf{x-x}_0\|}=0.
+  \]
+  Si, adem\'as, $f\in\mathcal{C}^2\implies\exists\:\mathbf{c}\in\Rn{n}$, en el segmento que une $\mathbf{x}$ con $\mathbf{x}_0$, tal que \footnote{El super\'indice T denota la transpuesta de una matriz. Notar que se toma al vector $\mathbf{x}\in\R^{1\times n}$.}
+  \[
+    R_1[f,\mathbf{x}_0](\mathbf{x})=\frac{1}{2!}(\mathbf{x-x}_0)\boldsymbol{H}_f(\mathbf{c})(\mathbf{x-x}_0)^\text{T}.
+  \]
+\end{theorem}
+
+\begin{theorem}\label{tayloro2} \textbf{Polinimio de Taylor de segundo orden.}  Sea $f:U\subseteq\Rn{n}\to\R$ de clase $\mathcal{C}^2$. Se define el \emph{polinomio de Taylor de segundo orden centrado en $\mathbf{x}_0$ de $f$}, y se nota por $T_2[f,\mathbf{x}_0](\mathbf{x})$, a
+  \[
+    T_2[f,\mathbf{x}_0](\mathbf{x})=f(\mathbf{x}_0)+\grad{f}(\mathbf{x}_0)\cdot(\mathbf{x-x}_0)+\frac{1}{2!}(\mathbf{x-x}_0)\boldsymbol{H}_f(\mathbf{x}_0)(\mathbf{x-x}_0)^\text{T}.
+  \]
+  Se define el \emph{resto del polinomio de Taylor de segundo orden centrado en $\mathbf{x}_0$ de $f$}, y se nota por $R_2[f,\mathbf{x}_0](\mathbf{x})$, a
+  \[
+    R_2[f,\mathbf{x}_0](\mathbf{x})=f(\mathbf{x})-T_2[f,\mathbf{x}_0](\mathbf{x}).
+  \]
+  Entonces se cumple que
+  \[
+    \lim_{\mathbf{x-x}_0}\dfrac{R_2[f,\mathbf{x}_0](\mathbf{x})}{\|\mathbf{x-x}_0\|^2}=0.
+  \]
+  Si, adem\'as, $f\in\mathcal{C}^3\implies\exists\:\mathbf{c}\in\Rn{n}$, en el segmento que une $\mathbf{x}$ con $\mathbf{x}_0$, tal que
+  \[
+    R_2[f,\mathbf{x}_0](\mathbf{x})=\sum_{i,j,k=1}^{n}\frac{1}{3!}\dfrac{\partial^3 f(\mathbf{c})}{\partial x_i \partial x_j \partial x_k}(x_i-x_{0i})(x_j-x_{0j})(x_k-x_{0k}).
+  \]
+\end{theorem}
+
+\begin{obs} En (\ref{tayloro2}), el caso particular para $n=2$ queda:   $$\grad{f}(x_0,y_0) = ( f_x(x_0,y_0), f_y(x_0,y_0)), $$
+$$Hf(x_0,y_0) \;=\; 
+\begin{bmatrix}
+  f_{xx}(x_0,y_0) & f_{xy}(x_0,y_0) \\[6pt]
+  f_{yx}(x_0,y_0) & f_{yy}(x_0,y_0)
+\end{bmatrix}.
+$$ y 
+\begin{align*}
+  T_2[f, (x_0,y_0)](x,y) &=   f(x_0,y_0)  + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0) \\
+&+ \tfrac{1}{2}\Big( f_{xx}(x_0,y_0)(x-x_0)^2 + 2f_{xy}(x_0,y_0)(x-x_0)(y-y_0) + f_{yy}(x_0,y_0)(y-y_0)^2\Big).
+\end{align*} 
+\end{obs}
+
+\begin{tarea} Aproximar, mediante un polinomio de grado dos adecuado, a
+$$e^{1+\sen(0.1)+\cos\left(\frac{8}{9}\pi\right)}$$
+\end{tarea}
+
+
+\begin{tarea}
+Sea $g(x,y)=yx^{2} + \sen\big(f(x,y)\big)$  con $f$  un campo escalar  $C^{2}(\mathbb{R}^{2})$ tal que $f(0,0)=0$. Calcular 
+$$\lim_{(x,y)\rightarrow(0,0)} \dfrac{g(x,y) - xf_x(0,0) - yf_y(0,0)+x^{2}+y^{2}}{\sqrt{x^{2}+y^{2}} }$$
+\end{tarea}
+
+
+
+

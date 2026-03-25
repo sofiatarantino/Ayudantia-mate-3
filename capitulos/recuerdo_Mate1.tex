@@ -1,0 +1,285 @@
+\begin{definition}{\textbf{Partición.}}
+    Se llama \textit{partición} de un intervalo real $[a,b]$ a un conjunto de puntos $P=\left\{x_1,x_2,...,x_{n-1}\right\}$, tal que
+    \begin{equation*}
+        a=x_0<x_1<x_2<...<x_{n-1}<b=x_n.
+    \end{equation*}
+    Así, la partición $P$ divide $[a,b]$ en $n$ subintervalos cerrados
+    \begin{equation*}
+        [a,x_1],[x_1,x_2],...,[x_{n-1},b].
+    \end{equation*}
+\end{definition}
+
+\begin{definition}{\textbf{Función.}}
+   Se llama \textit{función} a la regla que asigna a cada elemento de un conjunto
+    $A$  un y s\'olo un elemento de un conjunto $B$. Tomaremos, en esta secci\'on,  el caso  donde $A, B \subseteq \mathbb{R}.$   La manera habitual de denotar una funci\'on $f$ es $$f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R}.$$  A los conjuntos $A$ y $B$  se los llama, respectivamente, \textit{dominio}  y \textit{codominio} de la funci\'on y  la notaci\'on usual para los mismos  es  $A=\text{Dom}(f)$ y $B=\text{Cod}(f)$.
+    \label{def:FuncMate1}
+\end{definition}
+
+
+\begin{definition} {\textbf{Imagen.}}
+    Dada una funci\'on $f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R},$  se llama \textit{imagen} de una función y se nota  $\text{Img}(f)$, a
+    al conjunto 
+    \begin{equation*}
+        \text{Img}(f) = \left\{ y\in B: \exists\;x\in A\:|\:f(x)=y \right\}.    
+    \end{equation*}
+\end{definition}
+
+\begin{definition}{\textbf{Gráfica.}}
+    \label{def:grafm1}
+   Dada una función $f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R}$ se define la \textit{gráfica} de $f$, y se nota  $\text{Graf}(f)$, al conjunto
+    \begin{equation*}
+        \text{Graf}(f) = \left\{ (x,y)\in \mathbb{R}^{2}: x \in A\;\land\;y=f(x)\right\}.    
+    \end{equation*}
+\end{definition}
+
+
+%\textcolor{red}{Aca hay un lio en los ejemplos, la tabla y el grafico no corresponden a la formula. Hacer dos ejemplos completo por separado. }
+
+\begin{example} Dibujar la gr\'afica de $f$ siendo  $$f:  [-2,\infty]  \subseteq \mathbb{R} \rightarrow  \mathbb{R} \:|\:  f(x)=2x-1$$ Tenemos que, por definici\'on,   $\text{Dom}(f)=  [-2,+\infty)$ y   $\text{Cod}(f)=  \mathbb{R}$, adem\'as es sencillo ver que $\text{Img}(f)= [-5,+\infty)$ .
+  Para hallar algunos puntos en la gr\'afica de $f$ se puede hacer una tabla de valores:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            $x$ & $y=f(x)=2x-1$ \\ \hline
+            -2  & -5        \\ \hline
+            -1  & -3        \\ \hline
+            0   & -1        \\ \hline
+            1   & 1        \\ \hline
+            2   & 3        \\ \hline
+            \end{tabular}
+      \end{table} es decir,
+       \begin{equation*}
+        \left\{(-2,-5), (-1,-3), (0,-1), (1,1),(2,3) \right\}\subset \text{Graf}(f)
+    \end{equation*}  Estos puntos, se pueden graficar sobre un plano cartesiano.
+
+\begin{figure}[H] 
+       \begin{center}
+      % \tikzsetnextfilename{puntos-cartesianos}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    axis lines = middle,
+                    xmin = -2.5, xmax = 2.5,
+                         ymin = -5.5, ymax = 3.5,
+                         xlabel = {$x$},
+                         ylabel = {$y$},
+                         domain = -2:2,
+                         samples = 100,
+                         xtick={-2,-1,1,2},
+                         ytick={1,2,3,-1,-2,-3,-4,-5},
+                         clip=false,
+                         ]
+                
+                         % Define the curves
+                         \fill[red] (0,-1) circle (4pt);
+                         \fill[red] (-2,-5) circle (4pt);
+                         \fill[red] (-1,-3) circle (4pt);
+                         \fill[red] (1,1) circle (4pt);
+                        \fill[red] (2,3) circle (4pt);
+                     \end{axis}
+                 \end{tikzpicture}
+             \end{center}
+             \caption{El plano cartesiano y en rojo los puntos pertenecientes a la tabla}
+        \label{fig:unitCircle1} 
+   \end{figure}
+
+Además, sabemos que la función corresponde a una función lineal, por lo que, para graficar los infinitos puntos pertenecientes
+    a la $\text{Graf}(f)$ podemos unir los anteriores con una recta.
+    \begin{figure}[H] 
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    axis lines = middle,
+                    xmin = -2.5, xmax = 2.5,
+                    ymin = -5.5, ymax = 3.5,
+                    xlabel = {$x$},
+                    ylabel = {$y$},
+                    domain = -2:2,
+                    samples = 100,
+                    xtick={-2,-1,1,2},
+                    ytick={1,2,3,-1,-2,-3,-4,-5},
+                    clip=false,
+                    ]
+                
+                    % Define the curves
+                    \addplot[name path=A, blue, thick, domain=-2:2] {2*x-1};
+                    \fill[red] (0,-1) circle (4pt);
+                    \fill[red] (-2,-5) circle (4pt);
+                    \fill[red] (-1,-3) circle (4pt);
+                    \fill[red] (1,1) circle (4pt);
+                    \fill[red] (2,3) circle (4pt);
+                \end{axis}
+            \end{tikzpicture}
+            \end{center}
+        \caption{En rojo, los puntos de la tabla de valores y en azul la $\text{Graf}(f)$.}
+        %\label{fig:unitCircle1} % Etiqueta para hacer referencia a la imagen
+    \end{figure}
+
+  \end{example}
+\begin{example} Dibujar la gr\'afica de $f$ siendo $$f: [-2,2]  \subseteq \mathbb{R} \rightarrow  \mathbb{R} \:|\:  f(x)=x^2.$$    En este caso, por definici\'on,  tenemos que $\text{Dom}(f)=  [-2,2]$ y $\text{Cod}(f)=  \mathbb{R}$. Adem\'as, es f\'acil ver que $\text{Img}(f)= [0,4].$
+
+Anlogamente al ejemplo anterior,  armamos una tabla de valores para $f$:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            $x$ & $y=f(x)=x^2$ \\ \hline
+            -2  & 4        \\ \hline
+            -1  & 1        \\ \hline
+            0   & 0        \\ \hline
+            1   & 1        \\ \hline
+            2   & 4        \\ \hline
+            \end{tabular}
+      \end{table} es decir, 
+     
+    \begin{equation*}
+        \left\{ (-2,4),(-1,1),(0,0),(1,1),(2,4) \right\}\subset \text{Graf}(f)
+    \end{equation*}
+ 
+ Estos puntos, se pueden graficar sobre un plano cartesiano.
+
+\begin{figure}[H] 
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    axis lines = middle,
+                    xmin = -2.5, xmax = 2.5,
+                    ymin = 0, ymax = 4.5,
+                    xlabel = {$x$},
+                    ylabel = {$y$},
+                    domain = -2:2,
+                    samples = 100,
+                    xtick={-2,-1,1,2},
+                    ytick={1,2,3,4},
+                    clip=false,
+                    ]
+                
+                    % Define the curves
+                    \fill[red] (0,0) circle (4pt);
+                    \fill[red] (-2,4) circle (4pt);
+                    \fill[red] (-1,1) circle (4pt);
+                    \fill[red] (1,1) circle (4pt);
+                    \fill[red] (2,4) circle (4pt);
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+        \caption{Subconjunto de los puntos pertenecientes a la $\text{Graf}(f)$ posicionados sobre el plano x-y.}
+        %\label{fig:unitCircle1} % Etiqueta para hacer referencia a la imagen
+\end{figure}
+
+ Por conocimiento previo, sabemos que la forma de unir estos puntos para graficar $f$ es a través de una parábola. Así, 
+ se están dibujando los infinitos puntos pertenecientes a la $\text{Graf}(f)$ sobre el plano.
+        \begin{figure}[H] 
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        axis lines = middle,
+                        xmin = -2.5, xmax = 2.5,
+                        ymin = 0, ymax = 4.5,
+                        xlabel = {$x$},
+                        ylabel = {$y$},
+                        domain = -2:2,
+                        samples = 100,
+                        xtick={-2,-1,1,2},
+                        ytick={1,2,3,4},
+                        clip=false,
+                        ]
+                    
+                        % Define the curves
+                        \addplot[name path=A, blue, thick, domain=-2:2] {x^2};
+                        \fill[red] (0,0) circle (4pt);
+                        \fill[red] (-2,4) circle (4pt);
+                        \fill[red] (-1,1) circle (4pt);
+                        \fill[red] (1,1) circle (4pt);
+                        \fill[red] (2,4) circle (4pt);
+                    \end{axis}
+                \end{tikzpicture}
+                \end{center}
+            \caption{En rojo, los puntos del subconjunto de la gráfica de la figura anterior. En azul, $\text{Graf}(f)$, con sus infinitos puntos, en el intervalo $[-2,2]$.}
+            %\label{fig:unitCircle1} % Etiqueta para hacer referencia a la imagen
+        \end{figure}
+\end{example}
+\begin{definition}
+  
+  Sea la funci\'on $f: A \subseteq \mathbb{R} \rightarrow B \subseteq \mathbb{R}$. Diremos que
+   $f$ es \textit{sobreyectiva} si se cumple que su codominio es igual a su imagen, esto es
+   \begin{equation*}
+        \text{Cod}(f)=\text{Img}(f).
+    \end{equation*}   Es decir que cada elemento del conjunto de salida es la evaluación de la función en al menos un elemento del dominio.
+ Diremos que $f$ es   \textit{inyectiva} si a cada elemento en el conjunto imagen le corresponde un único
+    valor del  conjunto dominio, esto es,   si  $a,b\in \text{Dom}(f)$, entonces:
+     \begin{equation*}
+        a=b \iff f(a)=f(b),
+    \end{equation*} 
+ Finalmente, diremos que $f$  es \textit{biyectiva} cuando es\textit{sobreyectiva} e \textit{inyectiva} a la vez.
+\end{definition}
+
+\begin{definition}{\textbf{Límite.}}
+    Sea $f$ una funci\'on  definida en un intervalo abierto alrededor de $x_0$, excepto posiblemente $x_0$.   Diremos que el l\'imite de $f$ cuando $x$ tiende a $x_0$ es $L$, y lo notaremos por 
+   \begin{equation*}
+        \lim_{x\to x_0}{f(x)}=L
+    \end{equation*}  si se cumple la siguiente condici\'on
+    \begin{equation*}
+        \forall \epsilon>0 : \exists \delta >0 : 0<\left\lvert x-x_0 \right\rvert<\delta \Rightarrow \left\lvert f(x) - L\right\rvert < \epsilon 
+    \end{equation*}
+    \label{def:Limite}
+\end{definition}
+
+\begin{obs}{\textbf{Límites Notables.}}
+    \label{obs:LimitesNotables}
+   Se deja al lector probar los siguientes límites  los cuales ser\'an de utilidad m\'as adelante. 
+
+    \begin{minipage}{0.45\textwidth}
+        \begin{equation}
+            \lim_{x\to 0}{\frac{\sin{x}}{x}}=1
+            \label{limNot:sen(x)/x}
+        \end{equation}
+        \begin{equation}
+            \lim_{x\to 0}{\frac{1-\cos{x}}{x}}=0
+            \label{limNot:(1-cos(x))/x}
+        \end{equation}
+        \begin{equation}
+            \lim_{x\to 0}{\frac{\exp{kx}-1}{x}}=k
+            \label{limNot:(e^{kx}-1)/(x)}
+        \end{equation}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \begin{equation}
+            \lim_{x\to 0}{\frac{a^{kx}-1}{x}}=k\ln{a}
+            \label{limNot:(a^(kx)-1)/(x)}
+        \end{equation}
+        \begin{equation}
+            \lim_{x\to +\infty}{\left( 1+\frac{1}{x} \right)^x}=e
+            \label{limNot:e}
+        \end{equation}
+        \begin{equation}
+            \lim_{x\to 0}{\ln{\left(\frac{1+x}{x} \right)}}=1
+            \label{limNot:ln(1+x/x)}
+        \end{equation}
+    \end{minipage}
+\end{obs}
+
+\begin{definition}{\textbf{Polinomio de Taylor.}}
+    Sea $f$ una función  y  $a \in \text{Dom}(f)$ tal que $f$ admite derivadas de orden $n$ en $a$. Se llama \textit{polinomio de Taylor de orden $n$ centrado en $a$ de la función $f$}, y se nota por $T_n[f,a](x)$, a:
+    \begin{equation*}
+        T_n[f,a](x) = \sum^n_{k=0} \frac{f^{(k)}(a)}{k!}(x-a)^k 
+    \end{equation*}
+    \label{def:PolTaylor}
+\end{definition}
+
+\begin{definition}{\textbf{Resto de Taylor.}}
+  En las condiciones de la definici\'on anterior,  se llama \textit{resto de Taylor} de orden $n$ de $f$, y se nota por $  R_n[f,a]$, a
+    \begin{equation*}
+        R_n[f,a](x) = f(x)-T_n[f,a](x).
+    \end{equation*}
+ \end{definition} 
+   
+  \begin{propertie}{\textbf{Propiedad del Resto de Taylor.}}  Si $f$ es  una función con $n+1$ derivadas continuas  en el intervalo cerrado de extremos $a$ y $x$ entonces 
+    existe $c\in\mathbb{R}$ en el intervalo abierto de mismos extremos tal que
+    \begin{equation*}
+        R_n[f,a](x) = f^{(n+1)}(c)\frac{(x-a)^{n+1}}{(n+1)!}.
+    \end{equation*}
+    A esta última expresi\'on se la llama \textit{fórmula de Lagrange para resto}.
+    \label{def:RestoTaylor}
+\end{propertie}

@@ -1,0 +1,127 @@
+\label{sec:extremos}
+
+
+
+
+\begin{definition} \textbf{Extremos locales y globales.} \label{def:extremos} Sean $f: A  \subseteq  \Rn{n} \to \R$ y $\mathbf{x}_0 \in A$. Decimos que:
+ \begin{itemize}
+  \item $f \text{ tiene un \emph{m\'aximo local} o \emph{relativo} en } \mathbf{x}_0 \text{ si } \exists\: \delta > 0 : f(\mathbf{x}_0) \ge f(\mathbf{x}),\;\forall \mathbf{x} \in B_{\delta}(\mathbf{x}_0) \cap A.$ 
+  \item $f \text{ tiene un \emph{m\'inimo local} o \emph{relativo} en } \mathbf{x}_0 \text{ si } \exists\: \delta > 0 : f(\mathbf{x}_0) \le f(\mathbf{x}),\;\forall \mathbf{x} \in B_{\delta}(\mathbf{x}_0) \cap A.$
+  \item $f \text{ tiene un \emph{m\'aximo global} o \emph{absoluto} en } \mathbf{x}_0 \text{ si } f(\mathbf{x}_0) \ge f(\mathbf{x}),\;\forall \mathbf{x} \in A.$ 
+  \item $f \text{ tiene un \emph{m\'inimo global} o \emph{absoluto} en } \mathbf{x}_0 \text{ si } f(\mathbf{x}_0) \le f(\mathbf{x}),\;\forall \mathbf{x} \in A.$
+ \end{itemize}
+ Decimos que $f$ tiene un \emph{extremo} en $\mathbf{x}_0$ si $f$ tiene un m\'aximo o m\'inimo (absoluto o relativo) en $\mathbf{x}_0$.
+\end{definition}
+
+\begin{obs}
+ Notemos que todo extremo absoluto es \emph{tambi\'en} un extremo relativo. La rec\'iproca de esta afirmaci\'on es falsa (un extremo relativo no tiene por qu\'e ser absoluto).
+\end{obs}
+
+\begin{theorem}\textbf{Condici\'on necesaria de extremo.} \label{teo:grad_nulo} Sea $f: A  \subseteq  \Rn{n} \to \R$ diferenciable en alg\'un entorno abierto de $\mathbf{x}_0 \in \interior{(A)}$. Supongamos que $f$ tiene un extremo en $\mathbf{x}_0$. Entonces
+ \[
+  \grad f(\mathbf{x}_0) = \mathbf{0}.
+ \]
+\end{theorem}
+
+\begin{definition} \textbf{Punto cr\'itico.} \label{def:pto_crit}
+ Sean $f: A  \subseteq  \Rn{n} \to \R$ y $\mathbf{x}_0 \in \interior{(A)}$. Decimos que $\mathbf{x}_0$ es un \emph{punto cr\'itico} de $f$ si $f$ no es diferenciable en $\mathbf{x}_0$ o $\grad f{(\mathbf{x}_0)} = \mathbf{0}$.
+\end{definition}
+
+\begin{definition} \textbf{Punto silla.} \label{def:pto_silla}
+ Sean $f: A  \subseteq  \Rn{n} \to \R$ y $\mathbf{x}_0 \in \interior{(A)}$. Si $\mathbf{x}_0$ es un punto cr\'itico de $f$ y $f$ no tiene un extremo en $\mathbf{x}_0$, decimos que $f$ tiene un \emph{punto silla} en $\mathbf{x}_0$.
+\end{definition}
+
+\begin{theorem}\textbf{Criterio de la derivada segunda.} \label{teo:derivada_2da}
+  Sean $A  \subseteq  \Rn{2}$ un conjunto abierto y $f: A  \subseteq  \Rn{2} \to \R$ una funci\'on de clase $\mathcal{C}^2$. Sea $(x_0,y_0) \in A$ y supongamos que $\grad f(x_0,y_0) = \mathbf{0}$. Entonces,  
+   \begin{enumerate} %[I.]
+      \item si $\det(\boldsymbol{H}_f (x_0,y_0)) > 0$ y
+      \begin{enumerate} %[(a)]
+          \item $f_{xx} (x_0,y_0) > 0\implies f$ tiene un m\'inimo local en $(x_0,y_0)$;
+          \item $f_{xx} (x_0,y_0) < 0\implies f$ tiene un m\'aximo local en $(x_0,y_0)$;
+      \end{enumerate}
+      \item si $\det(\boldsymbol{H}_f (x_0,y_0)) < 0 \implies f$ tiene un \emph{punto silla} en $(x_0,y_0)$.
+   \end{enumerate}  
+\end{theorem}
+
+\begin{tarea}  Para las funciones  $f:\R^{2}\rightarrow\R$ : $\displaystyle f(x,y)= x^{2} + y^{2}$  y $g:\R^{2}\rightarrow\R$ : $\displaystyle f(x,y)= x^{2} - y^{2}$,  hallar  puntos cr\'iticos y clasificarlos como extremos locales,  extremos absolutos o puntos silla,  segun corresponda.
+\end{tarea}
+
+\begin{obs}
+  Notar que es indistinto evaluar el signo de $f_{xx}$ o $f_{yy}$. Si $f\in\mathcal{C}^2$  entonces  por ( \ref{teo:schwarz}) sabemos que$ f_{xy}=f_{yx}$ y  dada la matriz hessiana $\boldsymbol{H}_f$ de $f$ tenemos que
+  \[
+    \text{det}(\boldsymbol{H}_f)=f_{xx}f_{yy}-f_{xy}^2,
+  \] luego, 
+ \[
+    \text{det}(\boldsymbol{H}_f)>0\implies f_{xx}f_{yy}>f_{xy}^2\implies f_{xx}>0\;\land\; f_{yy}>0\quad\lor\quad f_{xx}<0\;\land\; f_{yy}<0.
+  \]
+  Lo que significa que 
+  \[
+    \text{sgn}(f_{xx})=\text{sgn}(f_{yy}).
+  \]
+\end{obs}
+
+
+
+\begin{tarea} Sea la función   $f:\R^{2}\rightarrow\R$ : $\displaystyle f(x,y) = x^{4} - 2x^{2} + y^{4} - 2y^{2}$.  Hallar los puntos cr\'iticos de $f$ y clasificarlos como extremos locales,  extremos absolutos o puntos silla,  segun corresponda.
+\end{tarea}
+
+
+
+\begin{tarea}  Sea la funci\'on  $f:\R^{2}\rightarrow\R$ : $\displaystyle f(x,y)=(x-1)^{2} + (x-y)^{4}$.  Hallar los puntos cr\'iticos de $f$ y clasificarlos como extremos locales,  extremos absolutos o puntos silla,  segun corresponda.
+\end{tarea}
+
+\begin{tarea}
+Analizar la existencia de m\'aximos y  m\'inimos, absolutos o relativos, en todo $\mathbb{R}^2{}$ de $$f(x,y)= e^{xy-1} - \frac{1}{2}x^{2}-\frac{1}{2}y^{2}.$$ 
+\end{tarea}
+
+El problema de encontrar extremos (máximos y mínimos) de una función sobre un conjunto cerrado y acotado es un clásico en an\'alisis multivariado. 
+
+\begin{theorem}\textbf{Weierstrass. Valores extremos. } \label{teo:weier}  Sean $A  \subseteq  \Rn{n}$ un conjunto cerrado y acotado y $f: A  \subseteq  \Rn{n} \to \R$ una funci\'on continua. Entonces $f$ alcanza un m\'aximo y un m\'inimo absoluto en $A$.
+\end{theorem}
+
+\begin{theorem} \textbf{M\'etodo de multiplicadores de Lagrange.} \label{teo:lagrange} Sean $f:U  \subseteq  \Rn{n} \to \R$ y $g:U  \subseteq  \Rn{n} \to \R$ funciones de clase $\mathcal{C}^1$. Sea $\mathbf{x}_0 \in U$ y sea $c = g(\mathbf{x}_0)$. Sea $S$ el conjunto de nivel $c$ de $g$. Supongamos que $\grad g (\mathbf{x}_0) \ne \mathbf{0}$. Si $f|_S$ (que denota a la restricci\'on de $f$ a $S$) tiene un extremo local en $\mathbf{x}_0$, entonces $\exists\: \lambda \in \R$ tal que
+    \[
+     \grad f (\mathbf{x}_0) = \lambda \grad g (\mathbf{x}_0).
+    \]
+\end{theorem}
+
+
+
+
+
+
+
+
+ \begin{obs}  Supongamos que la funci\'on \(f\) es continua y está definida sobre un conjunto cerrado y acotado \(D \subseteq \mathbb{R}^n\). El procedimiento general es:
+
+\begin{enumerate}
+    \item \textbf{Buscar los puntos críticos en el interior del dominio} ( \ref{def:pto_crit})
+    \item \textbf{Buscar los puntos críticos en  la frontera del dominio}   
+    \begin{itemize}
+        \item Describir o parametrizar la frontera de \(D\).
+        \item Restringir la función \(f\) a la frontera.
+        \item Buscar los puntos cr\'iticos de la función restringida. (\ref{teo:lagrange})
+    \end{itemize}
+      \item \textbf{Evaluar a $f$ en todos los valores obtenidos}
+
+    \item \textbf{Comparar todos los valores obtenidos.} Por  (\ref{teo:weier}), el punto (puede haber m\'as de uno) en el cual $f$ alcanza el  mayor valor es el \textbf{máximo absoluto} de $f$ sobre $D$ y el punto (puede haber m\'as de uno) en el cual $f$ alcanza el  menor valor  es el \textbf{mínimo absoluto} de \(f\) sobre \(D\).
+\end{enumerate}
+\end{obs}
+
+
+
+\begin{tarea}
+Hallar los valores  m\'inimo y  m\'aximo de la funci\'on  $\displaystyle f(x,y,z)= x+y+z$ definida sobre    $\displaystyle   x^{2}+y^{2}+z^{2} \leq 1. $
+\end{tarea}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,352 @@
+
+%----------------------------------------------------------------
+\begin{question}
+
+\vspace{1em} % Espacio vertical adicional
+
+\begin{itemize}
+    \item[a)] Calcular, si existe
+    \[
+        \lim_{(x,y)\to(0,0)} \frac{\sin^2{(x^{\frac{1}{3}}y)}(e^{x^2+y^2}-1)}{(x^2+y^2)^2}
+    \]
+     \item[b)] Calcular por definicion,
+     \[
+        \lim_{(x,y)\to(0,0)} \frac{3x^2+5xy^2+3y^2}{x^2+y^2}
+    \]
+\end{itemize}
+
+
+
+\end{question}
+
+%---------------------------------------------------------------------
+\begin{question}
+    Sea $f$ un campo escalar diferenciable en todo $\Rn{2}$ y sea $\pi:2x+3y+4z=1$ el plano tangente a la gráfica de $f$ en el punto $(1,2,f(1,2))$. Hallar todos los vectores unitarios $v$ tales que $f_v(1,2)=0.$
+\end{question}
+%------------------------------------------------
+\begin{question}
+    Analizar la diferenciabilidad de $f$ en (0,0) siendo
+      \[
+        f(x,y) =
+        \begin{dcases}
+            \frac{x^2y^2}{x^2y^2+(x-y)^2} & \textnormal{si}\ (x,y) \neq (0,0) \\
+            0                         & \textnormal{si}\ (x,y) = (0,0)
+        \end{dcases}
+    \]
+\end{question}
+%------------------------------------------------------------------
+\begin{question}
+    Sean $g(x,y)=(xy^2,x^2-2y)$ y $h(x,y)=f \circ g(x,y)$ con $f$ de clase $\mathcal{C}^1$ en $\Rn{2}$. Sabiendo que $h(1,-1)=2$ y que $\grad h(1,-1)=(2,-4)$. Calcular
+    \[
+        \lim_{(x,y)\to (1,3)} \ 
+        \frac{f(x,y)-2x+(x-1)^3}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}}       
+    \]
+\end{question}
+%---------------------------------------------------------------------
+\newpage
+
+\begin{solution}
+    Para resolver el item a, se busca utilizar los notables conocidos de funciones del tipo $f:\R\Rightarrow\R$ para resolver el limite pedido, en primer lugar se multiplica arriba y abajo por $(x^{\frac{2}{3}}y^2)$ sabiendo que $(x,y)\neq(0,0)$
+    \[
+        \lim_{(x,y)\to(0,0)} \frac{\sin^2{(x^{\frac{1}{3}}y)}}{(x^{\frac{2}{3}}y^2)}\frac{(e^{x^2+y^2}-1)}{(x^2+y^2)}\frac{(x^{\frac{2}{3}}y^2)}{(x^2+y^2)}
+    \]
+Primero se utiliza el límite notable conocido:    
+\[
+        \lim_{t\to 0} \
+        (\frac{e^{t}-1}{t})=1
+    \]
+    Llamamos  $t_1(x,y)=x^{2}+y^{2}$ y sabemos que 
+   \[
+        \lim_{(x,y)\to(0,0)} t_1(x,y)=0
+    \]
+    Definimos $g_1(z)=\frac{e^{z}-1}{z} $ y realizando la composición $f(x,y)=g_1\circ t_1(x,y) \hspace{0.25cm}\forall (x,y)\in \mathbb{R}^ 2 -(0,0)$ tenemos que
+\[
+        \lim_{(x,y)\to (0,0)} \
+        g_1\circ t_1(x,y)=\lim_{(x,y)\to (0,0)} \
+        g_1(t_1(x,y))=\lim_{t_1(x,y)\to 0} \
+        \frac{e^{t_1(x,y)}-1}{t_1(x,y)}=1
+    \]
+En segundo lugar, se utiliza el notable conocido: 
+\[
+        \lim_{t\to 0} \
+        \frac{\sin^2{(t)}}{t^2}=1
+ \]
+  Llamamos  $t_2(x,y)=x^{\frac{1}{3}}y$ y sabemos que 
+   \[
+        \lim_{(x,y)\to(0,0)} t_2(x,y)=0
+    \]
+    Definimos $g_2(z)=\frac{\sin^2{(z)}}{z^2} $ y realizando la composición $f(x,y)=g_2\circ t_2(x,y) \hspace{0.25cm}\forall (x,y)\in \mathbb{R}^ 2 -(0,0)$ tenemos que
+\[
+        \lim_{(x,y)\to (0,0)} \
+        g_2\circ t_2(x,y)=\lim_{(x,y)\to (0,0)} \
+        g_2(t_2(x,y))=\lim_{t_2(x,y)\to 0} \
+        \frac{\sin^2{(t_2(x,y))}}{t_2(x,y)^2}=1
+    \]
+
+    De esta manera, se resuelve en un cálculo auxiliar el tercer término del límite solicitado
+\[
+        \lim_{(x,y)\to(0,0)} \frac{(x^{\frac{2}{3}}y^2)}{(x^2+y^2)}=0
+    \]
+Ya que podemos utilizar la propiedad de acotada por cero:
+\[
+        0\le y^2\le x^2+y^2    \Rightarrow   0\le \frac{y^2}{x^2+y^2}\le 1
+    \]
+Por lo cual, finalmente
+\[
+        \lim_{(x,y)\to(0,0)} \frac{\sin^2{(x^{\frac{1}{3}}y)}(e^{x^2+y^2}-1)}{(x^2+y^2)^2}=0
+    \]
+\newpage
+Para el item b, se nos pide calcular el siguiente limite por defincion
+\[
+        \lim_{(x,y)\to(0,0)} \frac{3x^2+5xy^2+3y^2}{x^2+y^2}
+    \]
+Sabemos que:
+\[
+\lim_{(x,y) \to (0,0)} f(x,y) = L
+\]
+si, para cada \( \epsilon > 0 \), existe un \( \delta > 0 \) / \( 0 < |(x,y)| < \delta \) $\Rightarrow$ \( |f(x,y) - L| < \epsilon \).
+Partimos de 
+\[
+|\frac{3x^2+5xy^2+3y^2}{x^2+y^2}-L|=|3+\frac{5xy^2}{x^2+y^2}-L|
+\]
+Propongo $L=3$, entonces
+\[
+|f(x,y) - L|=|\frac{5xy^2}{x^2+y^2}|=\frac{5|x|y^2}{x^2+y^2}
+\]
+Sabemos que 
+\[
+0\le x^2\le x^2+y^2 \Rightarrow 0\le |x|\le \sqrt{x^2+y^2 }
+\]
+\[
+0\le y^2\le x^2+y^2
+\]
+Por lo cual
+\[
+\frac{5|x|y^2}{x^2+y^2} \le \frac{5(\sqrt{x^2+y^2})(x^2+y^2)}{x^2+y^2}=5(\sqrt{x^2+y^2})<5\delta
+\]
+Basta con tomar $\delta=\frac{\epsilon}{5}$ de manera que resulta
+\[
+5(\sqrt{x^2+y^2})<5\delta<\epsilon
+\]
+$\therefore  \lim_{(x,y)\to(0,0)} \frac{3x^2+5xy^2+3y^2}{x^2+y^2}=3$ 
+\end{solution}
+\newpage
+
+
+%---------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{solution}
+Sabemos que el plano tangente a la gráfica de $f$ en el punto $(1,2,f(1,2))$ se escribe como:
+\[   
+    z= f(1,2) + \grad f(1,2)(x-1,y-2)
+\]
+
+Ademas, se nos da de dato que el plano tangente de $f$ en el punto $(1,2,f(1,2))$ es $\pi:2x+3y+4z=1$, por lo cual lo vamos a reescribir de la siguiente forma:
+
+\[   
+z= -\frac{7}{4} + (-\frac{1}{2},-\frac{3}{4})(x-1,y-2)
+\]
+
+Por lo cual sabemos que,
+\[   
+f(1,2)=-\frac{7}{4}
+\]
+\[
+ \grad f(1,2)=(-\frac{1}{2},-\frac{3}{4})
+\]
+
+
+    Como   $f$ es diferenciable en todo $\Rn{2}$, entonces $f$ admite todas sus derivadas direccionales en (1,2) y además, $f_v(1,2)=\grad f(1,2).v$ / $\|\mathbf{v}\|=1$ , de esta manera definimos un $v=(v_1,v_2)$ y armamos un sistema de ecuaciones.
+     y con la información de la consigna, se despejan
+     
+    \[\begin{cases}
+            \;(-\frac{1}{2},-\frac{3}{4})(v_1,v_2)=0 \\[5pt]
+            \;v_1^2+v_2^2=1
+        \end{cases}
+    \]
+    
+    De esta manera, obtenemos dos vectores resultantes:
+    \[
+    v=(-\frac{3}{\sqrt{13}},\frac{2}{\sqrt{13}})
+    \]
+     \[
+    v=(\frac{3}{\sqrt{13}},-\frac{2}{\sqrt{13}})
+    \]
+    
+
+\newpage
+\end{solution}
+
+\begin{solution}
+   En primer lugar analizamos la continuidad, como $f$ es una función partida, queremos demostrar que $f$ es continua en (0,0) si:  $\lim_{(x,y)\to(0,0)} \ f(x,y) = f(0,0)=0$
+   
+    \[
+        \lim_{(x,y)\to(0,0)} \
+         \frac{x^2y^2}{x^2y^2+(x-y)^2}
+    \]
+
+    Este limite se analiza tomando curvas distintas:
+
+\begin{itemize}
+    \item[1)] Curva 1: $\alpha_1(t)=(0,t) / \lim_{t\to0} \alpha_1(t) = (0,0)$
+    \[
+         \lim_{t\to0} \
+          f\circ\alpha_1(t)=\lim_{t\to0} \
+         \frac{0^2t^2}{0^2t^2+(0-t)^2}\lim_{t\to0} \
+          0=0
+    \]
+
+     \item[2)]  Curva 2: $\alpha_2(t)=(t,t) / \lim_{t\to0} \alpha_2(t) = (0,0)$
+     \[
+         \lim_{t\to0} \
+          f\circ\alpha_2(t)=\lim_{t\to0} \
+         \frac{t^2t^2}{t^2t^2+(t-t)^2}=\lim_{t\to0} \
+         \frac{2t^2}{2t^2}=\lim_{t\to0} \
+         1=1
+    \]
+\end{itemize}
+Sabemos que $\lim_{(x,y)\to(0,0)} \ f(x,y) = L \iff \lim_{t\to0} \ f\circ\alpha(t)=L  $          $ \forall\alpha:\R\rightarrow\Rn{2}  $ 
+
+   
+De esta manera, encontramos dos curvas cuyos limites no son iguales, por lo tanto $\nexists \lim_{(x,y)\to(0,0)} \ f(x,y)$
+
+Para responder a la consigna, utilizamos la siguiente proposicion:
+ \begin{center} Si $f$ es diferenciable $\Rightarrow f$ es continua \end{center}
+
+ Entonces, utlizando el contrareciproco: 
+\begin{center}Si $f$ no es continua $\Rightarrow f$ no es diferenciable \end{center}
+
+$\therefore f $ no es diferenciable en (0,0)
+ 
+\end{solution}
+
+
+%---------------------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{solution}
+    Sean $g(x,y)=(xy^2,x^2-2y)$ y $h(x,y)=f \circ g(x,y)$ con $f$ de clase $\mathcal{C}^1$ en $\Rn{2}$. Sabiendo que $h(1,-1)=2$ y que $\grad h(1,-1)=(2,-4)$. Calcular
+    \[
+        \lim_{(x,y)\to (1,3)} \ 
+        \frac{f(x,y)-2x+(x-1)^3}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}}       
+    \]
+
+ Por un lado,      $h(1,-1)= f\circ g (1,-1) =  f(1,3)=2$  y por otro lado,  como $f$ y $g$ son ambas diferenciables,  por la regla de la cadena,  tenemos que
+    \begin{equation}
+        \grad h(1,-1)=\grad (f\circ g)(1,-1)=\grad f(g(1,-1)) \:\boldsymbol{D}_g(1,-1) = \grad f (1,3) \:\boldsymbol{D}_g(1,-1),  \label{eq:hNabla}
+    \end{equation}    donde $\boldsymbol{D}_g$ es la matriz diferencial o  jacobiana de $g$.
+
+    
+    \noindent  Hallemos $\boldsymbol{D}_g$
+    \begin{align*}
+        \boldsymbol{D}_g(1,-1) & =
+        \left(\begin{array}{cc}
+                      \displaystyle\partialx (xy^2)            & \displaystyle\partialy (xy^2)           \\[10pt]
+                      \displaystyle\partialx  (x^2 -2y) & \displaystyle\partialy (x^2 -2y)
+                  \end{array}\right)\left.\rule{0pt}{1.1cm}\right\rvert_{(1,-1)}             \\[2pt]
+                              & =\left(\begin{array}{cc}
+                                               \displaystyle y^2                 & \displaystyle 2xy              \\[5pt]
+                                               \displaystyle   2x & \displaystyle -2
+                                           \end{array}\right)\left.\rule{0pt}{0.7cm}\right\rvert_{(1,-1)} \\[2pt]
+                              & =\left(\begin{array}{cc}
+                                               1    & -2    \\
+                                               2 & -2
+                                           \end{array}\right)
+    \end{align*}
+    Luego, reemplazando en  a   \eqref{eq:hNabla}
+    \[
+        \grad h(1,-1) = \grad f(1,3)\left(\begin{array}{cc}
+                1   & -2    \\
+                2 & -2
+            \end{array}\right) = \left(f_x(1,3) + 2f_y(1,3),\;-2f_x(1,3)-2f_y(1,3)\right)
+    \]
+
+    y con la información de la consigna, se despejan
+    \[\begin{cases}
+            \;f_x(1,3) + 2f_y(1,3)=2 \\[5pt]
+            \;-2f_x(1,3)- 2f_y(1,3)=-4
+        \end{cases}
+        \iff
+        \begin{cases}
+            \;f_x(1,3)=2 \\[5pt]
+            \;f_y(1,3)=0
+        \end{cases}
+    \]
+    $\therefore\quad\grad f(1,3)=(2,0)$.
+
+   Entonces la ecuación del plano tangente al grafico de $f$ en el punto $(1,3,f(1,3))$ es $z  = 2x$, ahora se analiza el limite solicitado separandolo en dos partes
+
+    \[
+        \lim_{(x,y)\to (1,3)} \ 
+        \frac{f(x,y)-2x+(x-1)^3}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}}
+ \]
+        \[
+        \lim_{(x,y)\to (1,3)} \ 
+        \frac{f(x,y)-2x}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}}+ \frac{(x-1)^3}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}} 
+    \]
+
+En primer lugar, buscamos acotar la funcion
+\[
+0\le (x-1)^2+(y-3)^2\le (x-1)^4+(x-1)^2+(y-3)^2
+\]\[
+0\le \frac{1}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}} \le \frac{1}{\sqrt{(x-1)^2+(y-3)^2}}
+\]
+\[
+0\le \frac{|f(x,y)-2x|}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}} \le \frac{|f(x,y)-2x|}{\sqrt{(x-1)^2+(y-3)^2}}
+\]
+
+Ademas sabemos que $f$ es C1, que el plano tangente de $f$ en el punto (1,3) es: z=2x y que $\sqrt{(x-1)^2+(y-3)^2}=|(x-1,y-3)|$
+\[
+        \lim_{(x,y)\to (1,3)} \ 
+        \frac{f(x,y)-2x}{\sqrt{(x-1)^2+(y-3)^2}}=0
+ \]
+
+Utilizando la regla del sandwich
+\[
+        \lim_{(x,y)\to (1,3)} \ 
+        \frac{|f(x,y)-2x|}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}}=0
+ \]
+
+ Y por ultimo tenemos que $  \lim_{(x,y)\to(1,3)} g(x,y)=0 \iff \lim_{(x,y)\to(1,3)} |g(x,y)|=0$, entonces
+ \[
+        \lim_{(x,y)\to (1,3)} \ 
+        \frac{f(x,y)-2x}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}}=0
+ \]
+
+ En segundo lugar, se analiza el segundo termino del limite
+  \[
+        \lim_{(x,y)\to (1,3)} \ 
+       \frac{(x-1)^3}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}} 
+    \]
+    Donde repetimos la misma cota que antes
+    \[
+0\le \frac{1}{(x-1)^4+(x-1)^2+(y-3)^2} \le \frac{1}{(x-1)^2+(y-3)^2}
+\]
+\[
+0\le \frac{|(x-1)^3|}{(x-1)^4+(x-1)^2+(y-3)^2} \le \frac{|(x-1)^3|}{(x-1)^2+(y-3)^2}
+\]
+donde
+\[
+(x-1)^2\le(x-1)^2+(y-3)^2
+\]
+\[
+|(x-1)|\le \sqrt{(x-1)^2+(y-3)^2}
+\]
+\[
+|(x-1)^3|\le (\sqrt{(x-1)^2+(y-3)^2})^3
+\]
+de manera que
+\[
+0\le \frac{|(x-1)^3|}{(x-1)^4+(x-1)^2+(y-3)^2} \le \sqrt{(x-1)^2+(y-3)^2}
+\]
+ Utilizando el teorema del sandwich y la propiedad donde $  \lim_{(x,y)\to(1,3)} g(x,y)=0 \iff \lim_{(x,y)\to(1,3)} |g(x,y)|=0$, entonces resulta que
+ \[
+        \lim_{(x,y)\to (1,3)} \ 
+       \frac{(x-1)^3}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}} =0
+    \]
+
+Por lo cual, finalmente se analiza en completo el limite solicitado
+ \[
+        \lim_{(x,y)\to (1,3)} \ 
+        \frac{f(x,y)-2x+(x-1)^3}{\sqrt{(x-1)^4+(x-1)^2+(y-3)^2}} =0      
+    \]
+\end{solution}

@@ -1,0 +1,163 @@
+\begin{theorem} \label{thm:t1}
+
+    Sea $A\subseteq\Rn{n}$ un conjuto abierto y arcoconexo (\ref{def:conjuntoconexo_simp})   y  sea $f:A\subseteq\Rn{n}\to\R$ un campo de clase $\mathcal{C}^1(A)$, adem\'as sea $\boldsymbol{\sigma}:[a,b]\to A\subseteq\Rn{n}$ es una trayectoria de clase $C^{1}$ a trozos,  entonces   
+    \[
+       \int_{\boldsymbol{\sigma}}\grad f\cdot d\mathbf{s}=f(\boldsymbol{\sigma}(b))-f(\boldsymbol{\sigma}(a)).
+    \]    
+
+
+    \textit{Demostración.} Demostraremos el caso en el cual $\boldsymbol{\sigma}$   es una trayectoria de clase $C^{1}$ y se deja al lector probar el caso m\'as general.   Definamos la funci\'on escalar $g(t)=f \circ \boldsymbol{\sigma}(t)$ con $t \in [a,b].$ Sabemos que $g$ resulta derivable  y por regla de la cadena obtenemos
+    \begin{equation*}
+        g'(t)=(f\circ\boldsymbol{\sigma})'(t)=\grad{f } \circ \boldsymbol{\sigma}(t)\cdot\boldsymbol{\sigma}'(t)
+    \end{equation*}
+   Por el teorema fundamental del cálculo de una variable sabemos que:
+    \begin{equation*}
+        \int_{a}^{b}g'(t)dt=g(b)-g(a)=f(\boldsymbol{\sigma}(b))-f(\boldsymbol{\sigma}(a)).
+    \end{equation*}
+    Por consiguiente,
+    \begin{align*}
+        \int_{\boldsymbol{\sigma}}\grad f\cdot d\mathbf{s}&=\int_{a}^{b}\grad{f(\boldsymbol{\sigma}(t))}\cdot\boldsymbol{\sigma}'(t)dt\\
+        &=\int_{a}^{b}g'(t)dt=g(b)-g(a)\\
+        &=f(\boldsymbol{\sigma}(b))-f(\boldsymbol{\sigma}(a)).
+    \end{align*}
+\end{theorem}
+
+\begin{tarea} Sea  $\boldsymbol{\sigma}:[0,2]\to A\subseteq\Rn{3}\; : \; \sigma(t) = (t^{3}+1, t^{2}, t^{3})$  calcular  $$ \int_{\sigma}  (y, x, 0)  \cdot d\mathbf{s} $$
+\end{tarea}
+
+
+\begin{corollary}\label{tmh:c1}
+    Sean $A\subseteq\Rn{n}$ un conjuto abierto y arcoconexo y  $f:A\subseteq\Rn{n}\to\R$ un campo de clase $\mathcal{C}^1(\interior{A})$.  Si  $\boldsymbol{\sigma}_1:[a_1,b_1]\to A_1\subseteq\Rn{n}$ y $\boldsymbol{\sigma}_2:[a_2,b_2]\to A_2\subseteq\Rn{n}$ son dos trayectorias  de clase $C^{1}$ a trozos tales que $\boldsymbol{\sigma}_1(a_1)=\boldsymbol{\sigma}_2(a_2)\;\land\;\boldsymbol{\sigma}_1(b_1)=\boldsymbol{\sigma}_2(b_2)$, entonces
+    \[
+    \int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s}.
+    \]
+    
+ Es decir,  $\int_{\boldsymbol{\sigma}}\grad f\cdot d\mathbf{s}$  s\'olo depende de los puntos inicial y final de la trayectoria.
+
+\textit{Demostración.}  Demostraremos el caso en el cual $\boldsymbol{\sigma}_1$ y $\boldsymbol{\sigma}_2$    son trayectorias de clase $C^{1}$ y se deja al lector probar el caso m\'as general.  Usando el Teorema \ref{thm:t1}, se tiene que
+\begin{align*}
+    \int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}&=f(\boldsymbol{\sigma}_1(b_1))-f(\boldsymbol{\sigma}_1(a_1))\\
+    \int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s}&=f(\boldsymbol{\sigma}_2(b_2))-f(\boldsymbol{\sigma}_2(a_2)).
+\end{align*}
+Como $\boldsymbol{\sigma}_1(a_1)=\boldsymbol{\sigma}_2(a_2)\;\land\;\boldsymbol{\sigma}_1(b_1)=\boldsymbol{\sigma}_2(b_2)$, entonces
+\begin{equation*}
+    f(\boldsymbol{\sigma}_1(a_1))=f(\boldsymbol{\sigma}_2(a_2))\;\land\;f(\boldsymbol{\sigma}_1(b_1))=f(\boldsymbol{\sigma}_2(b_2))
+\end{equation*}
+luego,
+\begin{equation*}
+    f(\boldsymbol{\sigma}_1(b_1))-f(\boldsymbol{\sigma}_1(a_1))=f(\boldsymbol{\sigma}_2(b_2))-f(\boldsymbol{\sigma}_2(a_2)) 
+\end{equation*}
+lo que demuestra que:
+\begin{equation*}
+    \int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s}.
+\end{equation*}
+\end{corollary}
+
+
+\begin{definition}\label{conser} Un  campo vectorial continuo $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$, con  $A$ abierto y arcoconexo,   se llama \emph{campo conservativo} si existe  $f:A\subseteq\Rn{n}\to\R$ de clase $\mathcal{C}^1$  tal que  $$\grad f(\mathbf{x})=\mathbf{F}(\mathbf{x})\quad\forall\:\mathbf{x}\in A.$$ En tal caso el campo escalar $f$ se llama \emph{funci\'on potencial} del campo vectorial $\mathbf{F}.$
+\end{definition} 
+
+\begin{corollary}\label{tmh:c2}  Sean $A\subseteq\Rn{n}$ abierto y arcoconexo y $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$  un campo vectorial conservativo entonces para todo par de curvas $C_1$ , $C_2$ simples en $A$, con los mismos puntos extremos y misma orientaci\'on, se tiene que
+    \[
+    \int_{C_1}\mathbf{F}\cdot d\mathbf{s}=\int_{C_2}\mathbf{F}\cdot d\mathbf{s}. 
+    \]
+    Dada esta igualdad, se dice que la integral de línea de un campo conservativo tiene \textit{independencia del camino}.
+
+    \textit{Demostración.}   Sean $\boldsymbol{\sigma}_1:[a_1,b_1]\to A$  y $\boldsymbol{\sigma}_2:[a_2,b_2]\to A$  parametrizaciones de  $C_1$ y $C_2$ respectivamente que preservan sus orientaciones y sea  $f$ un funci\'on potencial de $\mathbf{F}$. Por definici\'on  (\ref{int_cv}) se tiene que:
+    \begin{align*}
+        \int_{C_1}\mathbf{F}\cdot d\mathbf{s}&=\int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}\\
+        \int_{C_2}\mathbf{F}\cdot d\mathbf{s}&=\int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s}
+    \end{align*}
+    Además, como $C_1$ y $C_2$ tienen lo mismos puntos extremos, entonces $\boldsymbol{\sigma}_1(a_1)=\boldsymbol{\sigma}_2(a_2)\;\land\;\boldsymbol{\sigma}_1(b_1)=\boldsymbol{\sigma}_2(b_2)$.
+    Por lo tanto,  por el Corolario \ref{tmh:c1}:
+    $$  \int_{\boldsymbol{\sigma}_1}\grad f\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}_2}\grad f\cdot d\mathbf{s} $$
+     lo que demuestra que:   $$ \int_{C_1}\mathbf{F}\cdot d\mathbf{s}=\int_{C_2}\mathbf{F}\cdot d\mathbf{s}$$
+   
+\end{corollary}
+
+\begin{corollary}\label{tmh:c3} Sean $A\subseteq\Rn{n}$ abierto y conexo y $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$  un campo vectorial conservativo entonces  entonces, para toda curva $C$ simple cerrada contenida en $A$ se cumple que
+    $$\oint_C\mathbf{F}\cdot d\mathbf{s}=0.$$
+    
+
+    \textit{Demostración.}S  $f$ un funci\'on potencial de $\mathbf{F}$  y sea $\boldsymbol{\sigma}:[a,b]\to A$  una  parametrizaci\'on de  $C$   que preserva su  orientaci\'on, entonces
+    \begin{equation*}
+        \oint_C\mathbf{F}\cdot d\mathbf{s}=\int_{\sigma}\grad f\cdot d\mathbf{s}
+    \end{equation*}
+  Por el Teorema \ref{thm:t1} sabemos que,
+    \begin{equation*}
+        \int_{\sigma}\grad f\cdot d\mathbf{s}=f(\boldsymbol{\sigma}(b))-f(\boldsymbol{\sigma}(a))
+    \end{equation*}
+    Adem\'as,  como $C$ es cerrada se tiene que $\boldsymbol{\sigma}(a)=\boldsymbol{\sigma}(a)$, luego $f(\boldsymbol{\sigma}(b))=f(\boldsymbol{\sigma}(a))$
+ lo que demuestra que  $$\oint_C\mathbf{F}\cdot d\mathbf{s}=0.$$
+\end{corollary}
+
+
+
+
+\textit{Notación:} Si  $\mathbf{F}$ es un campo que verifica la propiedad de (\ref{tmh:c2}),   $\int_{\mathbf{x}_0}^{\mathbf{x}}\mathbf{F}\cdot d\mathbf{s}$ indica la integral de l\'inea del campo $\mathbf{F}$  sobre cualquier curva simple cuyos extremos son los puntos $\mathbf{x}_0$  y $\mathbf{x}$,  orientada desde el primero hacia el segundo.
+
+\begin{theorem}\label{tmh:t2}
+   Sea  $\mathbf{F}:A\subseteq\Rn{n} \to \Rn{n}$ continuo con  $A$ abierto y conexo. Si  $\int_C \mathbf{F}\cdot d\mathbf{s}$ es independiente del camino en $A$  entonces el campo
+    $$f:A\subseteq\Rn{n}\to\R\: | \:f(\mathbf{x})=\int_{\mathbf{x}_0}^{\mathbf{x}}\mathbf{F}\cdot d\mathbf{s},  \mbox{ con }  \mathbf{x}_0\in A, $$
+    cumple que: 
+    \begin{enumerate}
+        \item $f$ es $\mathcal{C}^1$.
+        \item $\grad f(\mathbf{x})=\mathbf{F}(\mathbf{x})\quad\forall\:\mathbf{x}\in A.$
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+   Sea  $\mathbf{F}:A\subseteq\Rn{n} \to \Rn{n}$ continuo con  $A$ abierto y arcoconexo.  Son equivalentes:
+    \begin{enumerate}
+        \item $\mathbf{F}$ es conservativo. 
+        \item La integral de $\mathbf{F}$ es independiente del camino en $A$. 
+        \item $\oint_C\mathbf{F}\cdot d\mathbf{s}=0$ para toda curva cerrada simple orientada $C$ en $A$.
+    \end{enumerate}
+
+    \textit{Demostración.} 
+    \begin{itemize}
+\item[] ($1 \Rightarrow 2.)$  Ver \ref{tmh:c2}
+\item[] ($2 \Rightarrow 3.)$ Sea $C^{+}$ una curva simple, cerrada y orientada en $A$. Pensemos que a dicha curva la podemos ver como la uni\'on de  dos curvas   simples orientadas en $A$,  $C_1$ , $C_2$,  cuyas orientaciones son heredadas de $C$,   con los mismos puntos extremos,  tal como muestra la figura. 
+    \begin{figure}[H]
+        \begin{center}
+            \begin{tikzpicture}[scale=2, >=stealth]
+
+                % Puntos A y B
+                \coordinate (A) at (0,0);
+                \coordinate (B) at (3,0);
+
+                % Primer camino: curva hacia arriba (gamma_1)
+                \draw[thick, blue, ->, decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+                    postaction={decorate}] 
+                    (A) .. controls (1,1.5) and (2,1.5) .. (B) node[midway, above] {$C_1$};
+
+                % Segundo camino: curva hacia abajo (gamma_2)
+                \draw[thick, red, ->, decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+                    postaction={decorate}] 
+                    (B) .. controls (1,-1.5) and (2,-1.5) .. (A) node[midway, below] {$C_2$};
+
+                % Nombres de los puntos
+                \filldraw (A) circle(0.03) node[below left] {$A$};
+                \filldraw (B) circle(0.03) node[below right] {$B$};
+
+            \end{tikzpicture}
+            \caption{Curvas $C_1$ y $C_2$.}
+        \end{center}
+    \end{figure}
+   Es decir,  $C^{+}=C_1^{+} \cup C_2^{-}$.  Así:
+    \begin{align*}
+        \oint_{C^{+}} \mathbf{F}\cdot d\mathbf{s}&=\int_{C_1^{+}}\mathbf{F}\cdot d\mathbf{s}+\int_{C_2^{-}}\mathbf{F}\cdot d\mathbf{s}\\
+        &=\int_{C_1^{+}}\mathbf{F}\cdot d\mathbf{s}-\int_{C_2^{+}}\mathbf{F}\cdot d\mathbf{s} =0 \ 
+          \end{align*}
+   \item[] ($3 \Rightarrow 1$.) Queda a cargo del lector.   
+\end{itemize}
+\end{theorem}
+
+
+\begin{propertie}\label{conserv}  Sea $A\subset \Rn{n}$   ($n=2$ o $n=3$)  abierto y arcoconexo y sea  $\mathbf{F}:A  \to \Rn{n}$  de clase $C^{2}(A).$  Si $\mathbf{F}$ es  un campo conservativo entonces $$\nabla \times \mathbf{F}(\mathbf{x}) =0 \:\:\: \forall \mathbf{x} \in A.  $$  
+\end{propertie}
+
+
+\begin{tarea}  Probar que no vale la vuelta de de la propiedad (\ref{conserv}).  Sugerencia:  Pensar en el campo $$F(x,y) = (\dfrac{y}{x^{2}+y^{2}}, \dfrac{-x}{x^{2}+y^{2}}) $$
+
+\end{tarea}

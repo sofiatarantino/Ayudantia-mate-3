@@ -1,0 +1,83 @@
+
+\begin{theorem}\textbf{Teorema de la funci\'on inversa.} \label{teo:inversa}  Sean $A  \subseteq  \Rn{n}$ un conjunto abierto y $\mathbf{F}: A  \subseteq  \Rn{n} \to \Rn{n}$ una funci\'on de clase $\mathcal{C}^1$. Sea $\mathbf{x}_0 \in A$ y supongamos que $J_\mathbf{F}(\mathbf{x}) \ne 0$. Entonces existen un entorno abierto $U  \subseteq  A$ de $\mathbf{x}_0$ y un entorno abierto $V  \subseteq  \Rn{n}$ de $\mathbf{F}(\mathbf{x}_0)$ tal que $\mathbf{F}:U \to V$ (la restricci\'on de $\mathbf{F}$ a $U$) tiene inversa $\mathbf{F}^{-1}:V \to U$. Esta funci\'on $\mathbf{F}^{-1}$ es de clase $\mathcal{C}^1$ y, adem\'as,
+ \[
+  \boldsymbol{D}_{\mathbf{F}^{-1}}{(\mathbf{F}(\mathbf{x}_0))} = \boldsymbol{D}_\mathbf{F}{(\mathbf{x}_0)}^{-1}.
+ \]
+ Si $\mathbf{F}$ es de clase $\mathcal{C}^p, p \ge 1,$ entonces $\mathbf{F}^{-1}$ tambi\'en.
+\end{theorem}
+
+\begin{theorem}\textbf{Caso particular del teorema de la funci\'on impl\'icita.} \label{teo:implicit_part} Sean $A  \subseteq  \Rn{3}$ un conjunto abierto y $F: A \to \R$ una funci\'on de clase $\mathcal{C}^1$. Sea $(x_0,y_0,z_0) \in A$ tal que $F(x_0,y_0,z_0) = 0$. Supongamos que 
+ \[
+    \dif{F}{z} (x_0,y_0,z_0) \ne 0.
+ \]
+ Entonces existen un entorno abierto $U  \subseteq  \Rn{2}$ de $(x_0,y_0)$
+ %, un entorno abierto $V  \subseteq  \Rn{m}$ de $y_0$ 
+ y una \'unica funci\'on $g: U \to \R$ tales que $g(x_0,y_0) = z_0$ y
+ \[
+  F(x,y,g(x,y)) = 0,\quad \forall (x,y) \in U.
+ \]
+ M\'as a\'un, $g$ es de clase $\mathcal{C}^1$ y, adem\'as, $\forall (x,y) \in U$ vale que
+ \begin{align*}
+  \dif{g}{x}(x,y) &= -\frac{\dif{F}{x} (x,y,g(x,y))}{\dif{F}{z} (x,y,g(x,y))}  \\[.4cm]
+  \dif{g}{y}(x,y) &= -\frac{\dif{F}{y} (x,y,g(x,y))}{\dif{F}{z} (x,y,g(x,y))} \\
+ \end{align*}
+ Si $F$ es de clase $\mathcal{C}^p, p \ge 1,$ entonces $g$ tambi\'en.
+\end{theorem}
+
+
+\begin{theorem}\textbf{Teorema de la funci\'on impl\'icita.} \label{teo:implicit}  Sean $A  \subseteq  \Rn{n} \times \Rn{m}$ un conjunto abierto y $\mathbf{F}: A \to \Rn{m}$ una funci\'on de clase $\mathcal{C}^1$. Sea $(\mathbf{x}_0,\mathbf{z}_0) \in A$ tal que $\mathbf{F}(\mathbf{x}_0,\mathbf{z}_0) = \mathbf{0}$. Formemos el determinante
+ \[
+  \Delta = \det \begin{bmatrix} 
+                \dif{f_1}{z_1} & \dif{f_1}{z_2} & \cdots & \dif{f_1}{z_m} \\
+                               &                &        &                \\
+                \dif{f_2}{z_1} & \dif{f_2}{z_2} & \cdots & \dif{f_2}{z_m} \\
+                               &                &        &                \\
+                \vdots         &  \vdots        & \ddots & \vdots         \\
+                               &                &        &                \\
+                \dif{f_m}{z_1} & \dif{f_m}{z_2} & \cdots & \dif{f_m}{z_m}
+                \end{bmatrix},
+ \]
+ donde $\mathbf{F} = (f_1, f_2, \cdots , f_m)$ y todas las derivadas est\'an evaluadas en $(\mathbf{x}_0,\mathbf{z}_0)$. Si $\Delta \ne 0$, entonces existen un entorno abierto $U  \subseteq  \Rn{n}$ de $\mathbf{x}_0$
+ %, un entorno abierto $V  \subseteq  \Rn{m}$ de $\mathbf{z}_0$ 
+ y una \'unica funci\'on $\mathbf{G}: U \to \Rn{m}$ tales que $\mathbf{G}(\mathbf{x}_0) = \mathbf{z}_0$ y
+ \[
+  \mathbf{F}(\mathbf{x},\mathbf{G}(\mathbf{x})) = \mathbf{0},\quad \forall \mathbf{x} \in U.
+ \]
+ M\'as a\'un, $\mathbf{G}$ es de clase $\mathcal{C}^1$ y, adem\'as, si $\mathbf{G} = (g_1, g_2, \cdots , g_m)$,
+ \[
+  \begin{bmatrix} 
+                \dif{g_1}{x_1} & \dif{g_1}{x_2} & \cdots & \dif{g_1}{x_n} \\
+                               &                &        &                \\
+                \dif{g_2}{x_1} & \dif{g_2}{x_2} & \cdots & \dif{g_2}{x_n} \\
+                               &                &        &                \\
+                 \vdots         &  \vdots        & \ddots & \vdots         \\
+                               &                &        &                \\
+                \dif{g_m}{x_1} & \dif{g_m}{x_2} & \cdots & \dif{g_m}{x_n}
+                \end{bmatrix} =
+ -\begin{bmatrix} 
+                \dif{f_1}{z_1} & \dif{f_1}{z_2} & \cdots & \dif{f_1}{z_m} \\
+                               &                &        &                \\
+                \dif{f_2}{z_1} & \dif{f_2}{z_2} & \cdots & \dif{f_2}{z_m} \\
+                               &                &        &                \\
+                 \vdots         &  \vdots        & \ddots & \vdots         \\
+                               &                &        &                \\
+                \dif{f_m}{z_1} & \dif{f_m}{z_2} & \cdots & \dif{f_m}{z_m}
+                \end{bmatrix}^{-1}
+  \begin{bmatrix} 
+                \dif{f_1}{x_1} & \dif{f_1}{x_2} & \cdots & \dif{f_1}{x_n} \\
+                               &                &        &                \\
+                \dif{f_2}{x_1} & \dif{f_2}{x_2} & \cdots & \dif{f_2}{x_n} \\
+                               &                &        &                \\
+                 \vdots         &  \vdots        & \ddots & \vdots         \\
+                               &                &        &                \\
+                \dif{f_m}{x_1} & \dif{f_m}{x_2} & \cdots & \dif{f_m}{x_n}
+                \end{bmatrix}.            
+ \]
+Si $\mathbf{F}$ es de clase $\mathcal{C}^p, p \ge 1,$ entonces $\mathbf{G}$ tambi\'en.
+ 
+\end{theorem}
+
+
+
+  
+ 

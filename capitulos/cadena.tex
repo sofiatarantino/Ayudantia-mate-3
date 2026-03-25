@@ -1,0 +1,44 @@
+
+\begin{theorem}\textbf{Regla de la cadena.} \label{teo:cadena}  Sean $\mathbf{F}, \mathbf{G}$ campos vectoriales tales que
+    \begin{align*}
+    \mathbf{G} &:A  \subseteq  \Rn{n} \to B  \subseteq  \Rn{m} \\
+    \mathbf{F} &:B  \subseteq  \Rn{m} \to \Rn{p},
+    \end{align*}
+  y un punto $\mathbf{x}_0 \in \interior{A} \text{ tal que } \mathbf{G}(\mathbf{x}_0) \in \interior{B}$. Supongamos que $\mathbf{G}$ es diferenciable en $\mathbf{x}_0$ y que $\mathbf{F}$ es diferenciable en $\mathbf{y}_0 = \mathbf{G}(\mathbf{x}_0)$. Entonces la composic\'on $\mathbf{F} \circ \mathbf{G}$ es diferenciable en $\mathbf{x}_0$ y, adem\'as,
+  \[
+   \boldsymbol{D}_{\mathbf{F} \circ \mathbf{G}}{(\mathbf{x}_0)} = \boldsymbol{D}_\mathbf{F}{(\mathbf{y}_0)} 
+   \boldsymbol{D}_\mathbf{G}{(\mathbf{x}_0)}.
+  \]
+\end{theorem}
+
+
+
+
+\begin{tarea} Aplicando la regla de la cadena, calcular la matriz jacobiana  $\boldsymbol{D} \big(  \mathbf{F}  \circ \mathbf{G} \big)(\pi,0)$ siendo
+$$  \mathbf{F}:\mathbb{R}^3\to\mathbb{R}^2 \mid  \mathbf{F}(x,y,z)=\big( xy + e^{z},\; x^{2}-yz \big)$$ y $$ \mathbf{G}:\mathbb{R}^2\to\mathbb{R}^3 \mid  \mathbf{G}(s,t)=\big( s+t,\; st,\; \sin s \big)$$
+\end{tarea}
+
+
+
+
+\begin{tarea}  Aplicando la regla de la cadena, calcular  la derivada $(\mathbf{F} \circ \alpha)'(t)$ siendo 
+  $$\mathbf{F}:\mathbb{R}^2 \to \mathbb{R}^3 \mid  \mathbf{F}(u,v) = \big(u^2v,\; e^u \cos v,\; u+v\big)$$  y   $$\alpha:\mathbb{R} \to \mathbb{R}^2 \mid 
+\alpha(t) = \big(\sin t,\; t^2\big).$$ 
+Resuelva el mismo ejercicio sin usar  la regla de la cadena y compare los resultasdos. 
+\end{tarea}
+
+\begin{tarea} Dar una demostraci\'on alternativa de teorema \ref{teo:difDir} usando la Regla de la Cadena. 
+\end{tarea} Para $\mathbf{v} \in\mathbb{R}^n$ unitario, tomar la trayectoria $\varphi:\mathbb{R}\to\mathbb{R}^n$  definida por 
+$$
+\varphi(t) = \mathbf{x}_0  + t\mathbf{v}
+$$
+ Es f\'acil ver que $\varphi$  es diferenciable,  $\varphi(0)=\mathbf{x}_0$  y  $\varphi'(0)=\mathbf{v}$.   Sea  $I \subseteq \mathbb{R}$ tal que $0\in I$ y tal que este bien definida la funci\'on  $g: I \to\mathbb{R}$ dada por 
+$$g(t) = f(\varphi(t)) = f(\mathbf{x}_0+t\mathbf{v})$$
+Como, por hip\'otesis,  $f$ es diferenciable en $\varphi(0)=\mathbf{x}_0$ entonces $g$ es derivable en $t=0$ y vale la regla de la cadena (\ref{teo:cadena}), luego
+$$g'(0) = \nabla f(\varphi(0)) \cdot \varphi'(0) =  \nabla f(\mathbf{x}_0)\cdot \mathbf{v}.$$
+Por otro lado, por definición de derivada en una variable y  por definición de derivada direccional, sabemos que
+\[
+g'(0) = \lim_{t \to 0}\frac{g(t)-g(0)}{t}= \lim_{t \to 0}\frac{f(\mathbf{x}_0 +t \mathbf{v})-f(x_0)}{t} =  f_{\mathbf{v}}(\mathbf{x}_0).
+\]
+
+ 

@@ -1,0 +1,291 @@
+\begin{definition}\label{long}\textbf{Longitud de curva.}
+    Sean $C$ una curva simple en $\Rn{n}$ y  $\boldsymbol{\sigma}:I\subseteq\R\to\Rn{n}$ una parametrizaci\'on regular y  de clase $\mathcal{C}^1$ a trozos de $C$  (ver\: \ref{param}). Se define la \emph{longitud de} $C$, y se nota  Long($C$), a 
+    \[
+        \text{Long}(C)=\sum_{i=1}^{m}\int_{I_i}\|\boldsymbol{\sigma}'(t)\|dt,    
+    \]
+   donde $ I_i= (t_i, t_{i+1})$,  $\boldsymbol{\sigma}\lvert_{I_i}$ es de clase $\mathcal{C}^1$  y  $\{t_i\}_{i=0}^{m-1}$  es una partici\'on de $I$.
+\end{definition}
+
+
+
+\begin{example}
+    Sea la curva simple $\Gamma$ que describe una circunferencia de radio $r$ centrada en el origen, \emph{i.e.}
+        \[
+            \Gamma = \bigl\{(x,y)\in\Rn{2} \;:\; x^2 + y^2 = r^2 \bigr\}.
+        \]
+         Calcular la longitud de $\Gamma$.
+        
+        
+       Es sencillo ver que 
+        \[
+            \boldsymbol{\sigma}(t) 
+            = 
+            \bigl(r\cos t,\;r\sin t\bigr),
+            \qquad t\in [\,0,\,2\pi\,].
+        \] 
+       es una parametrización regular y de clase  \(\mathcal{C}^1\)  de \(\Gamma\), luego  
+        \begin{gather*}
+            \boldsymbol{\sigma}'(t)
+            =
+            \bigl(-r\sin t,\;r\cos t\bigr) \mbox{ y }\\[.2cm]
+            \|\boldsymbol{\sigma}'(t)\|
+            =
+            \sqrt{(-r\sin t)^2 + (r\cos t)^2}
+            =
+            r\,\sqrt{\sin^2 t + \cos^2 t}
+            = 
+            r.
+        \end{gather*}
+       Para calcular la longitud de $\Gamma$  basta con plantear y resolver la siguiente integral
+        \[
+            \mathrm{Long}(\Gamma)
+            =
+            \int_{0}^{2\pi} \bigl\|\boldsymbol{\sigma}'(t)\bigr\| \, dt
+            =
+            \int_{0}^{2\pi} r \; dt
+            =
+            2\pi r.
+        \]
+        Por lo tanto, la  longitud de la circunferencia de radio \(r\) es \(2\pi r\), resultado ya conocido. 
+    \end{example}
+    
+   
+    \begin{example}
+    Sea  la curva simple $C$ dada por el segmento que une los puntos $\mathbf{p}$ y $\mathbf{q}$  en \(\Rn{n}\).   Calcular la longitud de $C$. 
+    
+     Es sencillo ver que 
+        \[
+            \boldsymbol{\sigma}(t) 
+            = 
+            \mathbf{p} + t\, (\,\mathbf{q} - \mathbf{p}\,),
+            \qquad t\in [\,0,\,1\,].
+        \]
+          es una parametrización regular y de clase  \(\mathcal{C}^1\) de \(C\), luego  
+        \[
+            \boldsymbol{\sigma}'(t) = \mathbf{q} - \mathbf{p}
+            \implies \|\boldsymbol{\sigma}'(t)\| = \|\mathbf{q} - \mathbf{p}\|
+        \]
+      Para calcular la longitud de $\Gamma$  basta con plantear y resolver la siguiente integral  
+        \[
+            \mathrm{Long}(C)
+            =
+            \int_{0}^{1} \|\boldsymbol{\sigma}'(t)\|\: dt
+            =
+            \int_{0}^{1} \|\mathbf{q} - \mathbf{p}\|\: dt
+            =
+            \|\mathbf{q} - \mathbf{p}\|.
+        \] Por lo tanto, la longuitud del segmento que une los puntos  $\mathbf{p}$ y $\mathbf{q}$  es $ \|\mathbf{q} - \mathbf{p}\|$, resultado ya conocido.
+ \end{example}
+
+ \begin{tarea} Calcular, usando la definici\'on  \ref{long},   el per\'imetro de un rombo cuyas diagonales menor y mayor miden $d$ y $D$ respectivamente.  
+ \end{tarea}
+
+
+\begin{definition}\textbf{Integral de trayectoria de campos escalares.}
+    Sea $\boldsymbol{\sigma}:I=[a,b]\to\Rn{n}$ una trayectoria de clase $\mathcal{C}^1(\interior{I})$ y sea $f$ un campo escalar tal que este bien definida y sea continua   la funci\'on $f\circ\boldsymbol{\sigma}$.  Se define la \emph{integral de trayectoria}, o \emph{integral de} $f$ \emph{a lo largo de la trayectoria} $\boldsymbol{\sigma}$, y se la nota $\int_{\boldsymbol{\sigma}}f\:ds$, a
+    \[
+        \int_{\boldsymbol{\sigma}}f\:ds=\int_a^b (f\circ\boldsymbol{\sigma})(t)  \|\boldsymbol{\sigma}'(t)\|\:dt.
+    \]
+\end{definition}
+
+Si $\boldsymbol{\sigma}(t)$ es de clase $\mathcal{C}^1$ a trozos, se define $\int_{\boldsymbol{\sigma}}f\:ds$  de la siguiente manera:  
+\begin{definition}   Sea $\boldsymbol{\sigma}:I=[a,b]\to\Rn{n}$ una trayectoria de clase $\mathcal{C}^1$ a trozos   y  sea $f$ un campo escalar tal que este bien definida y sea continua   la funci\'on $f\circ\boldsymbol{\sigma}$.  Se define la \emph{integral de trayectoria}  o \emph{integral de} $f$ \emph{a lo largo de la trayectoria} $\boldsymbol{\sigma}$, y se  nota $\int_{\boldsymbol{\sigma}}f\:ds$, a
+  
+    \[
+       \int_{\boldsymbol{\sigma}}f\:ds =\sum_{i=1}^{m}\int_{I_i}f\circ\boldsymbol{\sigma}(t)\|\boldsymbol{\sigma}'(t)\|\:dt,  
+    \]
+    donde $ I_i= (t_i, t_{i+1})$,  $\boldsymbol{\sigma}\lvert_{I_i}$ es de clase $\mathcal{C}^1$  y  $\{t_i\}_{i=0}^{m-1}$  es una partici\'on de $I$.
+\end{definition}
+
+
+
+
+\begin{definition}\label{def:int_de_linea}\textbf{Integral de l\'inea para campos escalares.}
+    Sea $C\subset \Rn{n}$  una curva simple y suave a trozos  (\ref{param})  y sea $\boldsymbol{\sigma}:I\subseteq\R\to\Rn{n}$ una parametrizaci\'on regular de $C$.   Sea $f:A\subseteq\Rn{n}\to\R$ continua con $C  \subseteq  A$.   Se define la \emph{integral de l\'inea del campo $f$ sobre la curva} $C$, y se nota por $\int_{C}f\:ds$ a
+    \[
+        \int_{C}f\:ds= \int_{\boldsymbol{\sigma}}f\:ds. 
+    \]
+   
+
+
+\end{definition}
+
+\begin{obs} La definici\'on anterior no depende de la parametrizaci\'on.
+\end{obs} 
+
+  Veamos un ejemplo para ilustrar la obseravaci\'on  reci\'en enunciada.  
+
+\begin{example}  Sean el campo $f: \mathbb{R}^{2}\to\R$ tal que $f(x,y)=x$ y la curva simple $C$  dada por el segmento que uno los puntos $(0.0)$ y $(1,1)$.  Calcular la integral de l\'inea del campo $f$ sobre la curva $C$.
+   
+   Por un lado,  es sencillo ver que    $\boldsymbol{\sigma}_1(t)=(t,t)$ con $t\in[0,1]$ es una parametrización suave y regular  de $C$.  Siguiendo  \ref{def:int_de_linea},  la integral de l\'inea de $f$ sobre $C$ es
+    \[
+        \int_\Gamma f\;ds=\int_0^1f\circ\boldsymbol{\sigma}_1(t)\|\boldsymbol{\sigma}_1'(t)\|\:dt.
+    \]
+    Como
+    \[
+        f\circ\boldsymbol{\sigma}_1(t)=f(t,t)=t 
+    \]
+    y
+    \[
+        \boldsymbol{\sigma}_1'(t)=(1,1)\implies\|\boldsymbol{\sigma}_1'(t)\|=\sqrt{1^2+1^2}=\sqrt{2};
+    \]
+    se llega a 
+    \[
+        \int_C f\;ds=\int_0^1t\sqrt{2}\;dt=\frac{\sqrt{2}}{2}.
+    \]
+
+    Por otro lado, tambi\'en es sencillo ver que  $\boldsymbol{\sigma}_2(t)=(t^2,t^2)$ con $t\in[0,1]$ es una parametrización  suave y regular  de $C$.  Siguiendo   \ref{def:int_de_linea},  la integral de l\'inea de $f$ sobre $C$ es
+    \[
+        \int_C f\;ds=\int_0^1f\circ\boldsymbol{\sigma}_2(t)\|\boldsymbol{\sigma}_2'(t)\|\:dt,
+    \]
+    Como 
+    \[
+        f\circ\boldsymbol{\sigma}_2(t)= f(t^{2},t^{2}) = t^2
+    \]
+    y
+    \[
+        \boldsymbol{\sigma}_2'(t)=(2t,2t)\implies\|\boldsymbol{\sigma}_2'(t)\|=\sqrt{(2t)^2+(2t)^2}=2t\sqrt{2};
+    \]
+     se llega a 
+    \[
+        \int_C f\;ds=\int_0^1t^22t\sqrt{2} \;dt =2\sqrt{2}\int_0^1t^3\;dt=\frac{\sqrt{2}}{2}.
+    \]
+    
+    Que es igual a lo calculado usando a  $\boldsymbol{\sigma}_1$ como parametrizaci\'on de $C.$
+  \end{example}  
+
+\begin{obs} 
+ Sea $f:A\subseteq\Rn{2} \to\R$   tal que  $f(x,y)>0 \; \forall (x,y) \in A$ y   sea $C  \subseteq  A$  una curva simple en $\Rn{2}$.   La integral de l\'inea de $f$ sobre $C$  se puede interpretar geom\'etricamente como el ``\'area de la valla de base $C$  y altura $f$". 
+\end{obs}
+
+
+\begin{definition}\textbf{Trabajo realizado por una fuerza constante sobre un objeto.}  
+Sea un objeto que se desplaza desde un punto $A$ hasta un punto $B$ por el segmento que los une y  bajo la acci\'on de una fuerza \(\mathbf{F}\) constante. 
+Se define el     \emph{trabajo realizado por la fuerza sobre el objeto} como:
+\[
+W = \mathbf{F} \cdot \mathbf{d} = |\mathbf{F}| \, |\mathbf{d}| \, \cos\theta,
+\]
+donde
+\begin{itemize}
+    \item \(\mathbf{d} = \mathbf{r}_B - \mathbf{r}_A\) es el vector de desplazamiento del objeto,
+    \item \(|\mathbf{F}|\) es la magnitud de la fuerza,
+    \item \(|\mathbf{d}|\) es la magnitud del desplazamiento, y
+    \item \(\theta\) es el ángulo entre la fuerza y el desplazamiento.
+\end{itemize}
+\end{definition}
+
+
+\textbf{Interpretaci\'on:} el trabajo representa la cantidad de energ\'ia transferida al objeto por la fuerza en la direcci\'on del desplazamiento. 
+\begin{itemize}
+    \item Si \(0 \leq \theta < 90^\circ\), el trabajo es positivo: la fuerza ayuda al movimiento.
+    \item Si \(90^\circ < \theta \leq 180^\circ\), el trabajo es negativo: la fuerza se opone al movimiento.
+    \item Si \(\theta = 90^\circ\), el trabajo es cero: la fuerza no realiza trabajo sobre el objeto.
+\end{itemize}
+
+
+\begin{definition}\textbf{Integral de trayectoria de campos vectoriales.} Sea $\boldsymbol{\sigma}:[a,b]\to A\subseteq\Rn{n}$ una trayectoria $\mathcal{C}^1$  y sea $F$ un campo vectorial   $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$   tal que este bien definido y sea continuo el campo $\mathbf{F}\circ\boldsymbol{\sigma}$. Se define la \emph{integral de trayectoria del campo vecorial} $\mathbf{F}$ \emph{a lo largo de la trayectoria} $\boldsymbol{\sigma}$, y se nota, $ \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}$, a como
+    \[
+        \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}=\int_a^b\mathbf{F}\circ\boldsymbol{\sigma}(t)\cdot\boldsymbol{\sigma}'(t)\:dt. 
+    \]
+\end{definition}
+
+Si $\boldsymbol{\sigma}(t)$ es de clase $\mathcal{C}^1$ a trozos, se define $ \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}$  de la siguiente manera:  
+
+\begin{definition}   Sea $\boldsymbol{\sigma}:I=[a,b]\to\Rn{n}$ una trayectoria de clase $\mathcal{C}^1$ a trozos   y  sea $F$ un campo vectorial tal que este bien definida y sea continua   la funci\'on $F\circ\boldsymbol{\sigma}$.  Se define la \emph{integral de trayectoria del campo vecorial} $\mathbf{F}$ \emph{a lo largo de la trayectoria} $\boldsymbol{\sigma}$, y se  nota $ \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}$, como
+  
+    \[
+       \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}  =\sum_{i=1}^{m}\int_{I_i}\mathbf{F} \circ\boldsymbol{\sigma}(t) \cdot \boldsymbol{\sigma}'(t) \:dt,  
+    \]
+    donde $ I_i= (t_i, t_{i+1})$,  $\boldsymbol{\sigma}\lvert_{I_i}$ es de clase $\mathcal{C}^1$  y  $\{t_i\}_{i=0}^{m-1}$  es una partici\'on de $I$.
+\end{definition}
+
+
+ \begin{tarea}Sea $\boldsymbol{\sigma}: [-1,1]\to\Rn{2}\;  : \sigma(t) = ( t^{2}, t^{2})$   Calcular, indicando la orientaci\'on elegida para $C$  $$ \int_{C}  (y, 2xy +1)  \cdot d\mathbf{s} $$
+ \end{tarea}
+
+
+
+\begin{definition}\label{int_cv} \textbf{Integral de l\'inea para campos vectoriales.}
+  Sea $C^{+} \subseteq  \Rn{n}$  una curva simple,  suave a trozos  (\ref{param}) orientada (\ref{orien})  y sea $\boldsymbol{\sigma}:I\subseteq\R\to\Rn{n}$ una parametrizaci\'on regular de $C$ que preserva su orientaci\'on  (\ref{orien_pre}). Sea $\mathbf{F}:A\subseteq\Rn{n}\to\Rn{n}$ un campo vectorial continuo sobre $C  \subseteq  A.$  Se define la \emph{integral de} $\mathbf{F}$ \emph{sobre la curva} $\boldsymbol{C}^{+}$ como
+    \[
+        \int_{C^{+}}\mathbf{F}\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}}\mathbf{F}\cdot d\mathbf{s} 
+    \]
+\end{definition}
+
+\begin{obs} Bajo las condiciones de \ref{int_cv}, si $\boldsymbol{\beta}$ es una parametrizaci\'on regular de $C$ que no  preserva (o invierte) su orientaci\'on entonces: 
+ \[
+        \int_{C^{+}}\mathbf{F}\cdot d\mathbf{s}= - \int_{\boldsymbol{\beta}}\mathbf{F}\cdot d\mathbf{s} 
+    \]
+\end{obs}
+
+
+
+
+
+
+
+\begin{definition} \textbf{Trabajo de un campo de fuerzas sobre una trayectoria.}
+Sea un objeto que se mueve a lo largo de una curva suave y orientada $C$ bajo la acci\'on de un campo de fuerzas $\mathbf{F}$. 
+Se define el     \emph{trabajo realizado por el campo sobre el objeto} como la integral de línea:
+\[
+W = \int_{\sigma}\mathbf{F}\cdot d\mathbf{s}
+\]
+
+Si la curva $C$ está parametrizada por $\boldsymbol{\sigma}(t)$ con $t \in [a,b]$, entonces:
+\[
+W = \int_a^b \mathbf{F}(\boldsymbol{\sigma}(t)) \cdot \boldsymbol{\sigma}(t)'(t) \: dt.
+\]
+\end{definition}
+
+
+
+
+
+  \begin{propertie} \textbf{Algebra de Integral de l\'inea.}\label{alge} Sea $C^{+}$ una curva simple, orientada y suave a trozos, adem\'as,  sean  $\mathbf{F}$ y $\mathbf{G}$ campos vectoriales continuos con dominios tales que incluyen a la curva $C$, entonces: 
+\begin{itemize}
+\item[1.]  \[
+        \int_{C^{+}}(\mathbf{F} + \mathbf{G})  \cdot d\mathbf{s}=  \int_{C^{+}} \mathbf{F} \cdot d\mathbf{s}  +  \int_{C^{+}} \mathbf{G}  \cdot d\mathbf{s} 
+    \]
+
+\item[2.]  \[
+        \int_{C^{+}} k \mathbf{F}  \cdot d\mathbf{s}= k \int_{C^{+}} \mathbf{F} \cdot d\mathbf{s}   
+    \]
+
+\item[3.]  \[
+        \int_{C^{+}} k \mathbf{F}  \cdot d\mathbf{s}= - \int_{C^{-}} \mathbf{F} \cdot d\mathbf{s}   
+    \]
+
+\item[3.]  Si $C = \cup_{i=1}^{n} C_{i},$ entonces \[
+        \int_{C^{+}}  \mathbf{F}  \cdot d\mathbf{s}=  \sum_{i=1}^{n}  \int_{C_{i}^{+}} \mathbf{F} \cdot d\mathbf{s}   
+    \]
+
+\end{itemize}
+ \end{propertie}
+
+
+
+ \begin{tarea} Sea $C$ la curva simple dada por la uni\'on de los segmentos que unen los puntos $(0,0)$,  $(0,3)$ y $(0,2)$. Calcular, indicando la orientaci\'on elegida para $C$  $$ \int_{C}  (y^{2}, 2xy +1)  \cdot d\mathbf{s} $$
+ \end{tarea}
+
+ \begin{tarea} Mismo ejercicio con la orientaci\'on para $C$ contraria  a la elegida. 
+ \end{tarea}
+
+\begin{tarea}Reescribir  (\ref{alge})  para campos escalares. 
+\end{tarea}
+
+
+\begin{definition}
+    Si $C$  es una curva simple cerrada,  se suele notar a la integral como
+    \[
+        \oint_{C}\mathbf{F}\cdot d\mathbf{s},  
+    \]  y se la llama integral de circulaci\'on de $\mathbf{F}$ sobre $\Gamma$.
+\end{definition}
+
+
+ \begin{nota}\label{not_int} Sean  $\mathbf{F}=(f_1, f_2)$ y $\mathbf{G}=(g_1, g_2, g_3)$ campos vectoriales, notaremos $$ \int_{C_1}\mathbf{F}\cdot d\mathbf{s} =  \int_{ C_1}f_1\:dx+ f_2 \:dy$$ 
+  $$ \int_{C_2}\mathbf{G}\cdot d\mathbf{s} =  \int_{C_2} g_1\:dx+g_2\:dy+g_3\:dz.$$
+ \end{nota}
+ 
+ \begin{nota} 
+  $\int_{\boldsymbol{\sigma}}\mathbf{F}\cdot d\mathbf{s}=\int_{\boldsymbol{\sigma}}\mathbf{F}\cdot{\mathbf{t}}\:ds$,  donde ${\mathbf{t}}$ es versor tangencial a la curva  $\Gamma = Img(\boldsymbol{\sigma}).$
+ \end{nota}

@@ -1,0 +1,127 @@
+\label{sec:derivabilidad}
+
+\begin{definition}
+    \textbf{Derivada parcial.}Sea $f:A\to \R$ y $\mathbf{x}_0\in \interior{A}$. Se define la \emph{derivada parcial de $f$ con respecto a $x_j$ en $\mathbf{x}_0$}, y se nota por $\partial f/\partial x_j(\mathbf{x}_0)$ o por $f_{x_j}(\mathbf{x}_0)$, a
+    \[
+        f_{x_j}(\mathbf{x}_0)=\lim_{h\to0}\dfrac{f(\mathbf{x}_0+h\mathbf{e}_j)-f(\mathbf{x}_0)}{h},
+    \]
+    donde $\mathbf{e}_j$ es el $j$-\'esimo versor can\'onico en $\Rn{n}$ (el vector de $\Rn{n}$ que tiene un 1 en la posición $j$ y ceros en todas las demás), con $j=1,2,\dots,n$. Si el l\'imite no existe, decimos que \emph{$f$ no admite derivada parcial con respecto a $x_j$ en $\mathbf{x}_0$}.
+\end{definition}
+
+\begin{tarea}  Analizar la existencia de derivadas  parciales  en el origen de (\ref{direccionales}).  
+\end{tarea}
+
+\begin{tarea}\label{tarea_deeriv_parc} Calcular todas las derivadas parciales en los puntos dados:
+\begin{itemize}
+\item[1.] $f(x,y)= x^{2}+y^{2}$   \: \: en $(1,1),$  $(2,3)$ y  $(x_0, y_0).$
+\item[2.] $g(x,y)= x+y^{3}$   \: \: en $(1,1),$  $(-2,3)$ y  $(x_0, y_0).$
+\item[3.] $h(x,y,z)=  \sin(x)+z^{3}y^{3}$   \: \: en $(0,0,0),$  $(\pi, 0,1 )$ y  $(x_0, y_0,z_0).$
+\item[4.] $w(x_1,x_2,x_3,x_4) = \dfrac{\cos(x_1+x_2+x_3+x^{2}_4)}{x_1^{2}+ x_2^{4}}$  \: \: en $(0,\pi,\pi, 0).$
+\end{itemize}
+\end{tarea}
+
+\begin{obs} \textbf{Reglas de derivaci\'on.} Para calcular la derivada parcial de un campo escalar respecto de una variable,  basta con variar solo esa coordenada y mantener las demás constantes. 
+\end{obs}
+
+\begin{definition}
+    \textbf{Derivada direccional.} Sean $f:A\subseteq\Rn{n}\to\R$, $\mathbf{x}_0\in \interior{A}$ y $\mathbf{v}=(v_1, v_2, \dots, v_n)$, con $\norm{\mathbf{v}}=1$. Se define la \emph{derivada direccional de $f$ con direcci\'on $\mathbf{v}$ en $\mathbf{x}_0$}, y se nota por $\partial f/\partial \mathbf{v}(\mathbf{x}_0)$ o por $f_{\mathbf{v}}(\mathbf{x}_0)$, a
+    \[
+        \dif{f}{\mathbf{v}}(\mathbf{x}_0)=f_{\mathbf{v}}(\mathbf{x}_0)=\lim_{h\to0}\frac{f(\mathbf{x}_0+h\mathbf{v})-f(\mathbf{x}_0)}{h}.
+    \]
+    Si dicho l\'imite no existe, decimos que \emph{$f$ no admite derivada direccional con direcci\'on $\mathbf{v}$ en $\mathbf{x}_0$}.
+\end{definition}
+
+\begin{obs}
+    Las derivadas parciales son un caso particular de las derivadas direccionales.
+\end{obs}
+
+\begin{obs}
+La existencia de las derivadas direccionales no garantiza la continuidad.
+\end{obs}
+  
+\begin{tarea}
+Analizar la existencia de derivadas direccionales en el origen de (\ref{direccionales}).
+\end{tarea}
+
+
+\begin{tarea}  Analizar continuidad y existencia de derivadas direccionales en el origen de
+\begin{equation*}
+f(x,y)=\left\{\begin{array}{cc} \dfrac{x^{4}}{ (x^2-y)^{2}+x^{4} } & \;\;\;\; (x,y)   \neq (0,0)
+
+\\
+\\
+
+ 0& \;\;\;\; (x,y)=(0,0)\end{array}\right.
+\end{equation*}
+
+\end{tarea}
+
+
+
+\begin{definition}
+    Sea $A \subseteq \mathbb{R}^n$ un conjunto abierto. Una función $f: A \to \mathbb{R}$ es de \emph{clase} $\mathcal{C}^1$ si todas sus derivadas parciales existen y son funciones continuas en $A$.
+\end{definition}
+
+\begin{definition}\label{def:ceuno}
+    Sea $A\subseteq\Rn{n}$ un conjunto abierto. Una función $f: A \to \mathbb{R}$ es de \emph{clase} $\mathcal{C}^2$ si es de clase $\mathcal{C}^1$ y todas las derivadas parciales de $f$ son de clase $\mathcal{C}^1$.
+\end{definition}
+
+\begin{obs}
+    Equivalentemente, la \autoref{def:ceuno} se puede enunciar como: $f$ es de \emph{clase} $\mathcal{C}^2$ si todas sus derivadas parciales de orden dos existen y son continuas.
+\end{obs}
+
+
+\begin{definition}
+    Sea $A\subseteq\Rn{n}$ un conjunto abierto. Una función $f: A \to \mathbb{R}$ es de clase $\mathcal{C}^n$ si todas sus derivadas parciales de orden $k$ existen y son continuas para todo $k \leq n$.
+\end{definition}
+
+\emph{Notaci\'on: derivadas de orden superior, derivadas parciales iteradas.} Sea $f:\Rn{2}\to\R$ , sus derivadas de segundo orden se notan de la siguiente manera:
+\begin{gather*}
+    \frac{\partial}{\partial x}\left(\dif{f}{x}\right)=
+    \frac{\partial^2 f}{\partial x^2}=f_{xx},\qquad
+    \frac{\partial}{\partial y}\left(\dif{f}{x}\right)=
+    \frac{\partial^2 f}{\partial y\partial x}=f_{xy},\\[.3cm]
+    \frac{\partial}{\partial y}\left(\dif{f}{y}\right)=
+    \frac{\partial^2 f}{\partial y^2}=f_{yy},\qquad
+    \frac{\partial}{\partial x}\left(\dif{f}{y}\right)=
+    \frac{\partial^2 f}{\partial x\partial y}=f_{yx}.
+\end{gather*}
+Por supuesto este proceso puede repetirse para derivadas de orden tres y superior. Todas estas se llaman \emph{derivadas parciales iteradas}, mientras que $\partial^2 f/\partial x\partial y$ y $\partial^2 f/\partial y\partial x$ se llaman \emph{derivadas parciales cruzadas}.   
+
+Sea $f:A \subseteq \mathbb{R}^{n}\to\R$ ,  sus derivadas de segundo orden se notan de la siguiente manera: $$f_{x_i x_j}\:\: \forall  1 \leq i,j \leq n.  $$
+    
+
+
+
+
+
+
+\begin{tarea} Probar que la funciones dadas en la tarea \ref{tarea_deeriv_parc} son de clase $\mathcal{C}^2$.
+\end{tarea}
+
+\begin{obs}
+    Notar que el orden, el cual denota sobre qu\'e componentes se aplican las derivadas parciales iteradas, de las componentes en las notaciones de las derivadas de orden superior es invertido. Esto se debe a que $\partial/\partial x$ act\'ua como un operador\footnote{Un operador es una transformaci\'on lineal tal que su dominio e imagen son el mismo espacio vectorial.} sobre $f$, mientras que $f_x$ no.  
+\end{obs}
+
+\begin{theorem}\textbf{de Clairaut o de Schwarz.} \label{teo:schwarz}  Sea $A\subseteq\Rn{n}$ un conjunto abierto, $f:A\to\R$ de clase $\mathcal{C}^2$ en $B_\delta(\mathbf{x}_0)$, con $\mathbf{x_0}\in A$. Entonces
+    \[
+        \dfrac{\partial^{2} f}{\partial x_j \partial x_i}(\mathbf{x}_0)=\dfrac{\partial^{2} f}{\partial x_i \partial x_j}(\mathbf{x}_0)\quad \text{o}\quad f_{x_i x_j}(\mathbf{x}_0)=f_{x_j x_i}(\mathbf{x}_0).
+    \]
+\end{theorem}
+
+\begin{tarea}Probar que  no existe $\delta>0$ tal que $f$  sea de clase $C^{2}$ en  $B_{\delta}(0,0)$  siendo
+  $$f(x,y)=\begin{dcases}
+           \frac{ (x^{2}-y^{2}) xy }{ x^{2}+y^{2}} & \text{si}\;\; (x,y)\neq(0,0) \\
+           \hspace{0.5cm}0 & \text{si}\;\; (x,y) = (0,0)
+          \end{dcases}$$
+\end{tarea}
+
+\begin{obs} \textbf{Interpretaci\'on geom\'etrcia de las derivadas direccionales.}  Sea $f:A \subseteq \mathbb{R}^2 \to \mathbb{R}$  y sea $(x_0,y_0) \in A^{\circ}$.  
+La derivada parcial de $f$ respecto a $x$ en $(x_0,y_0)$, denotada $\displaystyle f_x(x_0,y_0)$, 
+se interpreta geométricamente como la pendiente de la recta tangente a la curva
+\[
+x \mapsto f(x, y_0)
+\]
+en el punto $(x_0, y_0, f(x_0,y_0))$ obtenida al intersectar el gráfico de $f$ con el plano $y = y_0$   
+
+\end{obs}

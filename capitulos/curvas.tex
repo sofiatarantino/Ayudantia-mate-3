@@ -1,0 +1,106 @@
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{example}
+    Sea la trayectoria $\boldsymbol{\sigma}:[0,2\pi]\to\Gamma$, tal que $\boldsymbol{\sigma}(t)=(\cos t, \sen t)$. La curva $\Gamma=\text{Im}(\boldsymbol{\sigma})$ es la que se muestra a continuaci\'on.
+
+    \begin{center}
+    \begin{tikzpicture}
+        
+        % Real number line on the left
+        \draw[semithick,-Stealth] (-2,0) -- (2,0);
+        \node[label=below:$0$] at (-1.25,0) {$[$}; 
+        \node[label=below:$2\pi$] at (1.25,0) {$]$}; 
+        \node[label=right:$\mathbb{R}$] at (2,0) {};
+    
+        % Curved arrow in the middle
+        \draw[->, semithick] (2,1) to[out=45,in=135,looseness=0.8] (6,1);
+        \node[label=below:$\boldsymbol{\sigma}$] at (4,1.7) {};
+    
+        % Plane R^2 on the right
+        \begin{scope}[xshift=8.5cm]
+            % Circle
+            \draw[semithick] (0,0) circle [radius=2];
+            % Axes
+            \draw[-Stealth, thin] (-2.5,0) -- (2.5,0) node[right] {$x$};
+            \draw[-Stealth, thin] (0,-2.5) -- (0,2.5) node[above] {$y$};
+            \node at (-2,-2) [align=center, below] {
+                $\Gamma=\text{Im}(\boldsymbol{\sigma})$
+            };
+            \node at (2,0) [circle,fill,inner sep=1pt] {};
+            \node[below left] at (2,0) {$\boldsymbol{\sigma}(0)=\boldsymbol{\sigma}(2\pi)$};
+        \end{scope}
+    
+    \end{tikzpicture}
+    \end{center}
+    
+\end{example}
+
+
+
+
+
+%\begin{definition}
+   
+% dios perdona la desprolijidad
+    \newcommand\clockc[3]{%
+        \begin{tikzpicture}[line cap=round,line width=3pt]
+        \filldraw [fill=blue!60!white!40] (0,0) circle (2cm);
+        \foreach \angle / \label in
+        {0/3, 30/2, 60/1, 90/12, 120/11, 150/10, 180/9,
+        210/8, 240/7, 270/6, 300/5, 330/4}
+        {
+        \draw[line width=1pt] (\angle:1.8cm) -- (\angle:2cm);
+        \draw (\angle:1.4cm) node{\textsf{\label}};
+        }
+        \foreach \angle in {0,90,180,270}
+        \draw[line width=2pt] (\angle:1.6cm) -- (\angle:2cm);
+        \node[draw=none,font=\tiny,text=red] at (0,.9cm) {};
+        \draw[rotate=90,line width=2pt] (0,0) -- (-#1*30-#2*30/60:0.7cm); % hours
+        \draw[rotate=90,line width=1.5pt] (0,0) -- (-#2*6:1cm); % minutes
+        \draw[rotate=90,thin,red] (0,0) -- (-#3*6:1.2cm); % seconds
+        \path [fill=red] (0,0) circle (2pt);
+        %
+        \draw[thin, ->] (0.5,0) arc [start angle=0, end angle=340, radius=0.5cm];
+        \node at (0,-2.5) {Orientaci\'on antihoraria};
+        \end{tikzpicture}%
+    }
+
+    \newcommand\clockw[3]{%
+        \begin{tikzpicture}[line cap=round,line width=3pt]
+        \filldraw [fill=blue!60!white!40] (0,0) circle (2cm);
+        \foreach \angle / \label in
+        {0/3, 30/2, 60/1, 90/12, 120/11, 150/10, 180/9,
+        210/8, 240/7, 270/6, 300/5, 330/4}
+        {
+        \draw[line width=1pt] (\angle:1.8cm) -- (\angle:2cm);
+        \draw (\angle:1.4cm) node{\textsf{\label}};
+        }
+        \foreach \angle in {0,90,180,270}
+        \draw[line width=2pt] (\angle:1.6cm) -- (\angle:2cm);
+        \node[draw=none,font=\tiny,text=red] at (0,.9cm) {};
+        \draw[rotate=90,line width=2pt] (0,0) -- (-#1*30-#2*30/60:0.7cm); % hours
+        \draw[rotate=90,line width=1.5pt] (0,0) -- (-#2*6:1cm); % minutes
+        \draw[rotate=90,thin,red] (0,0) -- (-#3*6:1.2cm); % seconds
+        \path [fill=red] (0,0) circle (2pt);
+        %
+        \draw[thin, ->] (0.5,0) arc [start angle=0, end angle=-340, radius=0.5cm];
+        \node at (0,-2.5) {Orientaci\'on horaria};
+        \end{tikzpicture}%
+    }
+
+    \begin{center}
+        \clockw{15}{5}{20}\hspace{3cm}\clockc{14}{35}{5}
+    \end{center}
+
+%\end{definition}
+

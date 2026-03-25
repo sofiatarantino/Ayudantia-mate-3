@@ -1,0 +1,177 @@
+\begin{question}
+    Calcule, si existe, el siguiente l\'imite.
+
+    \[
+        \lim_{(x,y)\to(0,0)}\sen\left(\frac{\pi(x^{2}-y^{2})}{2\sqrt{x^{2}+y^{2}}}\right) \cos\left(\frac{x^{2}-y^{2}}{x^{2}+y^{2}}\right)
+    \]
+\end{question}
+
+\begin{question}
+    Sea $f:\Rn{2}\to\R$ un campo escalar diferenciable y sea $g:\Rn{2}\to\Rn{2}$ dada por: $$g(x,y)=\left(e^{xy}-1,\;\sen(\pi x+\pi y)\right).$$   \noindent Sabiendo que el gr\'afico $h=f\circ g$ en el punto $(1,0,h(1,0))$ tiene plano tangente de ecuaci\'on $$z-1=\pi x+(\pi+1) y,$$  hallar $f_{\mathbf{v}}(0,0)$ para la direcci\'on ${\mathbf{v}}=\left(\frac{1}{\sqrt{2}},-\frac{1}{\sqrt{2}}\right)$.
+\end{question}
+
+\begin{question}
+    Considere el campo escalar $f:\mathbb{R}^{2}\rightarrow\mathbb{R}$ dado por:  $$f(x,y)=e^{\sen(x)+y^{2}}$$
+    \noindent Se pide aproximar $f(-0\text{.}1,\:0\text{.}2)$ mediante un polinomio de grado dos adecuado.
+\end{question}
+
+\begin{question}
+    Dado el campo escalar $\displaystyle f(x,y)=\cos(y)+\sen(x)$. Encuentre los puntos cr\'iticos de dicho campo en el dominio $\Omega$ y clasif\'iquelos como extremos locales, donde:  \[\Omega=\left\{(x,y)\in\mathbb{R}^{2}: -\pi<x<\pi,\;\;-\pi<y<\pi \right\}\]
+\end{question}
+
+\newpage
+
+\begin{solution}
+    Notemos que la estructura del límite pedido está dada por el producto de dos funciones acotadas,  por lo tanto, con mostrar que una de las dos tiende a cero bastar\'a  para decir que el límite de dicho producto es cero.
+
+    Utilizando la siguiente desigualdad para el argumento del seno
+    \[ \\[2pt]
+        0 \leq \bigg| \frac{\pi(x^{2}-y^{2})}{2\sqrt{x^{2}+y^{2}}} \bigg| \leq
+        \frac{2(x^2+y^2)}{\sqrt{x^2+y^2}} = 2 \sqrt{x^2+y^2},
+    \]
+    junto al teorema de intercalaci\'on tenemos que
+    \[
+        \lim_{(x,y)\to(0,0)}\bigg| \frac{\pi(x^{2}-y^{2})}{2\sqrt{x^{2}+y^{2}}}\bigg|=0.
+    \]
+    Recordando que $|\sen(x)| \leq |x| \; \; \forall x \in \mathbb{R}$ podemos concluir que
+    \[
+        \lim_{(x,y)\to(0,0)}\sen\left(\frac{\pi(x^{2}-y^{2})}{2\sqrt{x^{2}+y^{2}}}\right)=0.
+    \]
+    Por \'ultimo, recordando que $|\cos(x)| \leq 1 \; \; \forall x \in \mathbb{R}$  tenemos que
+    \[
+        \lim_{(x,y)\to(0,0)}\sen\left(\frac{\pi(x^{2}-y^{2})}{2\sqrt{x^{2}+y^{2}}}\right) \cos\left(\frac{x^{2}-y^{2}}{x^{2}+y^{2}}    \right)=0.
+    \]
+\end{solution}
+
+
+\begin{solution}
+
+    Como   $h:\Rn{2}\to\R$ es diferenciable en todo su dominio por ser composición de funciones diferenciables,  la ecuaci\'on de su plano tangente en el punto $(1,0)$ est\'a dada por
+    \begin{equation}
+        z= h(1,0) + \grad h(1,0) (x-1,y),  \label{eq:zNabla}
+    \end{equation}   luego ser\'a  suficente con encontar $ h(1,0)$ y $\grad h(1,0).$
+
+    Por un lado,      $h(1,0)= f\circ g (1,0) =  f(0,0)$  y por otro lado,  como $f$ y $g$ son ambas diferenciables,  por la regla de la cadena,  tenemos que
+    \begin{equation}
+        \grad h(1,0)=\grad (f\circ g)(1,0)=\grad f(g(1,0)) \:\boldsymbol{D}_g(1,0) = \grad f (0,0) \:\boldsymbol{D}_g(1,0),  \label{eq:hNabla}
+    \end{equation}    donde $\boldsymbol{D}_g$ es la matriz diferencial o  jacobiana de $g$.
+
+    \noindent  Hallemos $\boldsymbol{D}_g$
+    \begin{align*}
+        \boldsymbol{D}_g(1,0) & =
+        \left(\begin{array}{cc}
+                      \displaystyle\partialx e^{xy}-1            & \displaystyle\partialy e^{xy}-1           \\[10pt]
+                      \displaystyle\partialx  \sen (\pi x+\pi y) & \displaystyle\partialy \sen (\pi x+\pi y)
+                  \end{array}\right)\left.\rule{0pt}{1.1cm}\right\rvert_{(1,0)}             \\[2pt]
+                              & =\left(\begin{array}{cc}
+                                               \displaystyle ye^{xy}                 & \displaystyle xe^{xy}              \\[5pt]
+                                               \displaystyle   \pi\cos (\pi x+\pi y) & \displaystyle \pi\cos(\pi x+\pi y)
+                                           \end{array}\right)\left.\rule{0pt}{0.7cm}\right\rvert_{(1,0)} \\[2pt]
+                              & =\left(\begin{array}{cc}
+                                               0    & 1    \\
+                                               -\pi & -\pi
+                                           \end{array}\right)
+    \end{align*}
+    Luego, reemplazando en  a   \eqref{eq:hNabla}
+    \[
+        \grad h(1,0) = \grad f(0,0)\left(\begin{array}{cc}
+                0    & 1    \\
+                -\pi & -\pi
+            \end{array}\right) = \left(-\pi f_y(0,0),\;f_x(0,0)-\pi f_y(0,0)\right)
+    \]
+
+    Reemplazando en \eqref{eq:zNabla}
+    \begin{align*}
+        z & = f(0,0)+\left(-\pi f_y(0,0),\;f_x(0,0)-\pi f_y(0,0)\right) (x-1,y)  \\
+        z & =f(0,0)   +\pi f_y(0,0)   -  \pi f_y(0,0)x+(f_x(0,0)-\pi f_y(0,0))y,
+    \end{align*}
+    y con la información de la consigna, se despejan
+    \[\begin{cases}
+            \;f_y(0,0)=-1 \\[5pt]
+            \;f_x(0,0)-\pi f_y(0,0)=\pi+1
+        \end{cases}
+        \iff
+        \begin{cases}
+            \;f_y(0,0)=-1 \\[5pt]
+            \;f_x(0,0)=1
+        \end{cases}
+    \]
+    $\therefore\quad\grad f(0,0)=(1,-1)$.
+
+    Como $f$ es diferenciable en todo su dominio, en particular lo es en $(0,0)$, vale que  $$f_{\mathbf{v}}(0,0)=\grad f(0,0)\cdot{\mathbf{v}}\;\;\;\;\;  \forall \; {\mathbf{v}} \in \mathbb{R}^{2}  \mbox{ con } \|{\mathbf{v}}\|=1. $$ Luego,  tomando  $ {\mathbf{v}} = (\frac{1}{\sqrt{2}},\frac{-1}{\sqrt{2}})$, obtenemos lo pedido, es decir,
+    \[
+        f_{{\mathbf{v}}} (0,0)=(1,-1)\cdot {\mathbf{v}}= \sqrt{2}.
+    \]
+\end{solution}
+
+\begin{solution}
+    Dado que $f$ es de clase  $\mathcal{C}^2(\mathbb{R}^2)$,  se definine  el polinomio de Taylor de segundo orden centrado en $(0,0)$ de $f$, que noateremos por $P_2[f,(0,0)]$ como,
+    \begin{equation}
+        P_2[f,(0,0)](x,y)=f(0,0)+\grad f(0,0)\cdot(x,y)+\frac{1}{2}(x,y)\boldsymbol{H}_f(0,0)\begin{pmatrix}x\\y\end{pmatrix}, \label{eq:polTay2}
+    \end{equation}
+    donde $\boldsymbol{H}_f$ es la matriz hessiana de $f$.
+
+    Hallemos los  términos del polinomio.
+
+    \begin{itemize}
+        \item[1.] $f(0,0)=1.$
+        \item[2.] $ \grad f(0,0) = \left(e^{\sen(x)+y^2}\cos\:(x),\;e^{\sen(x)+y^2}2y\right)\Big\rvert_{(0,0)}=(1,0).$
+        \item[3.] \begin{align*}
+                  \boldsymbol{H}_f(0,0) & =\left(
+                  \renewcommand{\arraystretch}{2} % Increase row spacing
+                  \begin{matrix}
+                      e^{\sen(x)+y^2}[\cos^2(x)-\sen(x)] & 2y\cos(x)e^{\sen(x)+y^2}             \\
+                      2y\cos(x)e^{\sen(x)+y^2}           & 4y^2e^{\sen(x)+y^2}+2e^{\sen(x)+y^2}
+                  \end{matrix}\right)\left.\rule{0pt}{1.1cm}\right\rvert_{(0,0)} \\
+                  \boldsymbol{H}_f(0,0) & =\left(\begin{matrix}
+                                                         1 & 0 \\0&2
+                                                     \end{matrix}\right).
+              \end{align*}
+    \end{itemize}
+
+    Ahora sustituimos en la expresión \eqref{eq:polTay2}.
+    \begin{align*}
+        P_2(x,y) & =1+(1,0)\cdot(x,y)+\frac{1}{2}(x,y)\left(\begin{matrix}1&0\\0&2\end{matrix}\right)\begin{pmatrix}x\\y\end{pmatrix} \\
+        P_2(x,y) & =1+x+\frac{1}{2}(x^2+2y^2)                                                                                         \\
+        P_2(x,y) & =\frac{1}{2}x^2+y^2+x+1
+    \end{align*}
+
+    Entonces queda evaluar en $P_2\left(-0\text{.}1,\:0\text{.}2\right) = \frac{189}{200} = 0\text{.}945$.
+    $$\therefore\;f\left(-0\text{.}1,\:0\text{.}2\right)\approx0\text{.}945.$$
+\end{solution}
+
+\begin{solution}
+    En este ejercicio debemos hallar y clasificar los extremos de la función $f$ sobre $\Omega$,  un conjunto acotado y abierto.
+    Para ello,    primero buscamos los puntos críticos de $f$ en $\Omega$. Como $f$ es diferenciable en  $\Omega$, basta con hallar todos los $(x_0,y_0) \in  \Omega$ tal que $\grad f(x_0,y_0)=(0,0).$
+    \[
+        \grad f(x,y)=\left(\cos(x),\;-\sen(y)\right)
+    \]
+    \[
+        \grad f(x_0,y_0) =0 \iff \begin{cases}
+            \cos(x_0)=0 \\ \sen(y_0)=0
+        \end{cases} \iff \begin{cases}
+            x_0 = \frac{\pi}{2}+k\pi \\
+            y_0 = k'\pi
+        \end{cases};k,k'\in\mathbb{Z}
+    \]
+    Ahora sumamos la condición de que pertenezcan a $\Omega$.
+    \[
+        (x_0,y_0)\in\Omega\iff x_0=-\frac{\pi}{2}\;\lor\;x_0=\frac{\pi}{2}\quad\land\quad y_0=0
+    \]
+    Por lo tanto,  el conjunto de puntos críticos es
+    \[
+        P.C.=\{(-\pi/2,0),\;(\pi/2,0)\}.
+    \]
+    Ahora, para clasificarlos, debemos aplicar el criterio de la segunda derivada. Para ésto calculamos la matriz hessiana de $f$.
+    \[
+        \boldsymbol{H}_f(x,y)=\left(\begin{matrix}
+                -\sen(x) & 0 \\ 0 & -\cos(y)
+            \end{matrix}\right)\implies \text{det}(\boldsymbol{H}_f)(x,y)=\sen(x)\cos(y)
+    \]
+
+    \begin{itemize}
+        \item[1.] $\text{det}(\boldsymbol{H}_f)(-\pi/2,0)=-1<0 \implies f\:\:\text{tiene un punto silla en}\:\: (-\pi/2,0).$
+        \item[2.] $\text{det}(\boldsymbol{H}_f)(\pi/2,0)=1>0 \:\:\land\:\: f_{xx}(\pi/2,0)=1>0\implies f\:\:\text{tiene un mínimo} \\
+                  \quad \text{local en}\:\:(\pi/2,0).$
+    \end{itemize}
+\end{solution}

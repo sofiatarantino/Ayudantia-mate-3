@@ -1,0 +1,113 @@
+\begin{definition}\textbf{Gradiente}
+    Sean  $U  \subseteq  \Rn{n}$ un conjunto abierto y   $f:U  \subseteq  \Rn{n}\to\R$ diferenciable.   Se define el \emph{gradiente} de $f$, y se nota $\grad f$,  como el  campo vectorial definido en $U$  dado por
+    \[
+        \grad f(\mathbf{x})=\left(\frac{\partial f(\mathbf{x})}{\partial x_1},\frac{\partial f(\mathbf{x})}{\partial x_2},\:\ldots,\: \frac{\partial f(\mathbf{x})}{\partial x_n}\right),
+    \]
+  \end{definition}
+
+
+\begin{definition}\textbf{Divergencia}
+    Sean  $U  \subseteq  \Rn{n}$ un conjunto abierto y  $\mathbf{F}:U  \subseteq  \Rn{n}\to\Rn{n}$  de clase $\mathcal{C}^1(U)$.  Se define la \emph{divergencia} de $\mathbf{F}$, y se nota  $ \grad\cdot \mathbf{F}$,  como el  campo escalar definido en $U$  dado por
+    \[
+        \grad\cdot \mathbf{F}(\mathbf{x})=\frac{\partial f_1(\mathbf{x})}{\partial x_1}+\frac{\partial f_2(\mathbf{x})}{\partial x_2}+\:\ldots+\: \frac{\partial f_n(\mathbf{x})}{\partial x_n}.
+    \]
+    donde $\mathbf{F}=(f_1,f_2,\ldots,f_n).$ 
+\end{definition}
+
+
+\begin{definition}\textbf{Rotor}
+   Sean  $U  \subseteq  \Rn{3}$ un conjunto abierto  y  $\mathbf{F}:U  \subseteq  \Rn{3}\to\Rn{3}$ de clase $\mathcal{C}^1(U)$.  Se define el \emph{rotor} de $\mathbf{F}$, y se nota  $\grad\times\mathbf{F}$,   como el  campo vectorial  definido en $U$ dado por 
+    \[
+        \grad\times\mathbf{F}(\mathbf{x})=\left(\frac{\partial f_3(\mathbf{x})}{\partial y}-\frac{\partial f_2(\mathbf{x})}{\partial z},\;\frac{\partial f_1(\mathbf{x})}{\partial z}-\frac{\partial f_3(\mathbf{x})}{\partial x},\;\frac{\partial f_2(\mathbf{x})}{\partial x}-\frac{\partial f_1(\mathbf{x})}{\partial y}\right),
+    \]   
+    donde $\mathbf{F}=(f_1,\:f_2,\:f_3)$ y $\mathbf{x}=(x,y,z)$.
+  
+  
+    Sean  $U  \subseteq  \Rn{2}$ un conjunto abierto y  $\mathbf{F}:U  \subseteq  \Rn{2}\to\Rn{2}$  de clase $\mathcal{C}^1(U)$.  Se define el \emph{rotor} de $\mathbf{F}$, y se nota  $\grad\times\mathbf{F}(\mathbf{x})$,   como el campo escalar  definido en $U$  dado por
+    \[
+        \grad\times\mathbf{F}(\mathbf{x})=\left(\frac{\partial f_2(\mathbf{x})}{\partial x}-\frac{\partial f_1(\mathbf{x})}{\partial y}\right).
+    \]
+     donde $\mathbf{F}=(f_1,\:f_2)$ y $\mathbf{x}=(x,y)$.
+\end{definition}
+
+\begin{definition}\textbf{Laplaciano}
+  Sean  $U  \subseteq  \Rn{n}$  un conjunto abierto y  $f:U\subset\Rn{n}\to\R$  de clase $\mathcal{C}^2(U)$.   Se define el \emph{laplaciano} de $f$, y se lo nota $\Delta f$ o $\grad^2 f$,  como el campo escalar  definido en $U$  dado por
+    \[
+        \Delta f(\mathbf{x}) =\grad\cdot\grad f (\mathbf{x}).  
+    \]
+   Sean  $U  \subseteq  \Rn{n}$  un conjunto abierto y $\mathbf{F}:U\subset\Rn{n}\to\Rn{n}$ de clase $\mathcal{C}^2(U)$.   Se define el \emph{laplaciano} de $F$, y se lo nota $\Delta F$,  como el campo vectorial  definido en $U$  dado por
+    \[
+        \Delta\mathbf{F}=(\Delta f_1,\Delta f_2,\ldots,\Delta f_n). 
+    \]
+\end{definition}
+
+
+\begin{obs}
+    Estas f\'ormulas son m\'as f\'aciles de recordar si pensamos a nabla ($\grad$) como   el siguiente operador 
+    \[
+        \grad = \left(\frac{\partial}{\partial x_1},\frac{\partial}{\partial x_2},\:\ldots,\: \frac{\partial}{\partial x_n}\right).  
+    \]
+    De esta manera, la divergencia es el producto escalar de $\grad$ con un campo vectorial, para el caso del rotor en $\Rn{3}$ es el producto cruz  con un campo vectorial y para el laplaciano es el producto escalar de $\grad$ con un campo escalar.
+\end{obs}
+
+\begin{example}
+    Sea $f(x,y)=\sin{(x^2+y^2)}$. Calcular $\Delta f(x,y)$.
+
+    Primero calculamos el gradiente de $f$.
+    \[
+        \grad f(x,y) = (2x\cos{(x^2+y^2)}, 2y\cos{(x^2+y^2)})
+    \]
+    Luego le aplicamos la divergencia.
+    \begin{align*}
+        \grad\cdot\grad f (x,y) &= \left(\frac{\partial}{\partial x}, \frac{\partial}{\partial y}\right)\cdot (2x\cos{(x^2+y^2)}, 2y\cos{(x^2+y^2)})\\[.2cm]
+        &= 2\cos{(x^2+y^2)}-4x^2\sin{(x^2+y^2)}+2\cos{(x^2+y^2)}-4y^2\sin{(x^2+y^2)}\\[.2cm]
+        &=4\cos{(x^2+y^2)}-4(x^2+y^2)\sin{(x^2+y^2)}.
+    \end{align*}
+ \end{example}
+
+\begin{definition}\textbf{Campo irrotacional.}
+    Un campo vectorial $\mathbf{F}:U\subseteq\Rn{n}\to\Rn{n}$ se llama   \emph{campo irrotacional}  si $$\grad\times\mathbf{F}=\mathbf{0}  \:\: \forall  \mathbf{x} \in U.$$   
+  \end{definition}  
+  
+  
+  \begin{definition}\textbf{Campo solenoidal.} Un campo vectorial $\mathbf{F}:U\subseteq\Rn{n}\to\Rn{n}$ se llama  \emph{campo solenoidal}  si $$\grad\cdot\mathbf{F}=0 \:\: \forall  \mathbf{x} \in U.$$ 
+\end{definition}
+\begin{definition}\textbf{Campo arm\'onico.}
+    Sea un campo escalar $f$ o un campo vectorial $\mathbf{F}$. Si $\Delta f=0$ o $\Delta \mathbf{F}=0$  decimos que es un campo  \emph{arm\'onico}.
+\end{definition}
+
+\begin{propertie}
+    Sean $f:U\subseteq\Rn{n}\to\R$  y $\mathbf{F}:U\subseteq\Rn{n}\to\Rn{n}$  campos diferenciables en $U$ y sean $\alpha,\;\beta\in\R$, entonces
+    \begin{itemize}
+        \item[1.] \(\grad(\alpha f(\mathbf{x})+\beta g(\mathbf{x}))=\alpha\grad f(\mathbf{x})+\beta\grad g(\mathbf{x}),\quad\forall\mathbf{x}\in U\) 
+     \end{itemize}   
+ 
+\:\:\:\:  Adem\'as, si pedimos para $f$ y $\mathbf{F}$  la condici\'on  de ser  clase $C^{1}(U),$ entonces
+       \begin{itemize}
+        \item[2.]  \(\grad\cdot(\alpha \mathbf{F}(\mathbf{x})+\beta \mathbf{G}(\mathbf{x}))=\alpha\grad\cdot\mathbf{F}(\mathbf{x})+\beta\grad\cdot\mathbf{G}(\mathbf{x}),\quad\forall\mathbf{x}\in U\)
+        \item[3.] \(\grad\times(\alpha \mathbf{F}(\mathbf{x})+\beta \mathbf{G}(\mathbf{x}))=\alpha\grad\times\mathbf{F}(\mathbf{x})+\beta\grad\times\mathbf{G}(\mathbf{x}),\quad\forall\mathbf{x}\in U\)
+    \end{itemize}
+\end{propertie}
+\begin{propertie}
+    \textbf{Regla de Leibniz para el producto}.  Sean  $U\subset\Rn{n}$ un conjunto abierto  y  $h:U\subseteq\Rn{n}\to\R$ un campo escalar de clase $\mathcal{C}^1(U)$.
+    \begin{enumerate}
+        \item Si $\mathbf{F}:U\subseteq\Rn{n}\to\Rn{n}$ de clase $\mathcal{C}^1(U)$, entonces $\grad\cdot(h\mathbf{F})=h\grad\cdot\mathbf{F}+\grad h\cdot\mathbf{F}$
+        \item Si $\mathbf{F}:U\subseteq\Rn{n}\to\Rn{n}$ ( $n=2$ o $n=3$)  de clase $\mathcal{C}^1(U)$, entonces $\grad\times(h\mathbf{F})=h\grad\times\mathbf{F}+\grad h\times\mathbf{F}$
+    \end{enumerate}
+\end{propertie}
+\begin{propertie}\textbf{Productos.}  Sean  $U  \subseteq  \Rn{n}$ un conjunto abierto, $f,g$  campos escalares de clase $\mathcal{C}^1(U)$  y $\mathbf{F},\mathbf{G}$ campos vectoriales  de clase $\mathcal{C}^1(U)$
+    \begin{enumerate}
+        \item $\grad(fg)=f\grad g+g\grad f$
+        \item $\grad\cdot(\mathbf{F}\times\mathbf{G})=\grad\times\mathbf{F}\cdot\mathbf{G}-\mathbf{F}\cdot\grad\times\mathbf{G}$
+    \end{enumerate}
+\end{propertie}
+
+
+\begin{propertie} Sean  $U  \subseteq  \Rn{n}$ un conjunto abierto ($n=2$ 0 $n=3$). Si  $f:U\subseteq\Rn{n}\to\R$  es un  campo de clase $C^{2}(U)$  entonces  $\grad f$ es un campo irrotacional. Es decir: $$ \grad\times  \grad f =0 \:\:  \forall  \mathbf{x} \in U.$$
+\end{propertie}
+
+
+
+\begin{propertie}
+ Sea  $U  \subseteq  \Rn{3}$ un conjunto abierto.  Si  $\mathbf{F}:U  \subseteq  \Rn{3}\to\Rn{3}$ es un  campo de clase $C^{2}(U)$  entoces  $ \grad\times \mathbf{F}$  es un campo solenoidal. Es decir:  $$\grad\cdot   \grad\times   \mathbf{F} =0 \:\:  \forall  \mathbf{x} \in U.$$
+\end{propertie}

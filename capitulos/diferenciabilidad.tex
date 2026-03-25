@@ -1,0 +1,573 @@
+\label{sec:diferenciabilidad}
+
+Empecemos repasando la derivada de una funci\'on de una variable.  Recordemos la idea de "recta que
+mejor aproxima" a la gr\'afica de la funci\'on en un punto $(x_0, f(x_0)).$ 
+
+\begin{definition} \textbf{Caracterización de la derivabilidad en una variable.}\label{recta_tangente}
+Sea $f: A\subseteq  \mathbb{R}\to\mathbb{R}$ y $x_0 \in A^{\circ}$,   $f$ llama  derivable en $x_0$  si  existe un número real $m$ tal que
+$$ L(x) = f(x_0) + m(x-x_0) $$    satisface
+\begin{equation}\label{prueba}
+ \lim_{x\to x_0} \frac{f(x) - L(x)}{x-x_0} = 0. 
+\end{equation} En tal caso,  el n\'umero $m$ se llama la derivada de $f$ en $x_0$ y se nota por $ f^{'}(x_0)$ y  la condici\'on (\ref{prueba})  se llama  \emph{ condición de buena aproximación de orden 1 }.  
+\end{definition}
+
+\begin{definition}\textbf{Recta tangente.}   Sea $f: A\subseteq  \mathbb{R}\to\mathbb{R}$ derivable en $x_0 \in A^{\circ}$.   La recta 
+ $$L(x) = f(x_0) + f^{'}(x_0)(x-x_0)$$ se llama  \emph{recta tangente} a la gr\'afica de $f$ en el punto $(x_0, f(x_0))$ 
+\end{definition}
+
+
+\begin{propertie}
+Sea $f: A \subseteq \mathbb{R} \to \mathbb{R}$ y $x_0 \in A^{\circ}$.   Si  $f$ es  derivable en $x_0$ entonces    
+ $$  f^{'}(x_0) = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x-x_0}$$ 
+\end{propertie}
+
+\begin{propertie}
+Sea $f: A \subseteq \mathbb{R} \to \mathbb{R}$ y $x_0 \in A^{\circ}$.      
+Si existe y es finito el l\'imite $$   m = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x-x_0}$$ entonces $f$ es  derivable en $x_0$   $m= f^{'}(x_0).$ 
+\end{propertie}
+
+
+
+
+\textbf{Nexo hacia varias variables.}  
+En el caso de funciones de varias variables, la idea es análoga: 
+en lugar de buscar una \emph{recta} que aproxime bien a la función en un punto, 
+buscaremos un \emph{plano} (o, en general, un hiperplano) que cumpla la misma 
+propiedad de aproximación de primer orden.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}\textbf{Diferenciabilidad de campos escalares.} \label{def:dif_escalar}
+\mbox{}
+Sean $f: A  \subseteq  \Rn{n} \to \R$ y $\mathbf{x}_0 \in \interior{A}$. Decimos que $f$ es \emph{diferenciable en $\mathbf{x}_0$} si $\exists\:\mathbf{m} \in \Rn{n}$ tal que
+\[
+  \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{f(\mathbf{x}) - f(\mathbf{x}_0) - \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0)}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0.
+\]
+Si $A$ es un conjunto abierto, decimos que $f$ es \emph{diferenciable} si es diferenciable en cada punto $\mathbf{x}_0 \in A$.
+\end{definition}
+
+
+
+\begin{obs} \label{def:dif_escalar_n2}  Reescribamos  la definici\'on  (\ref{def:dif_escalar}) para el caso particular $n=2$.   Sea $f: A  \subseteq  \mathbb{R}^{2} \to \R$ y $(x_0,y_0) \in \interior{A}$.  Decimos que $f$ es \emph{diferenciable} en $(x_0,y_0)$  si $\exists\: (a,b)  \in \mathbb{R}^{2}$ tal que
+\[
+  \lim_{ (x,y) \to   (x_0, y_0)}   \frac{ f(x,y ) - f( x_0,y_0 ) - a(x-x_0) - b(y-y_0)}{\norm{ (x,y)-(x_0,y_0) } }   = 0.
+\]
+\end{obs}
+
+\begin{definition} \textbf{Plano tangente.}\label{def:plano_tangente} Sea $f: A  \subseteq  \mathbb{R}^{2} \to \R$ diferenciable en $(x_0,y_0)$,  al plano $\pi$  de ecuaci\'on $z =  f( x_0,y_0 ) + a(x-x_0) + b(y-y_0)$ se lo llama \emph{plano tangente} a la gr\'afica de $f$ en el punto $(x_0, y_0, f(x_0, y_0)).$
+\end{definition}
+
+
+
+\begin{theorem}\textbf{Diferenciabilidad y continuidad.} \label{teo:difCont} Sean $f: A  \subseteq  \Rn{n} \to \R$ y $\mathbf{x}_0 \in  A^{\circ}$. Si $f$ es diferenciable en $\mathbf{x}_0$, entonces $f$ es continua en $\mathbf{x}_0$.
+\end{theorem}
+
+\begin{proof}  Como $f$ es diferenciable en $\mathbf{x}_0, \exists\:\mathbf{m} \in \Rn{n}$ tal que
+ \[
+  \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{f(\mathbf{x}) - f(\mathbf{x}_0) - \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0)}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0.
+ \]
+Por lo tanto, $\exists\:\delta_0 > 0$ tal que 
+\[
+ \mathbf{x} \in B_{\delta_0}^* \cap A \then 
+ \abs{ \frac{f(\mathbf{x}) - f(\mathbf{x}_0) - \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0)}{\norm{\mathbf{x} - \mathbf{x}_0}} } < 1.
+\]
+Entonces, para este $\delta_0$, se cumple que
+\[
+ \abs{ f(\mathbf{x}) - f(\mathbf{x}_0) - \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0) } < \norm{\mathbf{x} - \mathbf{x}_0}, \, \forall \mathbf{x} \in B_{\delta_0}^* \cap A.
+\]
+% Como ambos miembros de esta desigualdad (estricta) son iguales cuando $\mathbf{x} = \mathbf{x}_0$, vale que
+% \[
+%  \abs{ f(\mathbf{x}) - f(\mathbf{x}_0) - \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0) } \le \norm{\mathbf{x} - \mathbf{x}_0}, \, \forall \mathbf{x} \in B_{\delta_0} \cap A.
+% \]
+Por lo tanto,
+\begin{align*}
+\abs{ f(\mathbf{x}) - f(\mathbf{x}_0) } &=   \abs{ f(\mathbf{x}) - f(\mathbf{x}_0) - \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0) + \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0) } \le \\
+                      &\le \abs{ f(\mathbf{x}) - f(\mathbf{x}_0) - \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0) } + \abs{ \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0) } < \\
+                      &< \norm{\mathbf{x} - \mathbf{x}_0} + \abs{ \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0) }, \, 
+                      \forall \mathbf{x} \in B^*_{\delta_0} \cap A.
+\end{align*}
+Por la desigualdad de Cauchy-Schwarz, $\abs{ \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0) } \le \norm{\mathbf{m}} \norm{\mathbf{x} - \mathbf{x}_0}$, y entonces:
+\begin{align*}
+\abs{ f(\mathbf{x}) - f(\mathbf{x}_0) } &< \norm{\mathbf{x} - \mathbf{x}_0} + \abs{ \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0) } \le \\
+                      &\le \norm{\mathbf{x} - \mathbf{x}_0} + \norm{\mathbf{m}} \norm{\mathbf{x} - \mathbf{x}_0} = \\
+                      &=  \left( 1 + \norm{\mathbf{m}} \right) \norm{\mathbf{x} - \mathbf{x}_0}, \, 
+                      \forall \mathbf{x} \in B^*_{\delta_0} \cap A.
+\end{align*}
+Esta condici\'on garantiza la continuidad de $f$ en $\mathbf{x}_0$. En efecto, dado $\epsilon > 0$, sea $\delta = \min \{\delta_0, \frac{\epsilon}{1 + \norm{\mathbf{m}}} \}$. Para este $\delta$ se cumple que:
+\begin{align*}
+ \abs{ f(\mathbf{x}) - f(\mathbf{x}_0) } &< \left( 1 + \norm{\mathbf{m}} \right) \norm{\mathbf{x} - \mathbf{x}_0} < \\
+                       &<   \left( 1 + \norm{\mathbf{m}} \right) \delta \le \\
+                       &\le \left( 1 + \norm{\mathbf{m}} \right) \frac{\epsilon}{1 + \norm{\mathbf{m}}} = \epsilon, 
+                       \, \forall \mathbf{x} \in B^*_{\delta} \cap A,
+\end{align*}
+lo que, por definici\'on de l\'imite \footnote{Como $\mathbf{x}_0 \in \interior{(A)}$, $\mathbf{x}_0$ es un punto de acumulaci\'on de $A$. }, significa que 
+\[
+ \lim_{\mathbf{x} \to \mathbf{x}_0}f(\mathbf{x}) = f(\mathbf{x}_0).
+\]
+Es decir, $f$ es continua en $\mathbf{x}_0$.
+\end{proof}
+
+
+
+
+\begin{obs} La implicaci\'on rec\'iproca de la proposici\'on \eqref{teo:difCont} es falsa.  Se deja como ejercicio para el lector probar que la siguiente funci\'on es continua en $t_0 = 0$ pero no es diferenciable en $t_0 = 0$.
+  \begin{align*}
+      g & :\R \to \R \\
+        & g(t) = \abs{t}
+ \end{align*}
+\end{obs}
+
+
+
+
+
+
+%\begin{theorem} \label{teo:difDer} \textbf{Diferenciabilidad y existencia de derivadas parciales.}  Sean $f: A  \subseteq  \Rn{2} \to \R$ y $(\mathbf{x}_0, y_0) \in \interior{(A)}$, tales que $%%\exists \alpha, \beta \in \R \, /$
+%\[
+ %\lim_{(\mathbf{x},y) \to (\mathbf{x}_0,y_0)} \frac{f(\mathbf{x},y) - f(\mathbf{x}_0,y_0) - \alpha(\mathbf{x} - \mathbf{x}_0) - \beta(y - y_0)}
+  %                               {\norm{(\mathbf{x} - \mathbf{x}_0, y - y_0)}} = 0
+%\]
+%(es decir, $f$ es diferenciable en $(\mathbf{x}_0,y_0)$). Entonces existen las derivadas parciales de $f$ en $(\mathbf{x}_0,y_0)$ y, adem\'as,
+%\[
+ %\dif{f}{\mathbf{x}} (\mathbf{x}_0,y_0) = \alpha, \quad \dif{f}{y}(\mathbf{x}_0,y_0) = \beta.
+%\]
+%\end{theorem}
+
+
+
+% \begin{proof}
+%\mbox{}
+%Sea $(\mathbf{x},y) = (\mathbf{x}_0,y_0) + h \mathbf{e}_1$, siendo $h \in \R$ y $\mathbf{e}_1$ el primer vector can\'onico ($\mathbf{e}_1 = (1,0)$). Es decir, definimos una funci\'on $%\mathbf{g}:(-\delta,\delta) \to \Rn{2} / \mathbf{g}(h) = (\mathbf{x}_0,y_0) + h \mathbf{e}_1$, con $\delta > 0$, lo suficientemente peque\~{n}o como para que $\text{Img}(\mathbf{g}) % \subseteq  A$ \footnote{Cu\'al de las hip\'oteis asegura la existencia de un tal $\delta$?}, y llamamos $(\mathbf{x},y) = \mathbf{g}(h)$. Notemos que $\mathbf{g}(h) \to (\mathbf{x}_0,y_0)$ %cuando $h \to 0$. 
+
+%Por la diferenciabilidad, tenemos que 
+%\[
+ %\lim_{(\mathbf{x},y) \to (\mathbf{x}_0,y_0)} \frac{f(\mathbf{x},y) - f(\mathbf{x}_0,y_0) - \alpha(\mathbf{x} - \mathbf{x}_0) - \beta(y - y_0)}
+%                                 {\norm{(\mathbf{x} - \mathbf{x}_0, y - y_0)}} = 0
+%\]
+%y entonces, si componemos con la funci\'on $\mathbf{g}$ (reemplazamos $(\mathbf{x},y) = (\mathbf{x}_0,y_0) + h \mathbf{e}_1$), la propiedad del l\'imite de la composici\'on     %\eqref{prop:lim_comp} implica que
+%\begin{align*}
+%  0 & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) - \alpha(\mathbf{x}_0 + h - \mathbf{x}_0) - \beta(y_0 - y_0)}
+ %                                {\norm{(\mathbf{x}_0 + h - \mathbf{x}_0, y_0 - y_0)}} = \\
+ %   & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) - \alpha h}{\norm{h \mathbf{e}_1}} = \\
+  %  & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) - \alpha h}{\abs{h}} .
+%\end{align*}                                
+%Ahora bien, este l\'imite es $0$ si y s\'olo si
+%\[
+ %\lim_{h \to 0} \abs{ \frac{f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) - \alpha h}{\abs{h}} } = 0,
+%\]
+%por la propiedad \eqref{prop:lim_1}. Entonces,
+%\begin{align*}
+%  0 & =  \lim_{h \to 0} \abs{ \frac{f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) - \alpha h}{\abs{h}} }
+ %     = \lim_{h \to 0} \frac{ \abs{ f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) - \alpha h }}{\abs{ \, \abs{h} \, }} = \\
+  %  & = \lim_{h \to 0} \frac{ \abs{ f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) - \alpha h }}{\abs{h}}
+  %    = \lim_{h \to 0} \abs{ \frac{ f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) - \alpha h }{h}},
+%\end{align*} 
+% lo cual, otra vez por la propiedad \eqref{prop:lim_1}, implica que 
+%\[
+% 0 = \lim_{h \to 0} \frac{ f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) - \alpha h }{h} =
+  %   \lim_{h \to 0} \left( \frac{ f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) }{h} - \alpha \right) .
+%\]
+
+
+
+
+%Entonces, por la propiedad \eqref{prop:lim_2}, tenemos que
+%\[
+ %\lim_{h \to 0} \frac{ f(\mathbf{x}_0 + h,y_0) - f(\mathbf{x}_0,y_0) }{h} = \alpha,
+%\]
+%\end{proof}
+
+
+\begin{theorem}\label{teo:difDer}Sean $f: A  \subseteq  \Rn{n} \to \R$ y $\mathbf{x}_0 \in \interior{(A)}$, tales que $\exists\: \mathbf{m} = (m_1, m_2, \cdots, m_n) \in \Rn{n} \, /$
+\[
+ \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{f(\mathbf{x}) - f(\mathbf{x}_0) - \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0)}
+                                 {\norm{\mathbf{x} - \mathbf{x}_0}} = 0
+\]
+(es decir, $f$ es diferenciable en $\mathbf{x}_0$). Entonces existen las derivadas parciales de $f$ en $\mathbf{x}_0$ y, adem\'as,
+\[
+ \dif{f}{x_j} (\mathbf{x}_0) = m_j \quad \forall j = 1, 2, \cdots, n.
+\]
+\end{theorem}
+
+
+ \begin{proof} Sea $\mathbf{x} = \mathbf{x}_0 + h \mathbf{e}_j$, siendo $h \in \R$ y $\mathbf{e}_j$ el $j$-\'esimo vector can\'onico. Es decir, definimos una funci\'on $\mathbf{g}:(-\delta,\delta) \to \Rn{n}\;|\; \mathbf{g}(h) = \mathbf{x}_0 + h \mathbf{e}_j$, con $\delta > 0$, lo suficientemente peque\~{n}o como para que $\text{Img}(\mathbf{g})  \subseteq  A$ \footnote{¿Cul\'al de las hip\'otesis asegura la existencia de un tal $\delta$?}, y llamamos $\mathbf{x} = \mathbf{g}(h)$. Notemos que $\mathbf{g}(h) \to \mathbf{x}_0$ cuando $h \to 0$. 
+
+Por la diferenciabilidad, tenemos que 
+\[
+ \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{f(\mathbf{x}) - f(\mathbf{x}_0) - \mathbf{m} \cdot (\mathbf{x} - \mathbf{x}_0)}
+                                 {\norm{\mathbf{x} - \mathbf{x}_0}} = 0
+\]
+y entonces, si componemos con la funci\'on $\mathbf{g}$ (reemplazamos $\mathbf{x} = \mathbf{x}_0 + h \mathbf{e}_j$), la propiedad del l\'imite de la composici\'on \eqref{prop:lim_comp} implica que
+\begin{align*}
+  0 & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - \mathbf{m} \cdot ((\mathbf{x}_0 + h\mathbf{e}_j) - \mathbf{x}_0)}
+                                 {\norm{(\mathbf{x}_0 + h\mathbf{e}_j) - \mathbf{x}_0}} = \\
+    & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - \mathbf{m} \cdot (h\mathbf{e}_j)}{\norm{h \mathbf{e}_j}} = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - h(\mathbf{m} \cdot \mathbf{e}_j)}{\norm{h \mathbf{e}_j}} =\\
+    & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - h m_j}{\abs{h}} .
+\end{align*}                                
+Ahora bien, este l\'imite es $0$ si y s\'olo si
+\[
+ \lim_{h \to 0} \abs{ \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - h m_j}{\abs{h}} } = 0,
+\]
+por la propiedad \eqref{prop:lim_1}. Entonces,
+\begin{align*}
+  0 & = \lim_{h \to 0} \abs{ \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - h m_j}{\abs{h}} }
+      = \lim_{h \to 0} \frac{\abs{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - h m_j}}{\abs{\abs{h}}} = \\
+    & = \lim_{h \to 0} \frac{\abs{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - h m_j}}{\abs{h}}
+      = \lim_{h \to 0} \abs{ \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - h m_j}{h} },
+\end{align*} 
+lo cual, otra vez por la propiedad \eqref{prop:lim_1}, implica que 
+\[
+ 0 = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) - h m_j}{h} =
+     \lim_{h \to 0} \left( \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0)}{h} - m_j \right) .
+\]
+
+Es f\'acil probar por definici\'on que esta \'ultima condici\'on implica que
+\[
+ \lim_{h \to 0} \frac{ f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) }{h} = m_j.
+\]
+En efecto, dado $\epsilon > 0$ existe $\delta > 0$ tal que 
+\[
+ \abs{ \left( \frac{ f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) }{h} - m_j \right) - 0 } < \epsilon, \, \forall h : 0 < \abs{h} < \delta,
+\]
+porque el l\'imite es 0. Como claramente 
+\[
+ \abs{ \left( \frac{ f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) }{h} - m_j \right) - 0 } = 
+ \abs{\frac{ f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) }{h} - m_j},
+\]
+se tiene (por definici\'on de l\'imite) que 
+\[
+ \lim_{h \to 0} \frac{ f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0) }{h} = m_j.
+\]
+Esto \'ultimo, por definici\'on de derivada parcial, significa que
+\[
+  \dif{f}{x_j} (\mathbf{x}_0) = m_j,
+\]
+como quer\'iamos probar. 
+\end{proof}
+
+
+\begin{obs}
+ Es un error decir, en el \'ultimo paso de la demostraci\'on, que por la linealidad del l\'imite
+ \[
+  \lim_{h \to 0} \left( \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0)}{h} - m_j \right) = 
+  \lim_{h \to 0} \left( \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0)}{h} \right) - \lim_{h \to 0} m_j = 0,
+ \]
+ya que la existencia del l\'imite 
+\[
+\lim_{h \to 0} \left( \frac{f(\mathbf{x}_0 + h \mathbf{e}_j) - f(\mathbf{x}_0)}{h} \right)
+\]
+es parte de lo que debemos probar.
+\end{obs}
+
+
+
+
+
+\begin{obs} La implicaci\'on rec\'iproca de la proposici\'on \eqref{teo:difDer} es falsa.
+\begin{proof} Se deja como ejercicio para el lector probar que  la funci\'on  
+ \[
+        f(x,y) = 
+        \begin{cases}
+         0 & \text{ si } x y = 0  \\
+         1 & \text{ en otro caso }
+        \end{cases}
+\]admite  derivadas parciales en el origen  pero no es diferenciable en dicho punto.
+\end{proof}
+\end{obs}
+
+
+\begin{definition}  Sean $f: A  \subseteq  \Rn{n} \to \R$  diferenciable en $\mathbf{x}_0 \in A^{\circ}$. Se define el gradiente de $f$ en $x_0$, y se nota $ \grad f (\mathbf{x}_0)$, a
+$$ \grad f (\mathbf{x}_0) =  (f_{x_1}(\mathbf{x}_0),...,f_{x_n}(\mathbf{x}_0) ). $$
+\end{definition}
+
+
+
+Una consecuencia directa del \autoref{teo:difDer} es el siguiente corolario.
+\begin{corollary}
+ Sean $f: A  \subseteq  \Rn{n} \to \R$ y $\mathbf{x}_0 \in A^{\circ}$. Son equivalentes:
+ \begin{enumerate} %[I.]
+  \item $f$ es diferenciable en $\mathbf{x}_0$;
+  \item existen todas las derivadas parciales de $f$ en $\mathbf{x}_0$ y 
+  \[
+   \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{f(\mathbf{x}) - f(\mathbf{x}_0) - \grad f (\mathbf{x}_0) \cdot (\mathbf{x} - \mathbf{x}_0)}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0.
+  \]
+ \end{enumerate}
+\end{corollary}
+
+
+
+ 
+\begin{tarea}  Analizar la diferenciabilidad de $f$  en $(0,0)$  siendo
+
+ $$ f(x,y) = \begin{cases}   \dfrac{ x^{2}y^{2} }{ x^{2}y^{2}+(x-y)^{2}} & \text{si}\;\; (x,y) \neq (0,0) \\
+           \hspace{0.5cm}0 & \text{si}\;\; (x,y) = (0,0)
+          \end{cases}$$
+\end{tarea}
+
+
+
+
+
+\begin{tarea}
+Analizar  la diferenciabilidad de en el origen de (\ref{direccionales}).
+\end{tarea}
+
+
+
+
+
+
+\begin{theorem}\textbf{Diferenciabilidad y existencia de derivadas direccionales.}\label{teo:difDir} Sea $f: A  \subseteq  \Rn{n} \to \R$ diferenciable en $\mathbf{x}_0 \in \interior{A}$. Entonces, $\forall {\mathbf{u}} \in \Rn{n}\;\text{tal que } \norm{{\mathbf{u}}} = 1$ existe en $\mathbf{x}_0$ la derivada de $f$ en la direcci\'on de ${\mathbf{u}}$ y, adem\'as,
+\[
+ \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = \grad f (\mathbf{x}_0) \cdot {\mathbf{u}}.
+\] \begin{proof}   Sea $\mathbf{x} = \mathbf{x}_0 + h {\mathbf{u}}$, siendo $h \in \R$. Es decir, definimos una funci\'on 
+ \begin{gather*}
+      \mathbf{g} :(-\delta,\delta) \to \Rn{n} \\
+      \mathbf{g}(h) = \mathbf{x}_0 + h {\mathbf{u}}
+ \end{gather*}
+con $\delta > 0$, lo suficientemente peque\~{n}o como para que $\text{Img}(\mathbf{g})  \subseteq  A$, y llamamos $\mathbf{x} = \mathbf{g}(h)$. Notemos que $\mathbf{g}(h) \to \mathbf{x}_0$ cuando $h \to 0$. 
+
+Por la diferenciabilidad, tenemos que 
+\[
+ \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{f(\mathbf{x}) - f(\mathbf{x}_0) - \grad f (\mathbf{x}_0) \cdot (\mathbf{x} - \mathbf{x}_0)}
+                                 {\norm{\mathbf{x} - \mathbf{x}_0}} = 0
+\]
+y entonces, si componemos con la funci\'on $\mathbf{g}$ (reemplazamos $\mathbf{x} = \mathbf{x}_0 + h {\mathbf{u}}$), la propiedad del l\'imite de la composici\'on \eqref{prop:lim_comp} implica que
+\begin{align*}
+  0 & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h {\mathbf{u}}) - f(\mathbf{x}_0) - \grad f (\mathbf{x}_0) \cdot ((\mathbf{x}_0 + h _{\delta}(\mathbf{x}_0){\mathbf{u}}) - \mathbf{x}_0) }
+                    {\norm{(\mathbf{x}_0 + h {\mathbf{u}}) - \mathbf{x}_0}} = \\
+    & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h {\mathbf{u}}) - f(\mathbf{x}_0) - \grad f (\mathbf{x}_0) \cdot (h {\mathbf{u}}) }
+                    {\norm{h {\mathbf{u}}}} = \\
+    & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h {\mathbf{u}}) - f(\mathbf{x}_0) - h \grad f (\mathbf{x}_0) \cdot {\mathbf{u}} }
+                    {\abs{h} \norm{{\mathbf{u}}}} = \\
+    & = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h {\mathbf{u}}) - f(\mathbf{x}_0) - h \grad f (\mathbf{x}_0) \cdot {\mathbf{u}} }
+                    {\abs{h}}.  
+\end{align*}                                
+Como en la demostraci\'on de la propiedad \eqref{teo:difDer}, este l\'imite es $0$ si y s\'olo si
+\[
+ 0 = \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h {\mathbf{u}}) - f(\mathbf{x}_0) - h \grad f (\mathbf{x}_0) \cdot {\mathbf{u}}}{h} = 
+     \lim_{h \to 0} \left( \frac{f(\mathbf{x}_0 + h {\mathbf{u}}) - f(\mathbf{x}_0)}{h} - \grad f (\mathbf{x}_0) \cdot {\mathbf{u}} \right),
+\]
+lo que implica 
+\[
+ \lim_{h \to 0} \frac{f(\mathbf{x}_0 + h {\mathbf{u}}) - f(\mathbf{x}_0)}{h} = \grad f (\mathbf{x}_0) \cdot {\mathbf{u}}
+\]
+y por lo tanto, por definici\'on,
+\[
+ \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = \grad f (\mathbf{x}_0) \cdot {\mathbf{u}}.
+\]
+ \end{proof}
+\end{theorem}
+
+
+\begin{tarea} Analizar la continuidad, existencia de derivadas direccionales y  diferenciabilidad  en el origen de
+ \[
+        f(x,y) = 
+        \begin{cases}
+         \dfrac{x^{3}}{x^{2} +y^{2} } & \text{ si }  (x, y)  \neq  0  \\
+         0 & \text{ en otro caso }
+        \end{cases}
+\]
+\end{tarea}
+
+\begin{tarea}
+Sea  $f$  un  campo escalar  diferenciable  en todo  $\mathbb{R}^{2}$  y sea   $\pi:  2x+3y+4z=1$   el plano tangente a la gr\'afica de $f$  en el punto $(1,2, f(1,2)).$    Hallar todos los vectores unitarios $v$ tales que $f_v(1,2) = 0.$
+\end{tarea}
+
+
+\begin{theorem} Sea  $f: A\subseteq \mathbb{R}^n \to \mathbb{R}$ una función definida en un entorno abierto $U$ de $x_0 \in A$. 
+Si $f \in C^1(U)$   entonces $f$ es diferenciable en $U$, en particular es diferenciable en $x_0.$
+\end{theorem}
+
+\begin{theorem}\textbf{Valores extremos de la derivada direccional.} \label{teo:max_deriv}
+\mbox{}
+
+ Sean $f: A  \subseteq  \Rn{n} \to \R$ diferenciable en un punto $\mathbf{x}_0 \in \interior{A}$. Entonces 
+ \[
+  \max_{\norm{{\mathbf{u}}} = 1} \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = \norm{\grad f (\mathbf{x}_0)}, \quad 
+  \min_{\norm{{\mathbf{u}}} = 1} \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = -\norm{\grad f (\mathbf{x}_0)}
+ \]
+y, si $\grad f(\mathbf{x}_0) \ne \mathbf{0}$,
+\[
+ \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = \norm{\grad f (\mathbf{x}_0)} \iff {\mathbf{u}} = \frac{\grad f(\mathbf{x}_0)}{\norm{\grad f(\mathbf{x}_0)}}
+\]
+y
+\[
+ \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = -\norm{\grad f (\mathbf{x}_0)} \iff {\mathbf{u}} = -\frac{\grad f(\mathbf{x}_0)}{\norm{\grad f(\mathbf{x}_0)}}.
+\]
+\begin{proof}  Como $f$ es diferenciable en $\mathbf{x}_0$, por el teorema \eqref{teo:difDir}, $\forall {\mathbf{u}} \in \Rn{n}\;\text{tal que } \norm{{\mathbf{u}}} = 1$ existe en $\mathbf{x}_0$ la derivada de $f$ en la direcci\'on de ${\mathbf{u}}$ y, adem\'as,
+\[
+ \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = \grad f (\mathbf{x}_0) \cdot {\mathbf{u}}.
+\]
+Por la desigualdad de Cauchy-Schwarz, 
+\[
+ \abs{\frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0)} = \abs{\grad f (\mathbf{x}_0) \cdot {\mathbf{u}}} \le \norm{\grad f (\mathbf{x}_0)}\norm{{\mathbf{u}}} = \norm{\grad f (\mathbf{x}_0)},
+\]
+de modo que tenemos las cotas:
+\[
+ -\norm{\grad f (\mathbf{x}_0)} \le \frac{\partial f}{\partial {\mathbf{u}}}(\mathbf{x}_0) \le \norm{\grad f (\mathbf{x}_0)}.
+\]
+Adem\'as, la desigualdad de Cauchy-Schwarz nos dice que vale
+\[
+ \abs{\frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0)} = \norm{\grad f (\mathbf{x}_0)}
+\]
+si y s\'olo si el conjunto $\{\grad f(\mathbf{x}_0), {\mathbf{u}} \}$ es linealmente dependiente, condici\'on que, si $\grad f(\mathbf{x}_0) \ne \mathbf{0}$, es equivalente a decir que ${\mathbf{u}}$ es un vector unitario en la direcci\'on de $\grad f(\mathbf{x}_0)$. Existen exactamente dos vectores ${\mathbf{u}}$ con esta caracter\'istica:
+\[
+ {\mathbf{u}}_1 = \frac{\grad f(\mathbf{x}_0)}{\norm{\grad f(\mathbf{x}_0)}} \quad \text{ y } \quad {\mathbf{u}}_2 = -\frac{\grad f(\mathbf{x}_0)}{\norm{\grad f(\mathbf{x}_0)}}.
+\]
+Por c\'alculo directo:
+\begin{align*}
+ \frac{\partial f}{\partial {\mathbf{u}}_1} (\mathbf{x}_0) &= \grad f (\mathbf{x}_0) \cdot \frac{\grad f(\mathbf{x}_0)}{\norm{\grad f(\mathbf{x}_0)}} = \frac{ \grad f (\mathbf{x}_0) \cdot \grad f(\mathbf{x}_0) }{\norm{\grad f(\mathbf{x}_0)}} = \frac{\norm{\grad f (\mathbf{x}_0)}^2 }{\norm{\grad f(\mathbf{x}_0)}} = \norm{\grad f (\mathbf{x}_0)} \\
+%  
+ \frac{\partial f}{\partial {\mathbf{u}}_2} (\mathbf{x}_0) &= \grad f (\mathbf{x}_0) \cdot \left( - \frac{\grad f(\mathbf{x}_0)}{\norm{\grad f(\mathbf{x}_0)}} \right) = -\frac{ \grad f (\mathbf{x}_0) \cdot \grad f(\mathbf{x}_0) }{\norm{\grad f(\mathbf{x}_0)}} = -\frac{\norm{\grad f (\mathbf{x}_0)}^2 }{\norm{\grad f(\mathbf{x}_0)}} = -\norm{\grad f (\mathbf{x}_0)},
+\end{align*}
+de modo que efectivamente
+\[
+ \max_{\norm{{\mathbf{u}}}=1} \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = \norm{\grad f (\mathbf{x}_0)}
+\]
+y el m\'aximo se realiza en ${\mathbf{u}}_1 = \frac{\grad f(\mathbf{x}_0)}{\norm{\grad f(\mathbf{x}_0)}}$,
+y
+\[
+ \min_{\norm{{\mathbf{u}}}=1} \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = -\norm{\grad f (\mathbf{x}_0)}
+\]
+y el m\'inimo se realiza en ${\mathbf{u}}_2 = -\frac{\grad f(\mathbf{x}_0)}{\norm{\grad f(\mathbf{x}_0)}}$. \\
+
+Finalmente, observemos que, si $\grad f(\mathbf{x}_0) = \mathbf{0}$, 
+\[
+ \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = \grad f (\mathbf{x}_0) \cdot {\mathbf{u}} = 0 = \norm{\grad f(\mathbf{x}_0)} \quad \forall {\mathbf{u}} \in \Rn{n},
+\]
+y por lo tanto:
+\[
+ \max_{\norm{{\mathbf{u}}}=1} \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = \norm{\grad f(\mathbf{x}_0)} = 0
+\]
+y
+\[
+ \min_{\norm{{\mathbf{u}}}=1} \frac{\partial f}{\partial {\mathbf{u}}} (\mathbf{x}_0) = -\norm{\grad f(\mathbf{x}_0)} = 0.
+\]
+\end{proof}
+\end{theorem}
+
+
+
+
+\begin{propertie}\label{prop:alg_dif} \textbf{\'algebra de funciones diferenciables}.  Sean $f,g:A  \subseteq  \Rn{n} \to \R$ campos escalares y $x_0 \in \interior(A)$. Supongamos que
+$f$ y $g$ son diferenciables en $x_o$.
+  Entonces:
+  \begin{enumerate} 
+   \item[1.] $(f + g)$ es diferenciable en $x_o$ y, adem\'as,
+   \[
+    \grad(f + g)(xo) = \grad f(xo) + \grad g(xo);
+   \]
+
+   \item[2.] $\forall \alpha \in \R, \, (\alpha f)$  es diferenciable en $x_o$ y, adem\'as,
+   \[
+    \grad(\alpha f)(xo) = \alpha \grad f(xo);
+   \]
+
+   \item[3.] $(f \cdot g)$ es diferenciable en $x_o$ y, adem\'as,
+   \[
+    \grad(f \cdot g)(xo) = g(xo) \grad f(xo) + f(x_o) \grad g(xo);
+   \]
+
+   \item[4.] si $g$ es no nula en alg\'un entorno de $x_o$, $\dfrac{f}{g}$ es diferenciable en $x_o$ y, adem\'as,
+   \[
+    \grad \left( \dfrac{f}{g} \right)  (xo) = \frac{g(xo) \grad f(xo) - f(x_o) \grad g(xo)}{g^2(x_o)}.
+   \]
+\end{enumerate}
+\end{propertie}
+
+\begin{definition}\textbf{Plano tangente a una superficie de nivel.}  Sea $f: A  \subseteq  \mathbb{R}^{3} \to \mathbb{R}$ un campo de clase $C^{1}(A)$ y sea $S$ la superficie de  nivel $c$ de $f$, es decir, $$S=\{(x,y,z) \in A: f(x,y,z)=c \}.$$ 
+Si el punto $(x_0,y_0,z_0) \in S$ y  $\grad f(x_0,y_0,z_0)$ es no nulo,  se define el plano tangente a $S$ en dicho punto al plano $\pi$ dado por la ecuaci\'on: $$\pi: \:\: \grad f(x_0,y_0,z_0) (x-x_0,y-y_0,z-z_0)=0. $$ 
+\end{definition}
+
+\begin{tarea} Hallar el plano tangente a $S$ en el punto $(0,0,1)$ siendo,    $$S=\{(x,y,z)\in \mathbb{R}^{3} :  x^{2}+y^{2}+z^{2}=1 \}.$$ 
+\end{tarea}
+\begin{tarea} Sean $g: A  \subseteq  \mathbb{R}^{2} \to \mathbb{R}$ un campo escalar de clase $C^{1}(A)$  y $(x_0,y_0) \in A$, adem\'as sea   $$S=\{(x,y,z)\in \mathbb{R}^{3} :  z-g(x,y)=0 \}.$$  Hallar el plano tangente a $S$ en el punto $(x_0.y_0, g(x_0,y_0))$.
+\end{tarea}
+
+
+\begin{definition}\textbf{Diferenciabilidad, caso general.} \label{def:dif_general}  Sean $F: A  \subseteq  \Rn{n} \to \Rn{m}$ y $\mathbf{x}_0 \in \interior{A}$. Decimos que $F$ es \emph{diferenciable en $\mathbf{x}_0$} si $\exists\:\boldsymbol{M} \in \Rnp{m}{n}$ tal que
+\[
+  \lim_{\mathbf{x} \to \mathbf{x}_0} \frac{\norm{F(\mathbf{x}) - F(\mathbf{x}_0) - \boldsymbol{M} \cdot (\mathbf{x} - \mathbf{x}_0)}}{\norm{\mathbf{x} - \mathbf{x}_0}} = 0.
+\]
+Si $A$ es un conjunto abierto, decimos que $F$ es \emph{diferenciable} si es diferenciable en cada punto $\mathbf{x}_0 \in A$.
+\end{definition}
+
+\begin{theorem}\textbf{Diferenciabilidad y existencia de derivadas parciales.} \label{teo:difDergeneral} Sean $\mathbf{F}: A  \subseteq  \mathbb{R}^{n} \to \mathbb{R}^{m}$ con $\mathbf{F}=(f_1, f_2, \dots, f_m)$ y $\mathbf{x}_0 \in \interior{(A)}$.  Si $F$ es diferenciable $\mathbf{x}_0$ , entonces existen las derivadas parciales de cada componente $f_{i}$  de $\mathbf{F}$ en $\mathbf{x}_0$ y, adem\'as,
+\[
+ (f_{i})_{ x_j}(\mathbf{x}_0) = M_{ij}  \:\: \forall \:\: 1\leq i \leq m  \:\;  1 \leq j \leq m.
+\]
+
+\end{theorem}
+
+
+\begin{definition}\label{def:mat_dif}\textbf{Matriz Diferencial.}  Sea $\mathbf{F}:U\subseteq\Rn{n}\to\Rn{m}$, diferenciable en $\mathbf{x}_0\in\interior{U}$. Se define la \emph{matriz diferencial de $\mathbf{F}$ en $\mathbf{x}_0$}, y se nota por $\boldsymbol{D}_{\mathbf{F}}(\mathbf{x}_0)$ o $\boldsymbol{D}{\mathbf{F}} (\mathbf{x}_0)$ , a
+  \[
+ \boldsymbol{D}{\mathbf{F}} (\mathbf{x}_0) =
+    \begin{bmatrix} 
+      \grad{f_1}(\mathbf{x}_0) \\
+      \grad{f_2}(\mathbf{x}_0) \\
+      \vdots     \\
+      \grad{f_m}(\mathbf{x}_0)
+    \end{bmatrix}
+    =
+    \begin{bmatrix} 
+      \dif{f_1}{x_1}(\mathbf{x}_0) & \dif{f_1}{x_2}(\mathbf{x}_0) & \cdots & \dif{f_1}{x_n}(\mathbf{x}_0) \\
+                     &                &        &                \\
+      \dif{f_2}{x_1}(\mathbf{x}_0) & \dif{f_2}{x_2}(\mathbf{x}_0) & \cdots & \dif{f_2}{x_n}(\mathbf{x}_0) \\
+                     &                &        &                \\
+       \vdots         &  \vdots        & \ddots & \vdots         \\
+                     &                &        &                \\
+      \dif{f_m}{x_1}(\mathbf{x}_0) & \dif{f_m}{x_2}(\mathbf{x}_0) & \cdots & \dif{f_m}{x_n}(\mathbf{x}_0)
+    \end{bmatrix},
+  \]
+  donde $\mathbf{F}=(f_1, f_2, \dots, f_m)\;|\;f_i:U\subseteq\Rn{n}\to\R,\;i=1,2,\dots, m.$
+\end{definition}
+
+% \begin{definition}
+%   Sea $\mathbf{F}:U\subseteq\Rn{n}\to\Rn{n}$, diferenciable en $\mathbf{x}_0\in\interior{U}$. Se define el \emph{jacobiano de $\mathbf{F}$ en $\mathbf{x}_0$}, y se lo nota por $J_{\mathbf{F}}(\mathbf{x}_0)$, al determinante de la matriz diferencial, \emph{i.e.}
+%   \[
+%     J_{\mathbf{F}}(\mathbf{x}_0) = \det(\boldsymbol{D}_{\mathbf{F}}(\mathbf{x}_0)). 
+%   \]
+% \end{definition}
+
+\begin{obs}
+Notar que $\boldsymbol{D}{\mathbf{F}} (\mathbf{x}_0)    \in\R^{m\times n}$.
+\end{obs}
+
+
+
+\begin{propertie}\label{prop:alg_dif_gen}  \textbf{Algebra de funciones diferenciables}  Sean $\mathbf{F},\mathbf{G}:A  \subseteq  \Rn{n} \to \R^{m}$ campos vectoriales y $x_0 \in \interior{A}$. Supongamos que $\mathbf{F}$ y $\mathbf{G}$ son diferenciables en $x_o$.
+  Entonces:
+  \begin{enumerate} 
+   \item[1.] $\mathbf{F} + \mathbf{G}$ es diferenciable en $x_o$ y, adem\'as,
+   \[
+    \boldsymbol{D} (\mathbf{F+G})(xo) = \boldsymbol{D} \mathbf{F}(xo) + \boldsymbol{D} \mathbf{G}(xo);
+   \]
+
+   \item[2.] $\forall \alpha \in \R, \,  \alpha \mathbf{F}$  es diferenciable en $x_o$ y, adem\'as,
+   \[
+    \boldsymbol{D}(\alpha \mathbf{F})(xo) = \alpha \boldsymbol{D} \mathbf{F}(xo);
+   \]
+
+   \item[3.] $\mathbf{F} \cdot \mathbf{G}$ es diferenciable en $x_o$ y, adem\'as,
+   \[
+    \boldsymbol{D}(\mathbf{F} \cdot \mathbf{G})(xo) = \mathbf{G}(xo) \boldsymbol{D} \mathbf{F}(xo) + \mathbf{F}(x_o) \boldsymbol{D}  \mathbf{G}(xo);
+   \]
+\end{enumerate}
+\end{propertie}
+
+
+
