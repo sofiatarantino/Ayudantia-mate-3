@@ -1,0 +1,147 @@
+
+\textbf{Ejercicio: }
+Calcular $\displaystyle\iiint_{V} \dfrac{1}{y - x - z - 1}\, dx\, dy\, dz$ siendo $V$ el paralelepípedo de caras opuestas
+paralelas en el cual tres de sus aristas coinciden con los vectores $(5,2,1),\,(2,4,2),\,(1,3,6)$.
+
+\bigskip
+
+\textbf{1. Análisis de la región de integración $V$}
+
+\medskip
+
+El paralelepípedo $V$ tiene un vértice en el origen y sus tres aristas salientes coinciden con los
+vectores $\mathbf{a} = (5,2,1)$, $\mathbf{b} = (2,4,2)$, $\mathbf{c} = (1,3,6)$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{ejercicios/ejercicio21.png}
+\caption{Representación de la región pedida.  \href{https://www.geogebra.org/m/bjnjeat8}{Ver en GeoGebra}}
+\centering
+\end{figure}
+
+En coordenadas cartesianas, la región $V$ es difícil de describir directamente, por lo que
+recurrimos a un cambio de variables.
+
+\bigskip
+
+\textbf{2. Cambio de variables}
+
+\medskip
+
+Definimos la transformación $T: [0,1]^3 \to V$ dada por:
+\[
+    T(u,v,w) = u\,\mathbf{a} + v\,\mathbf{b} + w\,\mathbf{c},
+\]
+es decir:
+\[
+    \begin{cases}
+        x = 5u + 2v + w,\\[4pt]
+        y = 2u + 4v + 3w,\\[4pt]
+        z = \phantom{5}u + 2v + 6w.
+    \end{cases}
+\]
+Al sustituir, la nueva región de integración es el cubo unitario:
+\[
+    V^* = [0,1] \times [0,1] \times [0,1].
+\]
+
+\bigskip
+
+\textbf{3. Jacobiano de la transformación}
+
+\medskip
+
+La matriz jacobiana de $T$ es:
+\[
+    J_T(u,v,w) =
+    \begin{pmatrix}
+        \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} & \dfrac{\partial x}{\partial w}\\[10pt]
+        \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v} & \dfrac{\partial y}{\partial w}\\[10pt]
+        \dfrac{\partial z}{\partial u} & \dfrac{\partial z}{\partial v} & \dfrac{\partial z}{\partial w}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        5 & 2 & 1 \\
+        2 & 4 & 3 \\
+        1 & 2 & 6
+    \end{pmatrix}.
+\]
+Calculando el determinante resulta: $|J_T| = 72$.
+\bigskip
+
+\textbf{4. Transformación del integrando}
+
+\medskip
+
+Expresamos $y - x - z - 1$ en las nuevas variables:
+\begin{align*}
+    y - x - z - 1 &= (2u + 4v + 3w) - (5u + 2v + w) - (u + 2v + 6w) - 1\\
+                  &= (2 - 5 - 1)\,u + (4 - 2 - 2)\,v + (3 - 1 - 6)\,w - 1\\
+                  &= -4u - 4w - 1.
+\end{align*}
+Observamos que para $(u,v,w) \in [0,1]^3$ se tiene $-4u - 4w - 1 \in [-9,-1]$,
+por lo que el denominador nunca se anula en $V^*$ y la integral está bien definida.
+
+\bigskip
+
+\textbf{5. Cálculo de la integral}
+
+\medskip
+
+Aplicando el Teorema de Cambio de Variables (Teorema 2.5.2):
+\begin{align*}
+    \iiint_{V} \frac{1}{y-x-z-1}\,dx\,dy\,dz
+    &= \iiint_{V^*} \frac{1}{-4u - 4w - 1}\cdot|J_T|\,du\,dv\,dw\\[6pt]
+    &= 72\int_0^1\int_0^1\int_0^1 \frac{1}{-4u-4w-1}\,du\,dv\,dw.
+\end{align*}
+
+Como el integrando no depende de $v$, la integral en $v$ es trivial:
+\[
+    = 72\int_0^1\int_0^1 \frac{1}{-4u-4w-1}\,du\,dw.
+\]
+
+\textbf{Integral en $u$:}
+\begin{align*}
+    \int_0^1 \frac{du}{-4u-4w-1}
+    &= \left[-\frac{1}{4}\ln\lvert 4u+4w+1\rvert\right]_0^1\\
+    &= -\frac{1}{4}\bigl(\ln(4w+5) - \ln(4w+1)\bigr)\\
+    &= \frac{1}{4}\ln\!\left(\frac{4w+1}{4w+5}\right).
+\end{align*}
+
+\textbf{Integral en $w$:}
+\begin{align*}
+    \int_0^1 \frac{1}{4}\ln\!\left(\frac{4w+1}{4w+5}\right)dw
+    &= \frac{1}{4}\left[\int_0^1\ln(4w+1)\,dw - \int_0^1\ln(4w+5)\,dw\right].
+\end{align*}
+
+Para cada integral usamos $\displaystyle\int \ln(4w+a)\,dw = \frac{(4w+a)\ln(4w+a) - (4w+a)}{4}$:
+
+\[
+    \int_0^1 \ln(4w+1)\,dw
+    = \left[\frac{(4w+1)\bigl(\ln(4w+1)-1\bigr)}{4}\right]_0^1
+    = \frac{5(\ln 5 - 1) - 1(\ln 1 - 1)}{4}
+    = \frac{5\ln 5 - 4}{4}.
+\]
+
+\[
+    \int_0^1 \ln(4w+5)\,dw
+    = \left[\frac{(4w+5)\bigl(\ln(4w+5)-1\bigr)}{4}\right]_0^1
+    = \frac{9(\ln 9 - 1) - 5(\ln 5 - 1)}{4}
+    = \frac{9\ln 9 - 5\ln 5 - 4}{4}.
+\]
+
+Por lo tanto:
+\begin{align*}
+    \frac{1}{4}\left[\frac{5\ln 5 - 4}{4} - \frac{9\ln 9 - 5\ln 5 - 4}{4}\right]
+    &= \frac{1}{16}\bigl(5\ln 5 - 4 - 9\ln 9 + 5\ln 5 + 4\bigr)\\
+    &= \frac{10\ln 5 - 9\ln 9}{16}\\
+    &= \frac{10\ln 5 - 18\ln 3}{16}\\
+    &= \frac{5\ln 5 - 9\ln 3}{8}.
+\end{align*}
+
+Finalmente:
+\[
+    \iiint_{V} \frac{1}{y-x-z-1}\,dx\,dy\,dz
+    = 72 \cdot \frac{5\ln 5 - 9\ln 3}{8}
+    = \boxed{9(5\ln 5 - 9\ln 3)}.
+\]
