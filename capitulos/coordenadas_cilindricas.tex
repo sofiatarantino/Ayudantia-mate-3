@@ -1,0 +1,46 @@
+
+\noindent\textbf{Coordenadas Cilíndricas}
+\vspace{0.2cm}
+
+Para el cálculo de integrales en regiones con simetría cilíndrica, se utiliza el sistema de coordenadas cilíndricas. Un punto $(x, y, z)$ se relaciona con $(r, \theta, z)$ mediante:
+
+\begin{equation}
+\begin{cases} 
+x = r \cos \theta \\ 
+y = r \sin \theta \\ 
+z = z 
+\end{cases}
+\end{equation}
+
+Donde las variables se restringen a $r \ge 0$, $0 \le \theta \le 2\pi$ y $z \in \mathbb{R}$ para recorrer todo el espacio.
+
+\vspace{0.4cm}
+\noindent\textbf{El Determinante Jacobiano}
+
+De acuerdo con el Teorema 2.5.2 de cambio de variable para integrales triples, el cambio de coordenadas cartesianas a cilíndricas requiere introducir el valor absoluto del determinante de la matriz Jacobiana $J(r, \theta, z)$ como factor de escala en el diferencial de volumen.
+
+La matriz de derivadas parciales es:
+
+\begin{equation}
+J(r, \theta, z) = 
+\begin{pmatrix} 
+\cos \theta & -r \sin \theta & 0 \\ 
+\sin \theta & r \cos \theta & 0 \\ 
+0 & 0 & 1 
+\end{pmatrix}
+\end{equation}
+
+Tal como se demuestra en el citado ejemplo 2.4.4, el valor absoluto del determinante de esta matriz es:
+
+\begin{equation}
+|J_{\mathbf{T}}| = r
+\end{equation}
+
+\vspace{0.4cm}
+\noindent\textbf{Diferencial de Volumen}
+
+Dado que en el dominio de integración $r \ge 0$, el factor de escala es simplemente $r$. Por lo tanto, siguiendo el \textbf{Teorema de Cambio de Variables (2.5.2)}, el diferencial de volumen resulta:
+
+\begin{equation}
+dV = r \, dr \, d\theta \, dz
+\end{equation}
