@@ -206,7 +206,7 @@
 %------------Solucion 3---------------------------------------
 
 \begin{solution}
-    Para enteder el problema, primero grafiquemos las superficies.
+    Para entender el problema, primero grafiquemos las superficies.
     \begin{center}
         \begin{tikzpicture}
             \begin{axis}[
@@ -220,18 +220,21 @@
                     xmax=1.5,
                     ymax=1.5,
                     zmax=3,
-                    samples=50,
                     width=10cm,
                     height=12cm,
                     ticks=none
                 ]
 
-                \addplot3 [domain=0:360, samples=50, fill=blue, draw=none, opacity=0.8] 
-                ({cos(x)}, {sin(x)}, {0});
-                \addplot3 [surf, opacity=0.8, draw=none, domain=0:360, y domain=0:3, samples=50, colormap/viridis] 
-                ({cos(x)}, {sin(x)}, y);   
-
+                % Base del cilindro (Disco sólido en z=0)
+                % x = radio (0 a 1), y = ángulo (0 a 360)
+                \addplot3 [surf, domain=0:1, y domain=0:360, samples=20, fill=blue, draw=none, opacity=0.8] 
+                ({x*cos(y)}, {x*sin(y)}, {0});
                 
+                % Paredes del cilindro
+                % x = ángulo (0 a 360), y = altura z (0 a 3)
+                \addplot3 [surf, opacity=0.8, draw=none, domain=0:360, y domain=0:3, samples=50, colormap/viridis] 
+                ({cos(x)}, {sin(x)}, {y});   
+
             \end{axis}
         \end{tikzpicture}
     \end{center}

@@ -22,12 +22,12 @@
 \newpage
 
 \begin{solution}
-    Notemos que la estructura del límite pedido está dada por el producto de dos funciones acotadas,  por lo tanto, con mostrar que una de las dos tiende a cero bastar\'a  para decir que el límite de dicho producto es cero.
+    Notemos que la estructura del límite pedido está dada por el producto de dos funciones acotadas, por lo tanto, con mostrar que una de las dos tiende a cero bastar\'a para decir que el límite de dicho producto es cero.
 
     Utilizando la siguiente desigualdad para el argumento del seno
-    \[ \\[2pt]
-        0 \leq \bigg| \frac{\pi(x^{2}-y^{2})}{2\sqrt{x^{2}+y^{2}}} \bigg| \leq
-        \frac{2(x^2+y^2)}{\sqrt{x^2+y^2}} = 2 \sqrt{x^2+y^2},
+    \[ 
+    0 \leq \left| \frac{\pi(x^{2}-y^{2})}{2\sqrt{x^{2}+y^{2}}} \right| \leq
+    \frac{2(x^2+y^2)}{\sqrt{x^2+y^2}} = 2 \sqrt{x^2+y^2},
     \]
     junto al teorema de intercalaci\'on tenemos que
     \[
@@ -169,9 +169,9 @@
             \end{matrix}\right)\implies \text{det}(\boldsymbol{H}_f)(x,y)=\sen(x)\cos(y)
     \]
 
-    \begin{itemize}
-        \item[1.] $\text{det}(\boldsymbol{H}_f)(-\pi/2,0)=-1<0 \implies f\:\:\text{tiene un punto silla en}\:\: (-\pi/2,0).$
-        \item[2.] $\text{det}(\boldsymbol{H}_f)(\pi/2,0)=1>0 \:\:\land\:\: f_{xx}(\pi/2,0)=1>0\implies f\:\:\text{tiene un mínimo} \\
-                  \quad \text{local en}\:\:(\pi/2,0).$
-    \end{itemize}
+    \begin{enumerate}
+    \item $\det(\boldsymbol{H}_f)(-\pi/2,0) = -1 < 0 \implies f$ tiene un punto silla en $(-\pi/2,0)$.
+    
+    \item $\det(\boldsymbol{H}_f)(\pi/2,0) = 1 > 0 \land f_{xx}(\pi/2,0) = 1 > 0 \implies f$ tiene un mínimo local en $(\pi/2,0)$.
+    \end{enumerate}
 \end{solution}

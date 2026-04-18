@@ -10,11 +10,74 @@ La región $W \subseteq \mathbb{R}^3$ está definida por el interior de la esfer
 
 \begin{figure}[htbp]
     \centering
-     \includegraphics[width=0.5\textwidth]{ejercicios/Ejercicio30.png}
+    % ESTA LÍNEA es la que crea el PDF en la carpeta /tikz
+    \tikzsetnextfilename{ejercicio30_figura} 
+    
+    \begin{tikzpicture}[line cap=round, line join=round]
+        \begin{axis}[
+            view={135}{25}, % Cámara clásica
+            width=10cm,
+            height=10cm,
+            axis lines=center,
+            % Ajustamos los ejes a la esfera de radio 1
+            xmin=-1.5, xmax=1.5, 
+            ymin=-1.5, ymax=1.5,
+            zmin=-1.5, zmax=1.5,
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            % Anclaje perfecto de letras
+            every axis x label/.style={at={(ticklabel* cs:1.05)},anchor=north east},
+            every axis y label/.style={at={(ticklabel* cs:1.05)},anchor=north west},
+            every axis z label/.style={at={(ticklabel* cs:1.05)},anchor=south},
+            ticklabel style={font=\small},
+        ]
+
+        % Esfera unitaria x^2 + y^2 + z^2 = 1 (Roja transparente)
+        \addplot3[
+            surf,
+            opacity=0.4,
+            color=red!50,
+            faceted color=red!70!black,
+            samples=25, % Reducido para no saturar la memoria
+            domain=0:360,
+            y domain=0:180,
+            z buffer=sort
+        ]
+        ({cos(x)*sin(y)}, {sin(x)*sin(y)}, {cos(y)});
+
+        % Cono Superior z = \sqrt{x^2+y^2} (Celeste transparente)
+        \addplot3[
+            surf,
+            opacity=0.5,
+            color=cyan!40,
+            faceted color=cyan!70!black,
+            samples=25,
+            samples y=2, % ¡CLAVE! Evita que LaTeX colapse calculando puntos extra
+            domain=0:360,
+            y domain=0:1.2, % Llega un poco más arriba que la esfera para que se vea el corte
+            z buffer=sort
+        ]
+        ({y*cos(x)}, {y*sin(x)}, {y});
+
+        % Cono Inferior z = -\sqrt{x^2+y^2} (Celeste transparente)
+        \addplot3[
+            surf,
+            opacity=0.5,
+            color=cyan!40,
+            faceted color=cyan!70!black,
+            samples=25,
+            samples y=2, % ¡CLAVE!
+            domain=0:360,
+            y domain=0:1.2,
+            z buffer=sort
+        ]
+        ({y*cos(x)}, {y*sin(x)}, {-y});
+
+        \end{axis}
+    \end{tikzpicture}
     \caption{Representación de la región $W$. \href{https://www.geogebra.org/calculator/rkksx3su}{Ver en GeoGebra}}
 \end{figure}
-% ---------------------------------------------
-
 Observamos que el sólido es simétrico respecto al plano $xy$ ($z=0$). Para simplificar el cálculo, trabajaremos únicamente con la mitad superior del sólido (donde $z \geq 0$), a la cual llamaremos $W_s$:
 \[
     W_s = \{ (x,y,z) \in \mathbb{R}^3 \mid x^2 + y^2 + z^2 \leq 1, \ x^2 + y^2 \leq z^2, \ z \geq 0 \}

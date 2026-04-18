@@ -145,10 +145,10 @@
         R_2(x,y) = f(x,y) - P_2(x,y).
     \]
     Por tanto, podemos reescribir el límite original como
-    \[\\[2pt]
-        \lim_{(x,y) \to (0,0)} \frac{R_2(x,y) - x^2 - y^2}{\|(x,y)\|^2} =
-        \lim_{(x,y) \to (0,0)} \left( \frac{R_2(x,y)}{\|(x,y)\|^2} - \frac{x^2+y^2}{\|(x,y)\|^2} \right) = -1,
-    \]
+\[
+    \lim_{(x,y) \to (0,0)} \frac{R_2(x,y) - x^2 - y^2}{\|(x,y)\|^2} =
+    \lim_{(x,y) \to (0,0)} \left( \frac{R_2(x,y)}{\|(x,y)\|^2} - \frac{x^2+y^2}{\|(x,y)\|^2} \right) = -1,
+\]
     pues el primer término tiende a 0 por el teorema de Taylor  y el segundo  tiende claramente a $1.$
 \end{solution}
 
@@ -202,9 +202,9 @@
         \Pi:\grad f(0,0,0) \cdot (x-0,y-0,z-0) = 0.
     \]
     Es f\'acil ver que $\grad f(0,0,0) = (-6,-8,-10).$  Luego, una posible ecuaci\'on es
-    \[\\[1pt]
-        \Pi: 3x + 4y + 5y = 0.
-    \]
+    \[
+    \Pi: 3x + 4y + 5z = 0.
+\]
 
     b. Dado que el único plano paralelo a otro tangente a un punto en una esfera es el que se encuentra en el polo opuesto de ésta, buscamos el plano tangente $\Pi'$ a ese otro punto $\mathbf{w}$. Llamando $\mathbf{v} = (-3,-4,-5)$ al vector que sale del centro de la esfera y termina en el origen, queda que
     \[
@@ -292,15 +292,17 @@
     \]
     luego $A=C(g,0) $.
 
-    Como $f,g \in \mathcal{C}^1( \mathbb{R}^1),$  el teorema de los multiplicadores de Lagrange nos dice que si $f \big\rvert _A$ tiene un extremo local en un punto \textbf{x} entonces necesariamente los vectores $\grad f(\textbf{x})$ y $\grad g(\textbf{x})$ son paralelos si $\grad g(\textbf{x}) \neq 0$.   Además como $f$ es continua sobre el conjunto $A$ que es cerrado y acotado, por el teorema de Weierstrass, sabemos que $f$ alcanza m\'aximo y m\'inimo en $A$. Luego planteamos el siguiente sistema de ecuaciones
-    \[
-        \grad f(x,y) = \lambda \grad g(x,y), \; \lambda \in \mathbb{R}, \; (x,y) \in A \\
-        \iff \begin{cases}
+    Como $f,g \in \mathcal{C}^1( \mathbb{R}^2)$, el teorema de los multiplicadores de Lagrange nos dice que si $f \big|_A$ tiene un extremo local en un punto $\mathbf{x}$, entonces necesariamente los vectores $\nabla f(\mathbf{x})$ y $\nabla g(\mathbf{x})$ son paralelos si $\nabla g(\mathbf{x}) \neq 0$. Además, como $f$ es continua sobre el conjunto $A$ que es cerrado y acotado, por el teorema de Weierstrass, sabemos que $f$ alcanza máximo y mínimo en $A$. Luego planteamos el siguiente sistema de ecuaciones:
+\[
+    \begin{aligned}
+        \nabla f(x,y) &= \lambda \nabla g(x,y), \quad \lambda \in \mathbb{R}, \; (x,y) \in A \\[6pt]
+        &\iff \begin{cases}
             2x = 2\lambda(x-1) \\
             2y = 2\lambda(y-1) \\
             (x-1)^2 + (y-1)^2 = 4
         \end{cases}
-    \]
+    \end{aligned}
+\]
     Resolviendo el sistema queda $x=y$  \;  y \[ \begin{cases}
             x=   x_1=1+\sqrt{2} \\
             x=  x_2=1-\sqrt{2}.
