@@ -17,10 +17,50 @@ Previo a integrar, resulta conveniente identificar las distintas superficies que
 Es posible observar estas superficies y la región $W$ que encierran, en el siguiente enlace: \url{https://www.geogebra.org/3d/pwqrvt7x}.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{ejercicios/Ejercicio27.png} 
-    \caption{Figura de la región}
-     \label{fig:mi_imagen}
-     \end{figure}
+    % ESTA LÍNEA es la que crea el PDF en la carpeta /tikz
+    \tikzsetnextfilename{ejercicio27_figura} 
+    
+    \begin{tikzpicture}
+        \begin{axis}[
+            view={45}{30}, 
+            width=10cm,
+            height=10cm,
+            grid=major,
+            xmin=-3, xmax=3,
+            ymin=-1, ymax=4,
+            zmin=0, zmax=6,
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            axis lines=center,
+        ]
+
+        % Paraboloide z = x^2 + y^2 (Rojo)
+        \addplot3[
+            surf,
+            domain=0:360,
+            y domain=0:2.4,
+            samples=40,
+            color=red!60,
+            opacity=0.5,
+        ]
+        ({y*cos(x)}, {y*sin(x)}, {y^2});
+
+        % Cilindro x^2 + (y-1)^2 = 1 (Azul)
+        \addplot3[
+            surf,
+            domain=0:360,
+            y domain=0:5.5,
+            samples=40,
+            color=blue!50,
+            opacity=0.5,
+        ]
+        ({1+cos(x)}, {sin(x)}, {y});
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Representación de la región del ejercicio 27.}
+\end{figure}
      
 Para resolver la integral, se usará el Teorema 2.5.2. Se usara el cambio de variable famoso, conocido como coordenadas cilindricas. Entonces, la transformacion resulta ser:
 

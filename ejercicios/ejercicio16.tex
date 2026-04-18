@@ -8,19 +8,61 @@ y contenida dentro del cono
 z=\sqrt{x^2+y^2}.
 \]
 
-La superficie $x^2+y^2+z^2=32$ es una esfera de radio $R=4\sqrt{2}$ y el cono
-$z=\sqrt{x^2+y^2}$ abre hacia los $z$ positivos. La región pedida es la parte de
-la esfera por encima del cono.
-\begin{figure}[h]
+La superficie $x^2+y^2+z^2=32$ es una esfera de radio $R=4\sqrt{2}$ y el cono $z=\sqrt{x^2+y^2}$ abre hacia los $z$ positivos. La región pedida es la parte de la esfera por encima del cono.
+
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.6\textwidth]{ejercicios/ejercicio16.png}
-\caption{Representación de la región pedida.  \href{https://www.geogebra.org/m/pvzc3wke}{Ver en GeoGebra}}
-\centering
+\tikzsetnextfilename{ejercicio16_figura}
+\begin{tikzpicture}[line cap=round, line join=round]
+\begin{axis}[
+    axis on top,
+    view={135}{25}, % Rotamos la cámara: x a la izquierda, y a la derecha
+    axis lines=center,
+    xmin=-10, xmax=10, % Agrandamos los ejes para que entre el radio de 5.65
+    ymin=-10, ymax=10,
+    zmin=-10, zmax=10,
+    ticks=none,
+    xlabel={$x$},
+    ylabel={$y$},
+    zlabel={$z$},
+    axis line style={thick, ->, black},
+    every axis x label/.style={at={(ticklabel* cs:1.05)},anchor=north east},
+    every axis y label/.style={at={(ticklabel* cs:1.05)},anchor=north west},
+    every axis z label/.style={at={(ticklabel* cs:1.05)},anchor=south},
+]
+
+% Esfera roja (radio 4*sqrt(2))
+\addplot3[
+    surf,
+    opacity=0.8,
+    colormap={redmap}{color=(red!60!black) color=(red!50!white)},
+    samples=30,
+    domain=0:360,
+    y domain=0:180,
+    z buffer=sort
+]
+({4*sqrt(2)*cos(x)*sin(y)}, {4*sqrt(2)*sin(x)*sin(y)}, {4*sqrt(2)*cos(y)});
+
+% Cono violeta (z = sqrt(x^2 + y^2))
+% Lo graficamos hasta z=4.5 para que pase justo la intersección
+\addplot3[
+    surf,
+    opacity=0.6,
+    colormap={purplemap}{color=(violet!50!black) color=(violet!40!white)},
+    samples=30,
+    domain=0:360,
+    y domain=0:4.5,
+    z buffer=sort
+]
+({y*cos(x)}, {y*sin(x)}, {y});
+
+\end{axis}
+\end{tikzpicture}
+\caption{Representación de la región pedida. \href{https://www.geogebra.org/m/pvzc3wke}{Ver en GeoGebra}}
 \end{figure}
 
-\bigskip
 
-La intersección entre ambas superficies se obtiene de
+La intersección entre  ambas superficies se obtiene de
 \[
 r=z, \quad r^2+z^2=32 \Rightarrow 2r^2=32 \Rightarrow r=4.
 \]
